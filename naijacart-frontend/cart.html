@@ -1,0 +1,1586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Shopping cart and secure checkout at NaijaCart."
+    >
+
+    <meta name="theme-color" content="#075c3f">
+
+    <title>Shopping Cart | NaijaCart</title>
+
+    <link
+        rel="stylesheet"
+        href="/naijacart-frontend/css/cart.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <p>
+            🚚 Free delivery on orders over <strong>₦50,000</strong>
+        </p>
+
+        <div class="top-links">
+
+            <a href="#">
+                Track Order
+            </a>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="/naijacart-frontend/contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-icon">
+                N
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Naija<span>Cart</span>
+                </strong>
+
+                <small>
+                    Tech you want. Prices you'll love.
+                </small>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products in your cart..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+            <a
+                href="index.html"
+                class="header-link"
+            >
+                <span class="action-icon">🏠</span>
+                <span>Shop</span>
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="header-link cart-link active"
+            >
+
+                <span class="action-icon">
+                    🛒
+                </span>
+
+                <span>
+                    Cart
+                </span>
+
+                <b id="cartCount">
+                    0
+                </b>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="main-nav">
+
+        <div class="container nav-inner">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="smartphones.html">
+                Smartphones
+            </a>
+
+            <a href="/naijacart-frontend/laptop.html">
+                Laptops
+            </a>
+
+            <a href="/naijacart-frontend/gaming.html">
+                Gaming
+            </a>
+
+            <a href="/naijacart-frontend/audio.html">
+                Audio
+            </a>
+
+            <a href="/naijacart-frontend/smartwatch.html">
+                Smartwatches
+            </a>
+
+            <a href="/naijacart-frontend/accessories.html">
+                Accessories
+            </a>
+
+            <a href="/naijacart-frontend/deals.html">
+                Deals
+            </a>
+
+            <a href="/naijacart-frontend/about.html">
+                About Us
+            </a>
+
+            <a href="/naijacart-frontend/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
+
+<div class="container">
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <span>›</span>
+
+        <strong>
+            Shopping Cart
+        </strong>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MAIN CART
+========================================================= -->
+
+<main class="container cart-page">
+
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-heading">
+
+        <div>
+
+            <span class="small-title">
+                YOUR SHOPPING BAG
+            </span>
+
+            <h1>
+                Shopping Cart
+            </h1>
+
+            <p id="cartSubtitle">
+                Review your selected products before checkout.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="clear-cart"
+            onclick="clearCart()"
+        >
+            🗑 Clear Cart
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CART CONTENT
+    ===================================================== -->
+
+    <div
+        class="cart-layout"
+        id="cartLayout"
+    >
+
+
+        <!-- PRODUCTS -->
+
+        <section class="cart-products">
+
+            <div class="cart-products-header">
+
+                <div>
+
+                    <span class="section-label">
+                        CART
+                    </span>
+
+                    <h2>
+                        Your Items
+                    </h2>
+
+                    <p>
+                        Products ready for checkout
+                    </p>
+
+                </div>
+
+                <strong id="itemCount">
+                    0 items
+                </strong>
+
+            </div>
+
+
+            <!-- SEARCH RESULT MESSAGE -->
+
+            <div
+                id="searchMessage"
+                class="search-message"
+            >
+                No products found.
+            </div>
+
+
+            <!-- CART ITEMS -->
+
+            <div
+                id="cartItems"
+                class="cart-items"
+            >
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ORDER SUMMARY
+        ================================================== -->
+
+        <aside class="order-summary">
+
+            <div class="summary-card">
+
+
+                <div class="summary-title">
+
+                    <div>
+
+                        <span>
+                            ORDER
+                        </span>
+
+                        <h2>
+                            Order Summary
+                        </h2>
+
+                    </div>
+
+                    <div class="summary-bag">
+                        🛍️
+                    </div>
+
+                </div>
+
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="subtotal">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong id="delivery">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+
+                <div class="summary-divider"></div>
+
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="total">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- FREE DELIVERY -->
+
+                <div class="delivery-progress">
+
+                    <div class="delivery-progress-top">
+
+                        <span>
+                            🚚 Free Delivery
+                        </span>
+
+                        <strong id="deliveryProgressText">
+                            ₦50,000 for FREE delivery
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <span id="deliveryProgress"></span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHECKOUT -->
+
+                <button
+                    type="button"
+                    class="checkout-btn"
+                    id="checkoutButton"
+                    onclick="openCheckout()"
+                >
+
+                    <span>
+                        Proceed to Checkout
+                    </span>
+
+                    <b>
+                        →
+                    </b>
+
+                </button>
+
+
+                <a
+                    href="index.html"
+                    class="continue-shopping"
+                >
+                    ← Continue Shopping
+                </a>
+
+            </div>
+
+
+
+            <!-- SECURITY -->
+
+            <div class="secure-box">
+
+                <div class="secure-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <strong>
+                        Secure Checkout
+                    </strong>
+
+                    <span>
+                        Your order information is protected.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-preview">
+
+                <span>
+                    Secure payment options
+                </span>
+
+                <div>
+
+                    <b>VISA</b>
+                    <b>MC</b>
+                    <b>Verve</b>
+                    <b>Bank</b>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EMPTY CART
+    ===================================================== -->
+
+    <section
+        id="emptyCart"
+        class="empty-cart"
+    >
+
+        <div class="empty-icon">
+            🛒
+        </div>
+
+        <span>
+            NOTHING HERE YET
+        </span>
+
+        <h2>
+            Your Cart Is Empty
+        </h2>
+
+        <p>
+            You haven't added any products yet.
+            Explore our latest gadgets and add your favourites.
+        </p>
+
+        <a
+            href="smartphones.html"
+            class="shop-btn"
+        >
+            Start Shopping
+            →
+        </a>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     TRUST SECTION
+========================================================= -->
+
+<section class="container">
+
+    <div class="trust-section">
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <div>
+
+                <strong>
+                    Fast Delivery
+                </strong>
+
+                <span>
+                    Across Nigeria
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                🔒
+            </div>
+
+            <div>
+
+                <strong>
+                    Secure Payments
+                </strong>
+
+                <span>
+                    Safe checkout
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    100% Authentic
+                </strong>
+
+                <span>
+                    Genuine products
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-card">
+
+            <div class="trust-icon">
+                ↩
+            </div>
+
+            <div>
+
+                <strong>
+                    Easy Returns
+                </strong>
+
+                <span>
+                    Hassle-free returns
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container footer-main">
+
+
+        <div class="footer-about">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+            >
+
+                <div class="logo-icon">
+                    N
+                </div>
+
+                <strong>
+                    Naija<span>Cart</span>
+                </strong>
+
+            </a>
+
+
+            <p>
+                Your trusted destination for smartphones,
+                laptops, gaming and the latest technology
+                in Nigeria.
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#" aria-label="Facebook">
+                    f
+                </a>
+
+                <a href="#" aria-label="X">
+                    𝕏
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    ◎
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    ▶
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="smartphones.html">
+                Smartphones
+            </a>
+
+            <a href="laptop.html">
+                Laptops
+            </a>
+
+            <a href="gaming.html">
+                Gaming
+            </a>
+
+            <a href="audio.html">
+                Audio
+            </a>
+
+            <a href="smartwatches.html">
+                Smartwatches
+            </a>
+
+            <a href="accessories.html">
+                Accessories
+            </a>
+
+            <a href="deals.html">
+                Deals
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Service
+            </h3>
+
+            <a href="#">
+                Track Order
+            </a>
+
+            <a href="#">
+                Returns & Refunds
+            </a>
+
+            <a href="#">
+                Shipping
+            </a>
+
+            <a href="#">
+                Payment Methods
+            </a>
+
+            <a href="#">
+                FAQs
+            </a>
+
+            <a href="contact.html">
+                Help Center
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Company
+            </h3>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Become a Seller
+            </a>
+
+        </div>
+
+
+
+        <div class="newsletter">
+
+            <h3>
+                Stay Updated
+            </h3>
+
+            <p>
+                Get the latest deals and new arrivals
+                straight to your inbox.
+            </p>
+
+
+            <form
+                class="newsletter-box"
+                onsubmit="subscribeNewsletter(event)"
+            >
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="container footer-bottom">
+
+        <p>
+            © 2026 NaijaCart. All rights reserved.
+        </p>
+
+
+        <div class="payment-methods">
+
+            <span>VISA</span>
+            <span>MC</span>
+            <span>Verve</span>
+            <span>Bank</span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     CHECKOUT MODAL
+========================================================= -->
+
+<div
+    id="checkoutModal"
+    class="checkout-modal"
+    aria-hidden="true"
+>
+
+    <div
+        class="checkout-overlay"
+        onclick="closeCheckout()"
+    ></div>
+
+
+    <div
+        class="checkout-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="checkoutTitle"
+    >
+
+
+        <!-- CHECKOUT CONTENT -->
+
+        <div id="checkoutContent">
+
+
+            <div class="checkout-header">
+
+                <div>
+
+                    <span class="checkout-label">
+                        NAIJACART CHECKOUT
+                    </span>
+
+                    <h2 id="checkoutTitle">
+                        Complete Your Order
+                    </h2>
+
+                    <p>
+                        Enter your delivery information and
+                        choose your preferred payment method.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="checkout-close"
+                    onclick="closeCheckout()"
+                    aria-label="Close checkout"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <div class="checkout-body">
+
+                <form
+                    id="checkoutForm"
+                    onsubmit="placeOrder(event)"
+                >
+
+
+                    <!-- =================================================
+                         DELIVERY
+                    ================================================== -->
+
+                    <section class="checkout-section">
+
+                        <div class="section-heading">
+
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Delivery Information
+                                </h3>
+
+                                <p>
+                                    Where should we deliver your order?
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="firstName">
+                                    First Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    placeholder="Enter first name"
+                                    autocomplete="given-name"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="lastName">
+                                    Last Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    placeholder="Enter last name"
+                                    autocomplete="family-name"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="08012345678"
+                                    autocomplete="tel"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <div class="form-group full">
+
+                                <label for="address">
+                                    Delivery Address
+                                </label>
+
+                                <textarea
+                                    id="address"
+                                    name="address"
+                                    rows="3"
+                                    placeholder="Enter your full delivery address"
+                                    autocomplete="street-address"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="state">
+                                    State
+                                </label>
+
+                                <select
+                                    id="state"
+                                    name="state"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select State
+                                    </option>
+
+                                    <option>Lagos</option>
+                                    <option>Oyo</option>
+                                    <option>Abuja FCT</option>
+                                    <option>Ogun</option>
+                                    <option>Rivers</option>
+                                    <option>Kano</option>
+                                    <option>Kaduna</option>
+                                    <option>Enugu</option>
+                                    <option>Anambra</option>
+                                    <option>Delta</option>
+                                    <option>Edo</option>
+                                    <option>Osun</option>
+                                    <option>Other</option>
+
+                                </select>
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+                                <label for="city">
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    placeholder="Enter city"
+                                    autocomplete="address-level2"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         PAYMENT
+                    ================================================== -->
+
+                    <section class="checkout-section">
+
+                        <div class="section-heading">
+
+                            <span>
+                                02
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Payment Method
+                                </h3>
+
+                                <p>
+                                    Select how you want to pay.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="payment-options">
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="card"
+                                    checked
+                                    onchange="togglePaymentFields()"
+                                >
+
+                                <div class="payment-option-icon">
+                                    💳
+                                </div>
+
+                                <div class="payment-option-info">
+
+                                    <strong>
+                                        Debit / Credit Card
+                                    </strong>
+
+                                    <small>
+                                        Visa, Mastercard or Verve
+                                    </small>
+
+                                </div>
+
+                                <div class="payment-check">
+                                    ✓
+                                </div>
+
+                            </label>
+
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="bank"
+                                    onchange="togglePaymentFields()"
+                                >
+
+                                <div class="payment-option-icon">
+                                    🏦
+                                </div>
+
+                                <div class="payment-option-info">
+
+                                    <strong>
+                                        Bank Transfer
+                                    </strong>
+
+                                    <small>
+                                        Pay directly from your bank
+                                    </small>
+
+                                </div>
+
+                                <div class="payment-check">
+                                    ✓
+                                </div>
+
+                            </label>
+
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="delivery"
+                                    onchange="togglePaymentFields()"
+                                >
+
+                                <div class="payment-option-icon">
+                                    🚚
+                                </div>
+
+                                <div class="payment-option-info">
+
+                                    <strong>
+                                        Pay on Delivery
+                                    </strong>
+
+                                    <small>
+                                        Available for selected locations
+                                    </small>
+
+                                </div>
+
+                                <div class="payment-check">
+                                    ✓
+                                </div>
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- CARD NOTICE -->
+
+                        <div
+                            id="cardFields"
+                            class="payment-info-box"
+                        >
+
+                            <span>💳</span>
+
+                            <div>
+
+                                <strong>
+                                    Secure Card Payment
+                                </strong>
+
+                                <p>
+                                    You will complete your card payment
+                                    securely through the payment provider.
+                                    NaijaCart does not store your card number
+                                    or CVV.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- BANK -->
+
+                        <div
+                            id="bankFields"
+                            class="payment-info-box"
+                        >
+
+                            <span>🏦</span>
+
+                            <div>
+
+                                <strong>
+                                    Bank Transfer
+                                </strong>
+
+                                <p>
+                                    Your bank transfer instructions will
+                                    be provided after your order is created.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DELIVERY -->
+
+                        <div
+                            id="deliveryFields"
+                            class="payment-info-box"
+                        >
+
+                            <span>💵</span>
+
+                            <div>
+
+                                <strong>
+                                    Pay on Delivery
+                                </strong>
+
+                                <p>
+                                    Pay when your order arrives.
+                                    Availability depends on your delivery
+                                    location.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="checkout-security">
+
+                            <span>
+                                🔒
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Your payment is secure
+                                </strong>
+
+                                <p>
+                                    Never enter your card PIN or OTP
+                                    on the NaijaCart website.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         ORDER REVIEW
+                    ================================================== -->
+
+                    <section class="checkout-order">
+
+                        <div class="checkout-order-header">
+
+                            <div>
+
+                                <span>
+                                    03
+                                </span>
+
+                                <h3>
+                                    Review Your Order
+                                </h3>
+
+                            </div>
+
+                            <strong id="checkoutItemCount">
+                                0 items
+                            </strong>
+
+                        </div>
+
+
+
+                        <div
+                            id="checkoutProducts"
+                            class="checkout-products"
+                        >
+                        </div>
+
+
+
+                        <div class="checkout-totals">
+
+                            <div>
+
+                                <span>
+                                    Subtotal
+                                </span>
+
+                                <strong id="checkoutSubtotal">
+                                    ₦0
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Delivery
+                                </span>
+
+                                <strong id="checkoutDelivery">
+                                    ₦0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="checkout-grand-total">
+
+                                <span>
+                                    Total to Pay
+                                </span>
+
+                                <strong id="checkoutTotal">
+                                    ₦0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <button
+                            type="submit"
+                            class="place-order-btn"
+                        >
+
+                            <span>
+                                🔒 check Out
+                            </span>
+
+                            <strong id="placeOrderAmount">
+                                ₦0
+                            </strong>
+
+                        </button>
+
+                    </section>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUCCESS
+        ================================================== -->
+
+        <div
+            id="orderSuccess"
+            class="order-success"
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="success-label">
+                ORDER CONFIRMED
+            </span>
+
+            <h2>
+                Thank You For Your Order! 🎉
+            </h2>
+
+            <p>
+                Your NaijaCart order has been successfully placed.
+            </p>
+
+
+
+            <div class="order-number">
+
+                <span>
+                    ORDER NUMBER
+                </span>
+
+                <strong id="orderNumber">
+                    NC-000000
+                </strong>
+
+            </div>
+
+
+
+            <div class="success-details">
+
+                <div>
+
+                    <span>
+                        Payment
+                    </span>
+
+                    <strong id="successPayment">
+                        Card
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Order Total
+                    </span>
+
+                    <strong id="successTotal">
+                        ₦0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="success-note">
+
+                <span>
+                    ✓
+                </span>
+
+                <p>
+                    A confirmation of your order has been
+                    processed successfully.
+                </p>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="success-button"
+                onclick="finishOrder()"
+            >
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    src="/naijacart-frontend/js/cart.js"
+></script>
+
+</body>
+</html>

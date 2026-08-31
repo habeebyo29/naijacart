@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Create your NaijaCart account and start shopping."
+>
+
+<meta
+    name="theme-color"
+    content="#075c3f"
+>
+
+<title>Create Account | NaijaCart</title>
+
+
+<style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       BODY
+    ===================================================== */
+
+    body {
+
+        min-height: 100vh;
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(245, 158, 11, 0.12),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(16, 185, 129, 0.16),
+                transparent 30%
+            ),
+            linear-gradient(
+                135deg,
+                #032d20,
+                #075c3f,
+                #087443
+            );
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 35px 20px;
+
+        color: #0f172a;
+
+    }
+
+
+    /* =====================================================
+       MAIN CONTAINER
+    ===================================================== */
+
+    .auth-wrapper {
+
+        width: 100%;
+
+        max-width: 1050px;
+
+        display: grid;
+
+        grid-template-columns: 0.9fr 1.1fr;
+
+        background: #ffffff;
+
+        border-radius: 28px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.28);
+
+        min-height: 650px;
+
+    }
+
+
+    /* =====================================================
+       LEFT SIDE - BRAND / GADGET SHOWCASE
+    ===================================================== */
+
+    .showcase {
+
+        position: relative;
+
+        padding: 45px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #043d2b,
+                #075c3f 60%,
+                #087443
+            );
+
+        color: white;
+
+        overflow: hidden;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+    }
+
+
+    .showcase::before {
+
+        content: "";
+
+        position: absolute;
+
+        width: 280px;
+
+        height: 280px;
+
+        border-radius: 50%;
+
+        background: rgba(245, 158, 11, 0.12);
+
+        top: -100px;
+
+        right: -90px;
+
+    }
+
+
+    .showcase::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 220px;
+
+        height: 220px;
+
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        bottom: -80px;
+
+        left: -80px;
+
+    }
+
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .brand {
+
+        position: relative;
+
+        z-index: 2;
+
+    }
+
+
+    .brand-logo {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        text-decoration: none;
+
+        color: white;
+
+    }
+
+
+    .logo-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+        border-radius: 14px;
+
+        background: #f59e0b;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 22px;
+
+        font-weight: 900;
+
+        color: #075c3f;
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.18);
+
+    }
+
+
+    .brand-name {
+
+        font-size: 27px;
+
+        font-weight: 900;
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .brand-name span {
+
+        color: #f59e0b;
+
+    }
+
+
+    .brand-tagline {
+
+        margin-top: 5px;
+
+        color: #cce9dd;
+
+        font-size: 12px;
+
+    }
+
+
+    /* =====================================================
+       SHOWCASE CONTENT
+    ===================================================== */
+
+    .showcase-content {
+
+        position: relative;
+
+        z-index: 2;
+
+        margin-top: 30px;
+
+    }
+
+
+    .showcase-label {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 7px 12px;
+
+        border-radius: 30px;
+
+        background: rgba(255, 255, 255, 0.10);
+
+        border: 1px solid rgba(255, 255, 255, 0.13);
+
+        color: #fbbf24;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .showcase-content h2 {
+
+        margin-top: 20px;
+
+        font-size: 38px;
+
+        line-height: 1.1;
+
+        letter-spacing: -1.5px;
+
+        max-width: 390px;
+
+    }
+
+
+    .showcase-content h2 span {
+
+        color: #f59e0b;
+
+    }
+
+
+    .showcase-content p {
+
+        margin-top: 16px;
+
+        max-width: 390px;
+
+        color: #cce9dd;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+    }
+
+
+    /* =====================================================
+       GADGET DISPLAY
+    ===================================================== */
+
+    .gadgets {
+
+        position: relative;
+
+        z-index: 2;
+
+        margin-top: 30px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 12px;
+
+        max-width: 410px;
+
+    }
+
+
+    .gadget {
+
+        height: 100px;
+
+        border-radius: 18px;
+
+        background:
+            rgba(255, 255, 255, 0.10);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.13);
+
+        backdrop-filter: blur(10px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        transition: 0.25s ease;
+
+    }
+
+
+    .gadget:hover {
+
+        transform: translateY(-5px);
+
+        background:
+            rgba(255, 255, 255, 0.15);
+
+        border-color:
+            rgba(245, 158, 11, 0.5);
+
+    }
+
+
+    .gadget-icon {
+
+        font-size: 30px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .gadget span {
+
+        font-size: 11px;
+
+        color: #d9f5e9;
+
+        font-weight: 600;
+
+    }
+
+
+    /* =====================================================
+       SHOWCASE BOTTOM
+    ===================================================== */
+
+    .showcase-bottom {
+
+        position: relative;
+
+        z-index: 2;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #cce9dd;
+
+        font-size: 12px;
+
+    }
+
+
+    .check {
+
+        width: 22px;
+
+        height: 22px;
+
+        border-radius: 50%;
+
+        background: #f59e0b;
+
+        color: #075c3f;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-weight: 900;
+
+    }
+
+
+    /* =====================================================
+       RIGHT SIDE - REGISTER
+    ===================================================== */
+
+    .auth-section {
+
+        padding: 45px 60px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+    }
+
+
+    .auth-header {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .auth-header h1 {
+
+        font-size: 30px;
+
+        color: #0f172a;
+
+        letter-spacing: -0.8px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .auth-header p {
+
+        color: #64748b;
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+    }
+
+
+    /* =====================================================
+       FLASH MESSAGES
+    ===================================================== */
+
+    .flash-container {
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .flash-message {
+
+        padding: 12px 14px;
+
+        border-radius: 10px;
+
+        font-size: 13px;
+
+        margin-bottom: 8px;
+
+        border: 1px solid transparent;
+
+    }
+
+
+    .flash-message.error {
+
+        background: #fef2f2;
+
+        color: #b91c1c;
+
+        border-color: #fecaca;
+
+    }
+
+
+    .flash-message.success {
+
+        background: #f0fdf4;
+
+        color: #15803d;
+
+        border-color: #bbf7d0;
+
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .name-row,
+    .contact-row {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 14px;
+
+    }
+
+
+    .form-group {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .form-group label {
+
+        display: block;
+
+        margin-bottom: 7px;
+
+        color: #334155;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+    }
+
+
+    .form-group input,
+    .form-group select {
+
+        width: 100%;
+
+        height: 48px;
+
+        padding: 0 15px;
+
+        border:
+            1px solid #d5dce5;
+
+        border-radius: 11px;
+
+        outline: none;
+
+        background: #f8fafc;
+
+        color: #0f172a;
+
+        font-size: 14px;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .form-group input:hover,
+    .form-group select:hover {
+
+        border-color: #aeb9c7;
+
+    }
+
+
+    .form-group input:focus,
+    .form-group select:focus {
+
+        background: #ffffff;
+
+        border-color: #087443;
+
+        box-shadow:
+            0 0 0 4px
+            rgba(8, 116, 67, 0.10);
+
+    }
+
+
+    .form-group input::placeholder {
+
+        color: #94a3b8;
+
+    }
+
+
+    .form-group select {
+
+        cursor: pointer;
+
+    }
+
+
+    .password-info {
+
+        margin-top: 6px;
+
+        color: #94a3b8;
+
+        font-size: 11px;
+
+    }
+
+
+    /* =====================================================
+       CREATE ACCOUNT BUTTON
+    ===================================================== */
+
+    .submit-btn {
+
+        width: 100%;
+
+        height: 52px;
+
+        margin-top: 5px;
+
+        border: none;
+
+        border-radius: 11px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #075c3f,
+                #087443
+            );
+
+        color: white;
+
+        font-size: 15px;
+
+        font-weight: 800;
+
+        cursor: pointer;
+
+        transition: 0.25s ease;
+
+        box-shadow:
+            0 8px 18px
+            rgba(7, 92, 63, 0.18);
+
+    }
+
+
+    .submit-btn:hover {
+
+        background:
+            linear-gradient(
+                135deg,
+                #043d2b,
+                #075c3f
+            );
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 12px 25px
+            rgba(7, 92, 63, 0.24);
+
+    }
+
+
+    .submit-btn:active {
+
+        transform: translateY(0);
+
+    }
+
+
+    /* =====================================================
+       SIGN IN
+    ===================================================== */
+
+    .bottom-text {
+
+        text-align: center;
+
+        margin-top: 20px;
+
+        color: #64748b;
+
+        font-size: 13px;
+
+    }
+
+
+    .bottom-text a {
+
+        color: #075c3f;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+    }
+
+
+    .bottom-text a:hover {
+
+        color: #f59e0b;
+
+    }
+
+
+    /* =====================================================
+       SECURITY NOTE
+    ===================================================== */
+
+    .security-note {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        margin-top: 17px;
+
+        color: #94a3b8;
+
+        font-size: 11px;
+
+    }
+
+
+    .security-icon {
+
+        width: 20px;
+
+        height: 20px;
+
+        border-radius: 50%;
+
+        background: #ecfdf5;
+
+        color: #087443;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 11px;
+
+    }
+
+
+    /* =====================================================
+       BACK HOME
+    ===================================================== */
+
+    .back-home {
+
+        display: inline-block;
+
+        margin-top: 17px;
+
+        text-align: center;
+
+        color: #64748b;
+
+        text-decoration: none;
+
+        font-size: 12px;
+
+    }
+
+
+    .back-home:hover {
+
+        color: #075c3f;
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+        body {
+
+            padding: 20px;
+
+        }
+
+
+        .auth-wrapper {
+
+            grid-template-columns: 1fr;
+
+            max-width: 600px;
+
+        }
+
+
+        .showcase {
+
+            min-height: 360px;
+
+            padding: 35px;
+
+        }
+
+
+        .showcase-content h2 {
+
+            font-size: 30px;
+
+        }
+
+
+        .gadgets {
+
+            margin-top: 22px;
+
+        }
+
+
+        .showcase-bottom {
+
+            display: none;
+
+        }
+
+
+        .auth-section {
+
+            padding: 40px 40px;
+
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        body {
+
+            padding: 10px;
+
+            align-items: flex-start;
+
+        }
+
+
+        .auth-wrapper {
+
+            border-radius: 20px;
+
+            min-height: auto;
+
+        }
+
+
+        .showcase {
+
+            padding: 30px 22px;
+
+        }
+
+
+        .showcase-content h2 {
+
+            font-size: 27px;
+
+        }
+
+
+        .showcase-content p {
+
+            font-size: 13px;
+
+        }
+
+
+        .gadgets {
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+        }
+
+
+        .gadget {
+
+            height: 82px;
+
+        }
+
+
+        .gadget-icon {
+
+            font-size: 24px;
+
+        }
+
+
+        .gadget span {
+
+            font-size: 10px;
+
+        }
+
+
+        .auth-section {
+
+            padding: 35px 22px;
+
+        }
+
+
+        .auth-header h1 {
+
+            font-size: 26px;
+
+        }
+
+
+        .name-row,
+        .contact-row {
+
+            grid-template-columns: 1fr;
+
+            gap: 0;
+
+        }
+
+    }
+
+
+    @media (max-width: 380px) {
+
+        .auth-section {
+
+            padding: 30px 17px;
+
+        }
+
+
+        .showcase {
+
+            padding: 25px 18px;
+
+        }
+
+
+        .gadgets {
+
+            gap: 6px;
+
+        }
+
+
+        .gadget {
+
+            height: 75px;
+
+            border-radius: 13px;
+
+        }
+
+
+        .gadget-icon {
+
+            font-size: 21px;
+
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+
+    <!-- =================================================
+         LEFT SHOWCASE
+    ================================================== -->
+
+    <section class="showcase">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <a
+                href="{{ url_for('home') }}"
+                class="brand-logo"
+            >
+
+                <div class="logo-icon">
+                    N
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        Naija<span>Cart</span>
+                    </div>
+
+                    <div class="brand-tagline">
+                        Tech you want. Prices you'll love.
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- SHOWCASE CONTENT -->
+
+        <div class="showcase-content">
+
+            <span class="showcase-label">
+                ✦ NAIJACART
+            </span>
+
+
+            <h2>
+                Everything tech.
+                <span>One place.</span>
+            </h2>
+
+
+            <p>
+                Create your NaijaCart account and get ready
+                to discover smartphones, laptops, gaming,
+                audio, smartwatches and more.
+            </p>
+
+
+            <!-- GADGETS -->
+
+            <div class="gadgets">
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        📱
+                    </div>
+
+                    <span>
+                        Smartphones
+                    </span>
+
+                </div>
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        💻
+                    </div>
+
+                    <span>
+                        Laptops
+                    </span>
+
+                </div>
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        🎮
+                    </div>
+
+                    <span>
+                        Gaming
+                    </span>
+
+                </div>
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        🎧
+                    </div>
+
+                    <span>
+                        Audio
+                    </span>
+
+                </div>
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        ⌚
+                    </div>
+
+                    <span>
+                        Smartwatches
+                    </span>
+
+                </div>
+
+
+                <div class="gadget">
+
+                    <div class="gadget-icon">
+                        🔌
+                    </div>
+
+                    <span>
+                        Accessories
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="showcase-bottom">
+
+            <div class="check">
+                ✓
+            </div>
+
+            <span>
+                Shop genuine technology across Nigeria
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RIGHT REGISTER SECTION
+    ================================================== -->
+
+    <section class="auth-section">
+
+
+        <!-- HEADER -->
+
+        <div class="auth-header">
+
+            <h1>
+                Create your account
+            </h1>
+
+            <p>
+                Join NaijaCart and start shopping for
+                your favourite gadgets today.
+            </p>
+
+        </div>
+
+
+
+        <!-- FLASH MESSAGES -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash-message {{ category }}">
+
+                            {{ message }}
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+
+        <!-- REGISTER FORM -->
+
+        <form
+            action="{{ url_for('register') }}"
+            method="POST"
+        >
+
+
+            <!-- =================================================
+                 NAME
+            ================================================== -->
+
+            <div class="name-row">
+
+
+                <div class="form-group">
+
+                    <label for="first_name">
+                        First Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="first_name"
+                        name="first_name"
+                        placeholder="Habeeb"
+                        autocomplete="given-name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="last_name">
+                        Last Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="last_name"
+                        name="last_name"
+                        placeholder="Yusuf"
+                        autocomplete="family-name"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EMAIL
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PHONE + STATE
+            ================================================== -->
+
+            <div class="contact-row">
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="08012345678"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="state">
+                        State
+                    </label>
+
+                    <select
+                        id="state"
+                        name="state"
+                        autocomplete="address-level1"
+                        required
+                    >
+
+                        <option value="" selected disabled>
+                            Select your state
+                        </option>
+
+                        <option value="Abia">
+                            Abia
+                        </option>
+
+                        <option value="Adamawa">
+                            Adamawa
+                        </option>
+
+                        <option value="Akwa Ibom">
+                            Akwa Ibom
+                        </option>
+
+                        <option value="Anambra">
+                            Anambra
+                        </option>
+
+                        <option value="Bauchi">
+                            Bauchi
+                        </option>
+
+                        <option value="Bayelsa">
+                            Bayelsa
+                        </option>
+
+                        <option value="Benue">
+                            Benue
+                        </option>
+
+                        <option value="Borno">
+                            Borno
+                        </option>
+
+                        <option value="Cross River">
+                            Cross River
+                        </option>
+
+                        <option value="Delta">
+                            Delta
+                        </option>
+
+                        <option value="Ebonyi">
+                            Ebonyi
+                        </option>
+
+                        <option value="Edo">
+                            Edo
+                        </option>
+
+                        <option value="Ekiti">
+                            Ekiti
+                        </option>
+
+                        <option value="Enugu">
+                            Enugu
+                        </option>
+
+                        <option value="Gombe">
+                            Gombe
+                        </option>
+
+                        <option value="Imo">
+                            Imo
+                        </option>
+
+                        <option value="Jigawa">
+                            Jigawa
+                        </option>
+
+                        <option value="Kaduna">
+                            Kaduna
+                        </option>
+
+                        <option value="Kano">
+                            Kano
+                        </option>
+
+                        <option value="Katsina">
+                            Katsina
+                        </option>
+
+                        <option value="Kebbi">
+                            Kebbi
+                        </option>
+
+                        <option value="Kogi">
+                            Kogi
+                        </option>
+
+                        <option value="Kwara">
+                            Kwara
+                        </option>
+
+                        <option value="Lagos">
+                            Lagos
+                        </option>
+
+                        <option value="Nasarawa">
+                            Nasarawa
+                        </option>
+
+                        <option value="Niger">
+                            Niger
+                        </option>
+
+                        <option value="Ogun">
+                            Ogun
+                        </option>
+
+                        <option value="Ondo">
+                            Ondo
+                        </option>
+
+                        <option value="Osun">
+                            Osun
+                        </option>
+
+                        <option value="Oyo">
+                            Oyo
+                        </option>
+
+                        <option value="Plateau">
+                            Plateau
+                        </option>
+
+                        <option value="Rivers">
+                            Rivers
+                        </option>
+
+                        <option value="Sokoto">
+                            Sokoto
+                        </option>
+
+                        <option value="Taraba">
+                            Taraba
+                        </option>
+
+                        <option value="Yobe">
+                            Yobe
+                        </option>
+
+                        <option value="Zamfara">
+                            Zamfara
+                        </option>
+
+                        <option value="FCT">
+                            Federal Capital Territory (FCT)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ADDRESS
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label for="address">
+                    Delivery Address
+                </label>
+
+                <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="Enter your full delivery address"
+                    autocomplete="street-address"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PASSWORD
+            ================================================== -->
+
+            <div class="contact-row">
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirm_password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Confirm password"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <p class="password-info">
+                Password must be at least 6 characters.
+            </p>
+
+
+
+            <!-- =================================================
+                 CREATE ACCOUNT
+            ================================================== -->
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+
+                Create Account
+
+                &nbsp; →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- SIGN IN -->
+
+        <p class="bottom-text">
+
+            Already have an account?
+
+            <a href="{{ url_for('login') }}">
+                Sign In
+            </a>
+
+        </p>
+
+
+
+        <!-- SECURITY -->
+
+        <div class="security-note">
+
+            <div class="security-icon">
+                🔒
+            </div>
+
+            <span>
+                Your account information is securely protected.
+            </span>
+
+        </div>
+
+
+
+        <!-- BACK HOME -->
+
+        <a
+            href="{{ url_for('home') }}"
+            class="back-home"
+        >
+
+            ← Back to NaijaCart
+
+        </a>
+
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     PASSWORD MATCH VALIDATION
+===================================================== -->
+
+<script>
+
+    const form = document.querySelector("form");
+
+    const password =
+        document.getElementById("password");
+
+    const confirmPassword =
+        document.getElementById("confirm_password");
+
+
+    form.addEventListener("submit", function(event) {
+
+        if (
+            password.value !==
+            confirmPassword.value
+        ) {
+
+            event.preventDefault();
+
+            confirmPassword.setCustomValidity(
+                "Passwords do not match."
+            );
+
+            confirmPassword.reportValidity();
+
+        } else {
+
+            confirmPassword.setCustomValidity("");
+
+        }
+
+    });
+
+
+    confirmPassword.addEventListener(
+        "input",
+        function() {
+
+            if (
+                password.value !==
+                confirmPassword.value
+            ) {
+
+                confirmPassword.setCustomValidity(
+                    "Passwords do not match."
+                );
+
+            } else {
+
+                confirmPassword.setCustomValidity("");
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>

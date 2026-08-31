@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Order Details - NigerCart
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f8f6;
+
+            color: #17221d;
+        }
+
+
+        /* =================================================
+           HEADER
+        ================================================= */
+
+        header {
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e5ebe7;
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 7%;
+        }
+
+
+        .logo {
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: #111111;
+        }
+
+
+        .logo span {
+            color: #16a34a;
+        }
+
+
+        .back-link {
+            text-decoration: none;
+
+            color: #15803d;
+
+            font-weight: 700;
+        }
+
+
+        .back-link:hover {
+            color: #166534;
+        }
+
+
+        /* =================================================
+           MAIN
+        ================================================= */
+
+        main {
+            max-width: 1000px;
+
+            margin:
+                50px auto;
+
+            padding:
+                0 20px;
+        }
+
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+
+        .page-title h1 {
+            font-size: 34px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .page-title p {
+            color: #718078;
+        }
+
+
+        /* =================================================
+           ORDER HEADER
+        ================================================= */
+
+        .order-header {
+            background: #ffffff;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .order-number {
+            font-size: 22px;
+
+            font-weight: 800;
+        }
+
+
+        .order-date {
+            color: #718078;
+
+            margin-top: 7px;
+        }
+
+
+        .status {
+            display: inline-block;
+
+            padding:
+                9px 18px;
+
+            border-radius: 30px;
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            font-weight: 700;
+        }
+
+
+        /* =================================================
+           SECTION
+        ================================================= */
+
+        .section {
+            background: #ffffff;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .section h2 {
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =================================================
+           PRODUCTS
+        ================================================= */
+
+        .product {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            padding:
+                18px 0;
+
+            border-bottom:
+                1px solid #edf1ee;
+        }
+
+
+        .product:last-child {
+            border-bottom: none;
+        }
+
+
+        .product-image {
+            width: 80px;
+
+            height: 80px;
+
+            border-radius: 12px;
+
+            object-fit: cover;
+
+            background: #f0f4f1;
+        }
+
+
+        .product-info {
+            flex: 1;
+        }
+
+
+        .product-name {
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+
+        .product-quantity {
+            color: #718078;
+
+            font-size: 14px;
+        }
+
+
+        .product-price {
+            font-weight: 800;
+
+            color: #15803d;
+        }
+
+
+        /* =================================================
+           DELIVERY
+        ================================================= */
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .info-box {
+            background: #f4f8f5;
+
+            padding: 18px;
+
+            border-radius: 12px;
+        }
+
+
+        .info-label {
+            font-size: 13px;
+
+            color: #718078;
+
+            margin-bottom: 6px;
+        }
+
+
+        .info-value {
+            font-weight: 600;
+        }
+
+
+        /* =================================================
+           TOTAL
+        ================================================= */
+
+        .total-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-top: 18px;
+
+            margin-top: 10px;
+
+            border-top:
+                1px solid #e5ebe7;
+        }
+
+
+        .total-label {
+            font-size: 20px;
+
+            font-weight: 800;
+        }
+
+
+        .total-price {
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #15803d;
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================= */
+
+        footer {
+            background: #062b17;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 30px;
+
+            margin-top: 70px;
+        }
+
+
+        footer strong {
+            color: #22c55e;
+        }
+
+
+        footer p {
+            margin-top: 8px;
+
+            color: #a7b8ad;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding:
+                    0 20px;
+            }
+
+
+            .logo {
+                font-size: 23px;
+            }
+
+
+            main {
+                margin-top: 30px;
+            }
+
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+
+            .order-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .product {
+                align-items: flex-start;
+            }
+
+
+            .product-image {
+                width: 65px;
+
+                height: 65px;
+            }
+
+
+            .product-price {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header>
+
+      <!-- =========================================================
+     NAIJACART LOGO
+========================================================= -->
+
+<div class="logo-wrapper">
+
+    <!-- BRAND TEXT -->
+
+    <div class="logo-text">
+
+        <strong>
+            Naija<span>Cart</span>
+        </strong>
+
+        <small>
+            Tech you want. Prices you'll love.
+        </small>
+
+    </div>
+
+</div>
+
+
+<style>
+
+/* =========================================================
+   LOGO WRAPPER
+========================================================= */
+
+.logo-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.1;
+
+}
+
+
+.logo-text strong {
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    color: #17221d;
+
+}
+
+
+/* CART = ORANGE */
+
+.logo-text strong span {
+
+    color: #f59e0b;
+
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.logo-text small {
+
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    color: #718078;
+
+    letter-spacing: 0.1px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .logo-text strong {
+
+        font-size: 20px;
+
+    }
+
+
+    .logo-text small {
+
+        font-size: 9px;
+
+    }
+
+}
+
+</style>
+
+        <a
+            href="{{ url_for('orders.my_orders') }}"
+            class="back-link"
+        >
+            ← Back to My Orders
+        </a>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+        <div class="page-title">
+
+            <h1>
+                Order Details
+            </h1>
+
+            <p>
+                View information about your NigerCart order.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             ORDER HEADER
+        ================================================= -->
+
+        <div class="order-header">
+
+            <div>
+
+                <div class="order-number">
+
+                    Order #NC-{{
+                        "%06d"|format(order.id)
+                    }}
+
+                </div>
+
+
+                <div class="order-date">
+
+                    Placed:
+                    {{ order.created_at }}
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                {{ order.status }}
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ORDER ITEMS
+        ================================================= -->
+
+        <div class="section">
+
+            <h2>
+                Items in Your Order
+            </h2>
+
+
+            {% for item in order.items %}
+
+            <div class="product">
+
+
+                {% if item.product.image_url %}
+
+                    <img
+                        src="{{ item.product.image_url }}"
+                        alt="{{ item.product.name }}"
+                        class="product-image"
+                    >
+
+                {% else %}
+
+                    <div class="product-image"></div>
+
+                {% endif %}
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+
+                        {{ item.product.name }}
+
+                    </div>
+
+
+                    <div class="product-quantity">
+
+                        Quantity:
+                        {{ item.quantity }}
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-price">
+
+                    ₦{{
+                        "{:,.0f}".format(
+                            item.price * item.quantity
+                        )
+                    }}
+
+                </div>
+
+
+            </div>
+
+            {% endfor %}
+
+
+            <div class="total-row">
+
+                <div class="total-label">
+                    Total
+                </div>
+
+
+                <div class="total-price">
+
+                    ₦{{
+                        "{:,.0f}".format(
+                            order.total
+                        )
+                    }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DELIVERY INFORMATION
+        ================================================= -->
+
+        <div class="section">
+
+            <h2>
+                Delivery Information
+            </h2>
+
+
+            <div class="info-grid">
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Phone Number
+                    </div>
+
+                    <div class="info-value">
+                        {{ order.phone }}
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Delivery Address
+                    </div>
+
+                    <div class="info-value">
+                        {{ order.delivery_address }}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PAYMENT
+        ================================================= -->
+
+        <div class="section">
+
+            <h2>
+                Payment Information
+            </h2>
+
+
+            <div class="info-grid">
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Payment Reference
+                    </div>
+
+                    <div class="info-value">
+
+                        {% if order.payment_ref %}
+
+                            {{ order.payment_ref }}
+
+                        {% else %}
+
+                            Not available
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Order Status
+                    </div>
+
+                    <div class="info-value">
+
+                        {{ order.status }}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer>
+
+       
+
+        <p>
+            Your trusted Nigerian gadget marketplace.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

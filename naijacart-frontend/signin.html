@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Sign in to your NaijaCart account."
+>
+
+<meta
+    name="theme-color"
+    content="#075c3f"
+>
+
+<title>Sign In | NaijaCart</title>
+
+
+<style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       BODY
+    ===================================================== */
+
+    body {
+
+        min-height: 100vh;
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(245, 158, 11, 0.12),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(16, 185, 129, 0.16),
+                transparent 30%
+            ),
+            linear-gradient(
+                135deg,
+                #032d20,
+                #075c3f,
+                #087443
+            );
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 30px 20px;
+
+        color: #0f172a;
+
+    }
+
+
+    /* =====================================================
+       MAIN CONTAINER
+    ===================================================== */
+
+    .auth-wrapper {
+
+        width: 100%;
+
+        max-width: 1050px;
+
+        min-height: 650px;
+
+        display: grid;
+
+        grid-template-columns: 1.05fr 0.95fr;
+
+        background: #ffffff;
+
+        border-radius: 28px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.30);
+
+    }
+
+
+    /* =====================================================
+       LEFT VISUAL PANEL
+    ===================================================== */
+
+    .visual-panel {
+
+        position: relative;
+
+        overflow: hidden;
+
+        padding: 45px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #043d2b,
+                #075c3f 58%,
+                #087443
+            );
+
+        color: white;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+    }
+
+
+    .visual-panel::before {
+
+        content: "";
+
+        position: absolute;
+
+        width: 330px;
+
+        height: 330px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(245, 158, 11, 0.13);
+
+        top: -135px;
+
+        right: -115px;
+
+    }
+
+
+    .visual-panel::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 260px;
+
+        height: 260px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(255, 255, 255, 0.05);
+
+        bottom: -110px;
+
+        left: -90px;
+
+    }
+
+
+    /* =====================================================
+       BRAND
+    ===================================================== */
+
+    .visual-brand {
+
+        position: relative;
+
+        z-index: 2;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+    }
+
+
+    .brand-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+        border-radius: 14px;
+
+        background: #f59e0b;
+
+        color: #075c3f;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 23px;
+
+        font-weight: 900;
+
+        box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.18);
+
+    }
+
+
+    .visual-brand strong {
+
+        display: block;
+
+        font-size: 26px;
+
+        font-weight: 900;
+
+        letter-spacing: -1px;
+
+    }
+
+
+    .visual-brand strong span {
+
+        color: #f59e0b;
+
+    }
+
+
+    .visual-brand small {
+
+        display: block;
+
+        margin-top: 4px;
+
+        color: #cce9dd;
+
+        font-size: 11px;
+
+    }
+
+
+    /* =====================================================
+       VISUAL CONTENT
+    ===================================================== */
+
+    .visual-content {
+
+        position: relative;
+
+        z-index: 2;
+
+        margin-top: 20px;
+
+    }
+
+
+    .visual-content .eyebrow {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        padding: 7px 12px;
+
+        border-radius: 30px;
+
+        background:
+            rgba(245, 158, 11, 0.14);
+
+        border:
+            1px solid rgba(245, 158, 11, 0.18);
+
+        color: #fbbf24;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .visual-content h1 {
+
+        max-width: 450px;
+
+        font-size: 43px;
+
+        line-height: 1.06;
+
+        letter-spacing: -1.8px;
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .visual-content h1 span {
+
+        color: #f59e0b;
+
+    }
+
+
+    .visual-content p {
+
+        max-width: 430px;
+
+        color: #cce9dd;
+
+        line-height: 1.75;
+
+        font-size: 14px;
+
+    }
+
+
+    /* =====================================================
+       PRODUCT SHOWCASE
+    ===================================================== */
+
+    .product-showcase {
+
+        position: relative;
+
+        height: 225px;
+
+        margin-top: 22px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+
+    .glow {
+
+        position: absolute;
+
+        width: 220px;
+
+        height: 220px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(245, 158, 11, 0.14);
+
+        filter: blur(2px);
+
+    }
+
+
+    .device {
+
+        position: relative;
+
+        width: 142px;
+
+        height: 202px;
+
+        border-radius: 23px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #1e293b,
+                #0f172a
+            );
+
+        border:
+            5px solid #334155;
+
+        box-shadow:
+            0 28px 50px rgba(0, 0, 0, 0.36);
+
+        transform:
+            rotate(-7deg);
+
+    }
+
+
+    .device-screen {
+
+        position: absolute;
+
+        inset: 8px;
+
+        border-radius: 16px;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                145deg,
+                #087443,
+                #0a7652,
+                #f59e0b
+            );
+
+    }
+
+
+    .device-screen::before {
+
+        content: "NaijaCart";
+
+        position: absolute;
+
+        top: 50%;
+
+        left: 50%;
+
+        transform:
+            translate(-50%, -50%);
+
+        color: white;
+
+        font-size: 17px;
+
+        font-weight: 900;
+
+        white-space: nowrap;
+
+    }
+
+
+    .camera {
+
+        position: absolute;
+
+        width: 8px;
+
+        height: 8px;
+
+        border-radius: 50%;
+
+        background: #020617;
+
+        top: 5px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        z-index: 2;
+
+    }
+
+
+    /* =====================================================
+       TRUST POINTS
+    ===================================================== */
+
+    .trust-points {
+
+        position: relative;
+
+        z-index: 2;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 10px;
+
+    }
+
+
+    .trust-item {
+
+        padding: 13px 11px;
+
+        border-radius: 13px;
+
+        background:
+            rgba(255, 255, 255, 0.07);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.09);
+
+        backdrop-filter: blur(8px);
+
+        transition: 0.25s ease;
+
+    }
+
+
+    .trust-item:hover {
+
+        transform: translateY(-3px);
+
+        background:
+            rgba(255, 255, 255, 0.10);
+
+    }
+
+
+    .trust-item strong {
+
+        display: block;
+
+        font-size: 12px;
+
+        margin-bottom: 4px;
+
+    }
+
+
+    .trust-item span {
+
+        color: #b7e4d0;
+
+        font-size: 10px;
+
+        line-height: 1.4;
+
+    }
+
+
+    /* =====================================================
+       RIGHT AUTH PANEL
+    ===================================================== */
+
+    .auth-panel {
+
+        padding: 55px 55px 40px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        background:
+            #ffffff;
+
+    }
+
+
+    /* =====================================================
+       MOBILE BRAND
+    ===================================================== */
+
+    .mobile-brand {
+
+        display: none;
+
+    }
+
+
+    /* =====================================================
+       AUTH HEADER
+    ===================================================== */
+
+    .auth-header {
+
+        margin-bottom: 27px;
+
+    }
+
+
+    .auth-label {
+
+        display: inline-block;
+
+        margin-bottom: 9px;
+
+        color: #075c3f;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .auth-header h2 {
+
+        color: #0f172a;
+
+        font-size: 32px;
+
+        line-height: 1.15;
+
+        letter-spacing: -1px;
+
+        margin-bottom: 9px;
+
+    }
+
+
+    .auth-header p {
+
+        color: #64748b;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+
+    }
+
+
+    /* =====================================================
+       FLASH MESSAGES
+    ===================================================== */
+
+    .flash-container {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .flash-message {
+
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 9px;
+
+        padding: 12px 14px;
+
+        border-radius: 11px;
+
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        margin-bottom: 9px;
+
+        border: 1px solid transparent;
+
+    }
+
+
+    .flash-message.error {
+
+        background: #fef2f2;
+
+        color: #b91c1c;
+
+        border-color: #fecaca;
+
+    }
+
+
+    .flash-message.success {
+
+        background: #f0fdf4;
+
+        color: #15803d;
+
+        border-color: #bbf7d0;
+
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .form-group {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .form-group label {
+
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: #334155;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+    }
+
+
+    .input-wrapper {
+
+        position: relative;
+
+    }
+
+
+    .input-icon {
+
+        position: absolute;
+
+        left: 15px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #94a3b8;
+
+        font-size: 15px;
+
+        pointer-events: none;
+
+        z-index: 2;
+
+    }
+
+
+    .form-group input {
+
+        width: 100%;
+
+        height: 52px;
+
+        padding:
+            0 15px 0 43px;
+
+        border:
+            1px solid #d5dce5;
+
+        border-radius: 12px;
+
+        outline: none;
+
+        background: #f8fafc;
+
+        color: #0f172a;
+
+        font-size: 14px;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+
+    }
+
+
+    .form-group input:hover {
+
+        border-color: #aeb9c7;
+
+    }
+
+
+    .form-group input:focus {
+
+        background: #ffffff;
+
+        border-color: #087443;
+
+        box-shadow:
+            0 0 0 4px
+            rgba(8, 116, 67, 0.10);
+
+    }
+
+
+    .form-group input::placeholder {
+
+        color: #94a3b8;
+
+    }
+
+
+    /* =====================================================
+       PASSWORD HEADER
+    ===================================================== */
+
+    .password-row {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .password-row label {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .forgot-password {
+
+        color: #075c3f;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        text-decoration: none;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .forgot-password:hover {
+
+        color: #f59e0b;
+
+    }
+
+
+    /* =====================================================
+       SUBMIT BUTTON
+    ===================================================== */
+
+    .submit-btn {
+
+        width: 100%;
+
+        height: 53px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #075c3f,
+                #087443
+            );
+
+        color: white;
+
+        font-size: 15px;
+
+        font-weight: 800;
+
+        cursor: pointer;
+
+        margin-top: 4px;
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+
+        box-shadow:
+            0 10px 22px
+            rgba(7, 92, 63, 0.18);
+
+    }
+
+
+    .submit-btn:hover {
+
+        background:
+            linear-gradient(
+                135deg,
+                #043d2b,
+                #075c3f
+            );
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 14px 28px
+            rgba(7, 92, 63, 0.25);
+
+    }
+
+
+    .submit-btn:active {
+
+        transform: translateY(0);
+
+    }
+
+
+    /* =====================================================
+       CREATE ACCOUNT
+    ===================================================== */
+
+    .bottom-text {
+
+        text-align: center;
+
+        margin-top: 24px;
+
+        color: #64748b;
+
+        font-size: 13px;
+
+    }
+
+
+    .bottom-text a {
+
+        color: #075c3f;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .bottom-text a:hover {
+
+        color: #f59e0b;
+
+    }
+
+
+    /* =====================================================
+       SECURITY
+    ===================================================== */
+
+    .security-note {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 21px;
+
+        color: #94a3b8;
+
+        font-size: 11px;
+
+    }
+
+
+    .security-icon {
+
+        width: 21px;
+
+        height: 21px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background: #ecfdf5;
+
+        color: #087443;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 11px;
+
+    }
+
+
+    /* =====================================================
+       BACK HOME
+    ===================================================== */
+
+    .back-home {
+
+        display: block;
+
+        text-align: center;
+
+        margin-top: 20px;
+
+        color: #64748b;
+
+        text-decoration: none;
+
+        font-size: 12px;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .back-home:hover {
+
+        color: #075c3f;
+
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 850px) {
+
+        body {
+
+            padding: 20px;
+
+        }
+
+
+        .auth-wrapper {
+
+            max-width: 520px;
+
+            grid-template-columns: 1fr;
+
+            min-height: auto;
+
+        }
+
+
+        .visual-panel {
+
+            display: none;
+
+        }
+
+
+        .auth-panel {
+
+            padding:
+                45px 40px 35px;
+
+        }
+
+
+        .mobile-brand {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 34px;
+
+        }
+
+
+        .mobile-brand-icon {
+
+            width: 43px;
+
+            height: 43px;
+
+            border-radius: 12px;
+
+            background: #f59e0b;
+
+            color: #075c3f;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 21px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 7px 16px
+                rgba(0, 0, 0, 0.10);
+
+        }
+
+
+        .mobile-brand strong {
+
+            color: #075c3f;
+
+            font-size: 24px;
+
+            letter-spacing: -0.7px;
+
+        }
+
+
+        .mobile-brand strong span {
+
+            color: #f59e0b;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 520px) {
+
+        body {
+
+            padding: 0;
+
+        }
+
+
+        .auth-wrapper {
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            border-radius: 0;
+
+        }
+
+
+        .auth-panel {
+
+            padding:
+                32px 22px 28px;
+
+        }
+
+
+        .mobile-brand {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .auth-header {
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .auth-header h2 {
+
+            font-size: 27px;
+
+        }
+
+
+        .auth-header p {
+
+            font-size: 13px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .submit-btn {
+
+            height: 52px;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 360px) {
+
+        .auth-panel {
+
+            padding:
+                28px 17px 25px;
+
+        }
+
+
+        .mobile-brand strong {
+
+            font-size: 22px;
+
+        }
+
+
+        .auth-header h2 {
+
+            font-size: 25px;
+
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="auth-wrapper">
+
+
+    <!-- =================================================
+         LEFT VISUAL SIDE
+    ================================================== -->
+
+    <section class="visual-panel">
+
+
+        <!-- BRAND -->
+
+        <div class="visual-brand">
+
+            <div class="brand-icon">
+                N
+            </div>
+
+            <div>
+
+                <strong>
+                    Naija<span>Cart</span>
+                </strong>
+
+                <small>
+                    Tech you want. Prices you'll love.
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="visual-content">
+
+            <span class="eyebrow">
+                ✦ WELCOME BACK
+            </span>
+
+
+            <h1>
+
+                Your favourite
+                <span>tech</span>
+                is waiting.
+
+            </h1>
+
+
+            <p>
+
+                Sign in to your NaijaCart account and
+                continue shopping smartphones, laptops,
+                gaming gear, audio devices, smartwatches
+                and more.
+
+            </p>
+
+
+
+            <!-- PRODUCT -->
+
+            <div class="product-showcase">
+
+                <div class="glow"></div>
+
+                <div class="device">
+
+                    <div class="camera"></div>
+
+                    <div class="device-screen"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TRUST -->
+
+        <div class="trust-points">
+
+
+            <div class="trust-item">
+
+                <strong>
+                    ✓ Authentic
+                </strong>
+
+                <span>
+                    Quality products
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <strong>
+                    🔒 Secure
+                </strong>
+
+                <span>
+                    Protected account
+                </span>
+
+            </div>
+
+
+            <div class="trust-item">
+
+                <strong>
+                    🚚 Fast
+                </strong>
+
+                <span>
+                    Delivery across Nigeria
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RIGHT LOGIN SIDE
+    ================================================== -->
+
+    <section class="auth-panel">
+
+
+        <!-- MOBILE BRAND -->
+
+        <div class="mobile-brand">
+
+            <div class="mobile-brand-icon">
+                N
+            </div>
+
+            <strong>
+                Naija<span>Cart</span>
+            </strong>
+
+        </div>
+
+
+
+        <!-- HEADER -->
+
+        <div class="auth-header">
+
+            <span class="auth-label">
+                NAIJACART ACCOUNT
+            </span>
+
+            <h2>
+                Welcome Back 👋
+            </h2>
+
+            <p>
+                Sign in to continue shopping on NaijaCart.
+            </p>
+
+        </div>
+
+
+
+        <!-- FLASH MESSAGES -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash-message {{ category }}">
+
+                            {% if category == "error" %}
+                                ⚠️
+                            {% else %}
+                                ✓
+                            {% endif %}
+
+                            <span>
+                                {{ message }}
+                            </span>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+
+        <!-- LOGIN FORM -->
+
+        <form
+            action="{{ url_for('login') }}"
+            method="POST"
+        >
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <div class="password-row">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <!--
+                        Keep this link disabled until
+                        the forgot-password backend route
+                        has been created.
+                    -->
+
+                </div>
+
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SIGN IN -->
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+
+                Sign In to NaijaCart
+                <span aria-hidden="true">
+                    &nbsp; →
+                </span>
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- CREATE ACCOUNT -->
+
+        <p class="bottom-text">
+
+            Don't have an account?
+
+            <a href="{{ url_for('register') }}">
+                Create Account
+            </a>
+
+        </p>
+
+
+
+        <!-- SECURITY -->
+
+        <div class="security-note">
+
+            <div class="security-icon">
+                🔒
+            </div>
+
+            <span>
+                Your account information is securely protected.
+            </span>
+
+        </div>
+
+
+
+        <!-- BACK HOME -->
+
+        <a
+            href="{{ url_for('home') }}"
+            class="back-home"
+        >
+
+            ← Back to NaijaCart
+
+        </a>
+
+
+    </section>
+
+</div>
+
+</body>
+
+</html>

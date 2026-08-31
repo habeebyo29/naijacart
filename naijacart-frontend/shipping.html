@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shipping & Delivery | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .shipping-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .shipping-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .shipping-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .shipping-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           DELIVERY CARDS
+        ===================================================== */
+
+        .delivery-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .delivery-card {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .delivery-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 13px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+        }
+
+
+        .delivery-icon i {
+
+            font-size: 18px;
+
+        }
+
+
+        .delivery-card h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .delivery-card p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           DELIVERY PROCESS
+        ===================================================== */
+
+        .process-section {
+
+            margin-top: 25px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .process-list {
+
+            display: grid;
+
+            gap: 18px;
+
+        }
+
+
+        .process-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+        }
+
+
+        .process-number {
+
+            width: 34px;
+
+            height: 34px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .process-item h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .process-item p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           DELIVERY NOTE
+        ===================================================== */
+
+        .delivery-note {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+        }
+
+
+        .note-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+        }
+
+
+        .delivery-note h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .delivery-note p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           DELIVERY TIPS
+        ===================================================== */
+
+        .tips-section {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .tips-section h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
+            color: var(--brand-dark);
+
+        }
+
+
+        .tips-list {
+
+            display: grid;
+
+            gap: 9px;
+
+            list-style: none;
+
+        }
+
+
+        .tips-list li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .tips-list i {
+
+            color: var(--brand);
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            text-align: center;
+
+            padding: 45px 20px 10px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .help-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .shipping-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .delivery-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .delivery-card {
+
+                padding: 23px;
+
+            }
+
+
+            .process-section {
+
+                padding: 23px;
+
+            }
+
+
+            .delivery-note {
+
+                padding: 20px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SHIPPING & DELIVERY PAGE
+    ====================================================== -->
+
+    <main class="shipping-page">
+
+        <section class="shipping-container">
+
+
+            <!-- HEADER -->
+
+            <div class="shipping-icon">
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART DELIVERY
+            </span>
+
+
+            <h1>
+                Shipping & Delivery
+            </h1>
+
+
+            <p class="intro">
+
+                We work to get your tech products to you
+                safely and conveniently. Here's what you
+                need to know about shipping and delivery
+                at NaijaCart.
+
+            </p>
+
+
+            <!-- =================================================
+                 DELIVERY INFORMATION
+            ================================================== -->
+
+            <div class="delivery-grid">
+
+
+                <!-- DELIVERY AREAS -->
+
+                <div class="delivery-card">
+
+                    <div class="delivery-icon">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Delivery Areas
+                    </h2>
+
+
+                    <p>
+
+                        We deliver to locations covered by our
+                        available delivery services. Delivery
+                        availability may depend on your location.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ORDER PROCESSING -->
+
+                <div class="delivery-card">
+
+                    <div class="delivery-icon">
+
+                        <i class="fa-solid fa-box"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Order Processing
+                    </h2>
+
+
+                    <p>
+
+                        After your order is confirmed, we prepare
+                        your items for dispatch. Processing time
+                        may vary depending on the product and
+                        order details.
+
+                    </p>
+
+                </div>
+
+
+                <!-- DELIVERY TIME -->
+
+                <div class="delivery-card">
+
+                    <div class="delivery-icon">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Delivery Time
+                    </h2>
+
+
+                    <p>
+
+                        Delivery time can vary depending on your
+                        location, delivery availability, and
+                        other factors. We'll provide relevant
+                        delivery information when available.
+
+                    </p>
+
+                </div>
+
+
+                <!-- SAFE DELIVERY -->
+
+                <div class="delivery-card">
+
+                    <div class="delivery-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Safe Delivery
+                    </h2>
+
+
+                    <p>
+
+                        We take care when preparing orders for
+                        delivery. Please check your package and
+                        items when your order arrives.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DELIVERY PROCESS
+            ================================================== -->
+
+            <div class="process-section">
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        How Delivery Works
+                    </h2>
+
+
+                    <p>
+                        Your order goes through a simple delivery
+                        process.
+                    </p>
+
+                </div>
+
+
+                <div class="process-list">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            1
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Place Your Order
+                            </h3>
+
+
+                            <p>
+                                Choose your products and complete
+                                your order through NaijaCart.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            2
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Order Confirmation
+                            </h3>
+
+
+                            <p>
+                                Your order is received and
+                                prepared for processing.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            3
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Dispatch
+                            </h3>
+
+
+                            <p>
+                                Once your order is ready, it is
+                                handed over for delivery.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 4 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            4
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Delivery
+                            </h3>
+
+
+                            <p>
+                                Your order is delivered to the
+                                address provided during checkout.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELIVERY NOTE
+            ================================================== -->
+
+            <div class="delivery-note">
+
+
+                <div class="note-icon">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Keep Your Contact Details Updated
+                    </h3>
+
+
+                    <p>
+
+                        Make sure the phone number and delivery
+                        information provided with your order are
+                        correct so our delivery team can reach
+                        you when necessary.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DELIVERY TIPS
+            ================================================== -->
+
+            <div class="tips-section">
+
+                <h2>
+                    Helpful Delivery Tips
+                </h2>
+
+
+                <ul class="tips-list">
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Double-check your delivery address
+                            before completing your order.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Keep your phone available when your
+                            order is expected.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Check your package when it arrives.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Contact our support team if you have
+                            questions about your delivery.
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+
+                <h2>
+                    Need help with delivery?
+                </h2>
+
+
+                <p>
+
+                    Our support team is available to help
+                    with questions about your order and
+                    delivery.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

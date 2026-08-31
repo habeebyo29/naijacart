@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Terms & Conditions | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .terms-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .terms-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .terms-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .terms-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           TERMS CONTENT
+        ===================================================== */
+
+        .terms-content {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .terms-section {
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .terms-section:first-child {
+
+            padding-top: 0;
+
+        }
+
+
+        .terms-section:last-child {
+
+            border-bottom: none;
+
+            padding-bottom: 0;
+
+        }
+
+
+        .terms-section h2 {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .terms-section h2 i {
+
+            color: var(--brand);
+
+            font-size: 17px;
+
+        }
+
+
+        .terms-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .terms-section p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .terms-section ul {
+
+            margin: 12px 0 0 20px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .terms-section li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        /* =====================================================
+           NOTICE
+        ===================================================== */
+
+        .terms-notice {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+        }
+
+
+        .notice-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+        }
+
+
+        .terms-notice h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .terms-notice p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            text-align: center;
+
+            padding: 45px 20px 10px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .help-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .terms-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .terms-content {
+
+                padding: 23px;
+
+                border-radius: 16px;
+
+            }
+
+
+            .terms-section {
+
+                padding: 22px 0;
+
+            }
+
+
+            .terms-section h2 {
+
+                font-size: 18px;
+
+            }
+
+
+            .terms-section p,
+            .terms-section ul {
+
+                font-size: 13px;
+
+            }
+
+
+            .terms-notice {
+
+                padding: 20px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TERMS & CONDITIONS PAGE
+    ====================================================== -->
+
+    <main class="terms-page">
+
+        <section class="terms-container">
+
+
+            <!-- HEADER -->
+
+            <div class="terms-icon">
+
+                <i class="fa-solid fa-file-contract"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART INFORMATION
+            </span>
+
+
+            <h1>
+                Terms & Conditions
+            </h1>
+
+
+            <p class="intro">
+
+                These terms explain the basic rules and
+                conditions that apply when using NaijaCart
+                and purchasing products through our website.
+
+            </p>
+
+
+            <!-- =================================================
+                 TERMS CONTENT
+            ================================================== -->
+
+            <div class="terms-content">
+
+
+                <!-- 01 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                        1. Using NaijaCart
+
+                    </h2>
+
+
+                    <p>
+
+                        By using NaijaCart, you agree to use the
+                        website responsibly and follow these
+                        Terms & Conditions.
+
+                    </p>
+
+
+                    <p>
+
+                        You should provide accurate information
+                        when creating an account, placing an
+                        order, or contacting our support team.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        2. Orders
+
+                    </h2>
+
+
+                    <p>
+
+                        When you place an order, you are requesting
+                        to purchase the selected products at the
+                        displayed prices and according to the
+                        available product information.
+
+                    </p>
+
+
+                    <p>
+
+                        NaijaCart may need to contact you if there
+                        is an issue with your order, product
+                        availability, payment, or delivery details.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-tag"></i>
+
+                        3. Product Information & Prices
+
+                    </h2>
+
+
+                    <p>
+
+                        We aim to keep product descriptions,
+                        images, specifications, and prices
+                        accurate and up to date.
+
+                    </p>
+
+
+                    <p>
+
+                        However, product availability and prices
+                        may change. Any applicable price shown
+                        during checkout should be reviewed before
+                        completing your order.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                        4. Payments
+
+                    </h2>
+
+
+                    <p>
+
+                        Customers are responsible for providing
+                        accurate payment information and completing
+                        payment through the available payment
+                        options.
+
+                    </p>
+
+
+                    <p>
+
+                        You must not use another person's payment
+                        information without proper authorization.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 05 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-truck"></i>
+
+                        5. Shipping & Delivery
+
+                    </h2>
+
+
+                    <p>
+
+                        Delivery times may vary depending on your
+                        location, product availability, and the
+                        delivery service handling the order.
+
+                    </p>
+
+
+                    <p>
+
+                        Customers are responsible for providing
+                        correct delivery information and being
+                        available to receive their orders.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 06 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+
+                        6. Returns & Refunds
+
+                    </h2>
+
+
+                    <p>
+
+                        Returns and refunds are handled according
+                        to our Returns & Refunds policy.
+
+                    </p>
+
+
+                    <p>
+
+                        Customers should contact NaijaCart before
+                        returning an item so that the appropriate
+                        return instructions can be provided.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 07 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        7. Account Security
+
+                    </h2>
+
+
+                    <p>
+
+                        If you create an account, you are
+                        responsible for keeping your login
+                        information secure.
+
+                    </p>
+
+
+                    <p>
+
+                        Do not share your password or other
+                        confidential account information with
+                        anyone.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 08 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-ban"></i>
+
+                        8. Prohibited Use
+
+                    </h2>
+
+
+                    <p>
+                        You must not use NaijaCart to:
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Provide false or misleading information.
+                        </li>
+
+                        <li>
+                            Attempt to access another customer's account.
+                        </li>
+
+                        <li>
+                            Engage in fraudulent activities.
+                        </li>
+
+                        <li>
+                            Interfere with the operation or security
+                            of the website.
+                        </li>
+
+                        <li>
+                            Use the website for unlawful purposes.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- 09 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-globe"></i>
+
+                        9. Website Availability
+
+                    </h2>
+
+
+                    <p>
+
+                        We work to keep NaijaCart available and
+                        functioning properly, but temporary
+                        interruptions may occur because of
+                        maintenance, technical issues, or other
+                        circumstances.
+
+                    </p>
+
+                </div>
+
+
+                <!-- 10 -->
+
+                <div class="terms-section">
+
+                    <h2>
+
+                        <i class="fa-solid fa-pen-to-square"></i>
+
+                        10. Changes to These Terms
+
+                    </h2>
+
+
+                    <p>
+
+                        NaijaCart may update these Terms &
+                        Conditions when necessary. Updated
+                        terms will be made available on this
+                        page.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTICE
+            ================================================== -->
+
+            <div class="terms-notice">
+
+
+                <div class="notice-icon">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Please Read Before Shopping
+                    </h3>
+
+
+                    <p>
+
+                        By continuing to use NaijaCart and placing
+                        orders through the website, you acknowledge
+                        that you have read and understood these
+                        Terms & Conditions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+
+                <h2>
+                    Have a Question?
+                </h2>
+
+
+                <p>
+
+                    If you need clarification about these terms,
+                    our support team is ready to help.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

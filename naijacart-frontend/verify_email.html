@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Verify your NaijaCart email address."
+>
+
+<meta
+    name="theme-color"
+    content="#087443"
+>
+
+<title>Verify Email | NaijaCart</title>
+
+
+<style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       BODY
+    ===================================================== */
+
+    body {
+
+        min-height: 100vh;
+
+        font-family:
+            Inter,
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background:
+            radial-gradient(
+                circle at top left,
+                rgba(8, 116, 67, 0.10),
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at bottom right,
+                rgba(245, 158, 11, 0.08),
+                transparent 35%
+            ),
+            #f5f8f6;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 24px;
+
+        color: #17201c;
+    }
+
+
+    /* =====================================================
+       MAIN CONTAINER
+    ===================================================== */
+
+    .verification-container {
+
+        width: 100%;
+
+        max-width: 470px;
+    }
+
+
+    /* =====================================================
+       CARD
+    ===================================================== */
+
+    .verification-card {
+
+        background: #ffffff;
+
+        border: 1px solid #e6eee9;
+
+        border-radius: 24px;
+
+        padding: 42px 36px 34px;
+
+        text-align: center;
+
+        box-shadow:
+            0 20px 60px rgba(15, 45, 32, 0.10);
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       TOP ACCENT
+    ===================================================== */
+
+    .verification-card::before {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 5px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #087443,
+                #0a8f55,
+                #f59e0b
+            );
+    }
+
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .logo {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        text-decoration: none;
+
+        margin-bottom: 30px;
+    }
+
+
+    .logo-icon {
+
+        width: 44px;
+        height: 44px;
+
+        background: #087443;
+
+        color: #ffffff;
+
+        border-radius: 12px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 21px;
+
+        box-shadow:
+            0 6px 16px rgba(8, 116, 67, 0.20);
+    }
+
+
+    .logo-text {
+
+        font-size: 26px;
+
+        font-weight: 800;
+
+        letter-spacing: -0.6px;
+
+        color: #087443;
+    }
+
+
+    .logo-text span {
+
+        color: #f59e0b;
+    }
+
+
+    /* =====================================================
+       EMAIL ICON
+    ===================================================== */
+
+    .icon-wrapper {
+
+        width: 82px;
+        height: 82px;
+
+        margin: 0 auto 22px;
+
+        padding: 6px;
+
+        border-radius: 50%;
+
+        background: #e9f7f0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .icon {
+
+        width: 66px;
+        height: 66px;
+
+        border-radius: 50%;
+
+        background: #087443;
+
+        color: #ffffff;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 28px;
+
+        box-shadow:
+            0 8px 20px rgba(8, 116, 67, 0.20);
+    }
+
+
+    /* =====================================================
+       HEADING
+    ===================================================== */
+
+    h1 {
+
+        font-size: 29px;
+
+        line-height: 1.2;
+
+        font-weight: 800;
+
+        letter-spacing: -0.7px;
+
+        margin-bottom: 12px;
+
+        color: #17201c;
+    }
+
+
+    .description {
+
+        color: #69766f;
+
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 6px;
+    }
+
+
+    /* =====================================================
+       EMAIL
+    ===================================================== */
+
+    .email {
+
+        color: #087443;
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        word-break: break-word;
+
+        margin-bottom: 26px;
+
+        background: #f1f8f4;
+
+        padding: 10px 14px;
+
+        border-radius: 9px;
+
+        display: inline-block;
+
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       CODE LABEL
+    ===================================================== */
+
+    .code-label {
+
+        display: block;
+
+        text-align: left;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        color: #34413a;
+
+        margin-bottom: 8px;
+    }
+
+
+    /* =====================================================
+       CODE INPUT
+    ===================================================== */
+
+    .code-input {
+
+        width: 100%;
+
+        height: 62px;
+
+        border: 2px solid #dce7e1;
+
+        border-radius: 13px;
+
+        background: #fbfdfc;
+
+        text-align: center;
+
+        font-size: 27px;
+
+        font-weight: 800;
+
+        letter-spacing: 9px;
+
+        color: #17201c;
+
+        outline: none;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+
+        margin-bottom: 16px;
+    }
+
+
+    .code-input::placeholder {
+
+        color: #b6c1bb;
+
+        letter-spacing: 8px;
+    }
+
+
+    .code-input:focus {
+
+        border-color: #087443;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 0 0 4px rgba(8, 116, 67, 0.09);
+    }
+
+
+    /* =====================================================
+       VERIFY BUTTON
+    ===================================================== */
+
+    .verify-button {
+
+        width: 100%;
+
+        height: 54px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background: #087443;
+
+        color: #ffffff;
+
+        font-size: 16px;
+
+        font-weight: 750;
+
+        cursor: pointer;
+
+        transition:
+            transform 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+
+    .verify-button:hover {
+
+        background: #065c36;
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 8px 20px rgba(8, 116, 67, 0.20);
+    }
+
+
+    .verify-button:active {
+
+        transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       RESEND
+    ===================================================== */
+
+    .resend-section {
+
+        margin-top: 25px;
+
+        padding-top: 22px;
+
+        border-top: 1px solid #e8eeea;
+    }
+
+
+    .resend-section p {
+
+        color: #748078;
+
+        font-size: 14px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .resend-button {
+
+        border: none;
+
+        background: transparent;
+
+        color: #087443;
+
+        font-size: 14px;
+
+        font-weight: 750;
+
+        cursor: pointer;
+
+        padding: 4px 8px;
+
+        transition: color 0.2s ease;
+    }
+
+
+    .resend-button:hover {
+
+        color: #f59e0b;
+    }
+
+
+    /* =====================================================
+       BACK TO LOGIN
+    ===================================================== */
+
+    .back-login {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 5px;
+
+        margin-top: 20px;
+
+        color: #68756e;
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        font-weight: 600;
+
+        transition: color 0.2s ease;
+    }
+
+
+    .back-login:hover {
+
+        color: #087443;
+    }
+
+
+    /* =====================================================
+       SECURITY MESSAGE
+    ===================================================== */
+
+    .security-note {
+
+        margin-top: 25px;
+
+        padding: 12px 14px;
+
+        background: #fafbf9;
+
+        border: 1px solid #edf1ee;
+
+        border-radius: 10px;
+
+        color: #7a857f;
+
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 520px) {
+
+        body {
+
+            padding: 15px;
+        }
+
+
+        .verification-card {
+
+            padding: 36px 22px 28px;
+
+            border-radius: 20px;
+        }
+
+
+        .logo {
+
+            margin-bottom: 26px;
+        }
+
+
+        .logo-text {
+
+            font-size: 24px;
+        }
+
+
+        .icon-wrapper {
+
+            width: 74px;
+            height: 74px;
+
+            margin-bottom: 19px;
+        }
+
+
+        .icon {
+
+            width: 60px;
+            height: 60px;
+
+            font-size: 25px;
+        }
+
+
+        h1 {
+
+            font-size: 25px;
+        }
+
+
+        .description {
+
+            font-size: 14px;
+        }
+
+
+        .email {
+
+            font-size: 14px;
+
+            margin-bottom: 23px;
+        }
+
+
+        .code-input {
+
+            height: 58px;
+
+            font-size: 24px;
+
+            letter-spacing: 7px;
+        }
+
+    }
+
+
+    @media (max-width: 360px) {
+
+        .verification-card {
+
+            padding-left: 17px;
+
+            padding-right: 17px;
+        }
+
+
+        h1 {
+
+            font-size: 23px;
+        }
+
+
+        .code-input {
+
+            letter-spacing: 5px;
+        }
+
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="verification-container">
+
+<div class="verification-card">
+
+
+    <!-- =================================================
+         LOGO
+    ================================================== -->
+
+    <a
+        href="{{ url_for('home') }}"
+        class="logo"
+    >
+
+        <div class="logo-icon">
+            🛍️
+        </div>
+
+        <div class="logo-text">
+            Naija<span>Cart</span>
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         EMAIL ICON
+    ================================================== -->
+
+    <div class="icon-wrapper">
+
+        <div class="icon">
+            ✉️
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TITLE
+    ================================================== -->
+
+    <h1>
+        Verify Your Email
+    </h1>
+
+
+    <p class="description">
+        We've sent a 6-digit verification code to
+    </p>
+
+
+    <p class="email">
+        {{ email }}
+    </p>
+
+
+    <!-- =================================================
+         VERIFICATION FORM
+    ================================================== -->
+
+    <form
+        action="{{ url_for('verify_email') }}"
+        method="POST"
+    >
+
+        <label
+            for="verification_code"
+            class="code-label"
+        >
+            Enter verification code
+        </label>
+
+
+        <input
+            type="text"
+            id="verification_code"
+            name="verification_code"
+            class="code-input"
+            placeholder="000000"
+            maxlength="6"
+            minlength="6"
+            inputmode="numeric"
+            pattern="[0-9]{6}"
+            autocomplete="one-time-code"
+            aria-label="6-digit verification code"
+            required
+        >
+
+
+        <button
+            type="submit"
+            class="verify-button"
+        >
+            Verify Email
+        </button>
+
+    </form>
+
+
+    <!-- =================================================
+         RESEND
+    ================================================== -->
+
+    <div class="resend-section">
+
+        <p>
+            Didn't receive the code?
+        </p>
+
+
+        <form
+            action="{{ url_for('resend_verification') }}"
+            method="POST"
+        >
+
+            <button
+                type="submit"
+                class="resend-button"
+            >
+                Resend Verification Code
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- =================================================
+         BACK TO LOGIN
+    ================================================== -->
+
+    <a
+        href="{{ url_for('login') }}"
+        class="back-login"
+    >
+        ← Back to Sign In
+    </a>
+
+
+    <!-- =================================================
+         SECURITY NOTE
+    ================================================== -->
+
+    <div class="security-note">
+
+        🔒 Your verification code expires after
+        10 minutes for your security.
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+<script>
+
+    /* =====================================================
+       VERIFICATION CODE INPUT
+    ===================================================== */
+
+    const codeInput =
+        document.querySelector("#verification_code");
+
+
+    if (codeInput) {
+
+        codeInput.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value
+                        .replace(/\D/g, "")
+                        .slice(0, 6);
+
+            }
+        );
+
+    }
+
+</script>
+
+</body>
+
+</html>

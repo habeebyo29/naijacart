@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Shop premium audio products at NaijaCart. Find headphones, earbuds, speakers and more.">
+
+    <meta name="theme-color" content="#075c3f">
+
+    <title>Audio | NaijaCart</title>
+
+    <link rel="stylesheet" href="/naijacart-frontend/css/audio.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+    <div class="top-bar">
+
+        <div class="top-bar-inner">
+
+            <p>
+                🚚 Free delivery on orders over ₦50,000 within Nigeria!
+            </p>
+
+            <div class="top-links">
+                <a href="#">Track Order</a>
+                <a href="#">Help Center</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     HEADER
+===================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <!-- =========================================================
+     NAIJACART LOGO
+========================================================= -->
+
+            <div class="logo-wrapper">
+
+                <!-- BRAND TEXT -->
+
+                <div class="logo-text">
+
+                    <strong>
+                        Naija<span>Cart</span>
+                    </strong>
+
+                    <small>
+                        Tech you want. Prices you'll love.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <style>
+                /* =========================================================
+   LOGO WRAPPER
+========================================================= */
+
+                .logo-wrapper {
+
+                    display: flex;
+
+                    align-items: center;
+
+                }
+
+
+                /* =========================================================
+   BRAND TEXT
+========================================================= */
+
+                .logo-text {
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    line-height: 1.1;
+
+                }
+
+
+                .logo-text strong {
+
+                    font-size: 23px;
+
+                    font-weight: 800;
+
+                    letter-spacing: -0.5px;
+
+                    color: #17221d;
+
+                }
+
+
+                /* CART = ORANGE */
+
+                .logo-text strong span {
+
+                    color: #f59e0b;
+
+                }
+
+
+                /* =========================================================
+   TAGLINE
+========================================================= */
+
+                .logo-text small {
+
+                    margin-top: 5px;
+
+                    font-size: 10px;
+
+                    font-weight: 500;
+
+                    color: #718078;
+
+                    letter-spacing: 0.1px;
+
+                }
+
+
+                /* =========================================================
+   MOBILE
+========================================================= */
+
+                @media (max-width: 600px) {
+
+                    .logo-text strong {
+
+                        font-size: 20px;
+
+                    }
+
+
+                    .logo-text small {
+
+                        font-size: 9px;
+
+                    }
+
+                }
+            </style>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input type="text" id="searchInput" placeholder="Search headphones, earbuds, speakers..."
+                    autocomplete="off">
+
+                <select id="categorySelect">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="headphones">
+                        Headphones
+                    </option>
+
+                    <option value="earbuds">
+                        Earbuds
+                    </option>
+
+                    <option value="speaker">
+                        Speakers
+                    </option>
+
+                    <option value="accessories">
+                        Accessories
+                    </option>
+
+                </select>
+
+                <button type="button" onclick="filterProducts()">
+                    🔍
+                </button>
+
+            </div>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+                <button class="action" onclick="showCompare()">
+                    ⇄
+                    <span>Compare</span>
+                </button>
+
+                <button class="action" onclick="toggleWishlist()">
+                    ♡
+                    <span>Wishlist</span>
+                </button>
+
+                <button class="action cart-action" onclick="showCart()">
+                    🛒
+
+                    <span>
+                        Cart
+                    </span>
+
+                    <b id="cartCount">
+                        0
+                    </b>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         NAVIGATION
+    ================================================= -->
+
+        <nav class="main-nav">
+
+            <div class="nav-inner">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="/naijacart-frontend/smartphones.html">
+                    Smartphones
+                </a>
+
+                <a href="/naijacart-frontend/laptop.html">
+                    Laptops
+                </a>
+
+                <a href="gaming.html">
+                    Gaming
+                </a>
+
+                <a href="audio.html" class="active">
+                    Audio
+                </a>
+
+                <a href="/naijacart-frontend/smartwatch.html">
+                    Smartwatches
+                </a>
+
+                <a href="accessories.html">
+                    Accessories
+                </a>
+
+                <a href="deals.html">
+                    Deals
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+    <div class="container">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <span>›</span>
+
+            <strong>
+                Audio
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     AUDIO HERO
+===================================================== -->
+
+    <section class="container">
+
+        <div class="category-hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    🎧 PREMIUM SOUND
+                </span>
+
+                <h1>
+                    Hear Every
+                    <span>
+                        Detail
+                    </span>
+                </h1>
+
+                <p>
+                    Experience powerful bass, crystal-clear vocals
+                    and immersive sound with our collection of
+                    premium headphones, earbuds and speakers.
+                </p>
+
+                <button class="hero-btn" onclick="scrollToProducts()">
+                    Shop Audio
+                    <span>
+                        →
+                    </span>
+                </button>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <div class="hero-circle circle-one"></div>
+                <div class="hero-circle circle-two"></div>
+                <div class="hero-circle circle-three"></div>
+
+                <div class="sound-wave wave-one"></div>
+                <div class="sound-wave wave-two"></div>
+                <div class="sound-wave wave-three"></div>
+
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=85"
+                    alt="Premium headphones">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     AUDIO CATEGORIES
+===================================================== -->
+
+    <section class="container brand-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="small-title">
+                    SHOP AUDIO
+                </span>
+
+                <h2>
+                    Audio Brands
+                </h2>
+
+            </div>
+
+            <a href="#" onclick="showAllBrands(event)" class="view-brands">
+                View all →
+            </a>
+
+        </div>
+
+
+        <div class="brand-tabs">
+
+            <button class="brand active" onclick="filterBrand('all', this)">
+                All
+            </button>
+
+            <button class="brand" onclick="filterBrand('apple', this)">
+                Apple
+            </button>
+
+            <button class="brand" onclick="filterBrand('sony', this)">
+                Sony
+            </button>
+
+            <button class="brand" onclick="filterBrand('samsung', this)">
+                Samsung
+            </button>
+
+            <button class="brand" onclick="filterBrand('jbl', this)">
+                JBL
+            </button>
+
+            <button class="brand" onclick="filterBrand('bose', this)">
+                Bose
+            </button>
+
+            <button class="brand" onclick="filterBrand('anker', this)">
+                Anker
+            </button>
+
+            <button class="brand" onclick="filterBrand('marshall', this)">
+                Marshall
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+
+
+
+    <section class="container products-section" id="products">
+
+        <div class="products-header">
+
+            <div>
+
+                <span class="small-title">
+                    AUDIO
+                </span>
+
+                <h2>
+                    Audio Products
+                </h2>
+
+            </div>
+
+
+            <div class="sort-box">
+
+                <label for="sortSelect">
+                    Sort by:
+                </label>
+
+                <select id="sortSelect" onchange="sortProducts()">
+
+                    <option value="featured">
+                        Featured
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="rating">
+                        Highest Rated
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         PRODUCT GRID
+    ================================================= -->
+
+        <div class="products-grid" id="productsGrid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product-card" data-brand="apple" data-category="earbuds" data-name="Apple AirPods Pro 2"
+                data-price="420000" data-rating="4.9">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -12%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85"
+                        alt="Apple AirPods Pro 2" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        APPLE
+                    </span>
+
+                    <h3>
+                        Apple AirPods Pro 2
+                    </h3>
+
+                    <p class="spec">
+                        USB-C • ANC • Spatial Audio
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.9</strong>
+                        <span>(214)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦420,000
+                        </strong>
+
+                        <del>
+                            ₦480,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Apple AirPods Pro 2',
+                        420000,
+                        'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card" data-brand="sony" data-category="headphones" data-name="Sony WH-1000XM5"
+                data-price="580000" data-rating="4.9">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -10%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=700&q=85"
+                        alt="Sony WH-1000XM5" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        SONY
+                    </span>
+
+                    <h3>
+                        Sony WH-1000XM5
+                    </h3>
+
+                    <p class="spec">
+                        Noise Cancelling • 30 Hours • Wireless
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.9</strong>
+                        <span>(187)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦580,000
+                        </strong>
+
+                        <del>
+                            ₦645,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Sony WH-1000XM5',
+                        580000,
+                        'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card" data-brand="apple" data-category="headphones" data-name="Apple AirPods Max"
+                data-price="850000" data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -8%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="/naijacart-frontend/assets/headset.avif" alt="Apple AirPods Max" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        APPLE
+                    </span>
+
+                    <h3>
+                        Apple AirPods Max
+                    </h3>
+
+                    <p class="spec">
+                        Hi-Fi Audio • ANC • Spatial Audio
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(142)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦850,000
+                        </strong>
+
+                        <del>
+                            ₦925,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Apple AirPods Max',
+                        850000,
+                        'https://images.unsplash.com/photo-1625245488600-2f7d2b9f1f83?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="product-card" data-brand="samsung" data-category="earbuds"
+                data-name="Samsung Galaxy Buds3 Pro" data-price="310000" data-rating="4.7">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -11%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=700&q=85"
+                        alt="Samsung Galaxy Buds" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        SAMSUNG
+                    </span>
+
+                    <h3>
+                        Samsung Galaxy Buds3 Pro
+                    </h3>
+
+                    <p class="spec">
+                        Hi-Fi Sound • ANC • Wireless
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.7</strong>
+                        <span>(96)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦310,000
+                        </strong>
+
+                        <del>
+                            ₦350,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Samsung Galaxy Buds3 Pro',
+                        310000,
+                        'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+
+            <article class="product-card" data-brand="jbl" data-category="speaker" data-name="JBL Charge 5"
+                data-price="260000" data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -13%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85"
+                        alt="JBL Charge 5" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        JBL
+                    </span>
+
+                    <h3>
+                        JBL Charge 5
+                    </h3>
+
+                    <p class="spec">
+                        Portable • Waterproof • 20 Hours
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(119)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦260,000
+                        </strong>
+
+                        <del>
+                            ₦300,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'JBL Charge 5',
+                        260000,
+                        'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+
+            <article class="product-card" data-brand="jbl" data-category="headphones" data-name="JBL Tune 770NC"
+                data-price="190000" data-rating="4.6">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -15%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=85"
+                        alt="JBL Tune headphones" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        JBL
+                    </span>
+
+                    <h3>
+                        JBL Tune 770NC
+                    </h3>
+
+                    <p class="spec">
+                        Adaptive ANC • 70 Hours • Bluetooth
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.6</strong>
+                        <span>(82)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦190,000
+                        </strong>
+
+                        <del>
+                            ₦225,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'JBL Tune 770NC',
+                        190000,
+                        'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 7 -->
+
+            <article class="product-card" data-brand="bose" data-category="headphones"
+                data-name="Bose QuietComfort Ultra" data-price="690000" data-rating="4.9">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -9%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85"
+                        alt="Bose headphones" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        BOSE
+                    </span>
+
+                    <h3>
+                        Bose QuietComfort Ultra
+                    </h3>
+
+                    <p class="spec">
+                        Immersive Audio • ANC • Bluetooth
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.9</strong>
+                        <span>(104)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦690,000
+                        </strong>
+
+                        <del>
+                            ₦755,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Bose QuietComfort Ultra',
+                        690000,
+                        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 8 -->
+
+            <article class="product-card" data-brand="sony" data-category="earbuds" data-name="Sony WF-1000XM5"
+                data-price="465000" data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -10%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85"
+                        alt="Sony wireless earbuds" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        SONY
+                    </span>
+
+                    <h3>
+                        Sony WF-1000XM5
+                    </h3>
+
+                    <p class="spec">
+                        Noise Cancelling • Hi-Res Audio • Wireless
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(91)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦465,000
+                        </strong>
+
+                        <del>
+                            ₦520,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Sony WF-1000XM5',
+                        465000,
+                        'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 9 -->
+
+            <article class="product-card" data-brand="anker" data-category="earbuds"
+                data-name="Anker Soundcore Liberty 4" data-price="185000" data-rating="4.7">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -14%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1598331668826-20cecc596b86?auto=format&fit=crop&w=700&q=85"
+                        alt="Anker wireless earbuds" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        ANKER
+                    </span>
+
+                    <h3>
+                        Anker Soundcore Liberty 4
+                    </h3>
+
+                    <p class="spec">
+                        Hi-Res Audio • ANC • Dual Drivers
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.7</strong>
+                        <span>(67)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦185,000
+                        </strong>
+
+                        <del>
+                            ₦215,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Anker Soundcore Liberty 4',
+                        185000,
+                        'https://images.unsplash.com/photo-1598331668826-20cecc596b86?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 10 -->
+
+            <article class="product-card" data-brand="marshall" data-category="speaker" data-name="Marshall Emberton II"
+                data-price="330000" data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        -10%
+                    </span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85"
+                        alt="Marshall portable speaker" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        MARSHALL
+                    </span>
+
+                    <h3>
+                        Marshall Emberton II
+                    </h3>
+
+                    <p class="spec">
+                        30+ Hours • Bluetooth • Portable
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(88)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>
+                            ₦330,000
+                        </strong>
+
+                        <del>
+                            ₦365,000
+                        </del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Marshall Emberton II',
+                        330000,
+                        'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div class="no-products" id="noProducts">
+
+            <div>
+                🎧
+            </div>
+
+            <h3>
+                No audio products found
+            </h3>
+
+            <p>
+                Try another product, brand or search term.
+            </p>
+
+            <button onclick="resetFilters()">
+                Show All Audio Products
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     TRUST SECTION
+===================================================== -->
+
+    <section class="container">
+
+        <div class="trust-section">
+
+            <div class="trust-card">
+
+                <div class="trust-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <strong>
+                        Fast Delivery
+                    </strong>
+
+                    <span>
+                        Across Nigeria
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">
+                    🛡️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Secure Payments
+                    </strong>
+
+                    <span>
+                        Safe & trusted checkout
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        100% Authentic
+                    </strong>
+
+                    <span>
+                        Genuine products
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">
+                    ↩
+                </div>
+
+                <div>
+
+                    <strong>
+                        Easy Returns
+                    </strong>
+
+                    <span>
+                        Hassle-free returns
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer>
+
+        <div class="footer-main container">
+
+            <div class="footer-about">
+
+                <p>
+                    Your trusted destination for smartphones,
+                    laptops, gaming and the latest technology
+                    in Nigeria.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#">
+                        f
+                    </a>
+
+                    <a href="#">
+                        𝕏
+                    </a>
+
+                    <a href="#">
+                        ◎
+                    </a>
+
+                    <a href="#">
+                        ▶
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Shop
+                </h3>
+
+                <a href="smartphones.html">
+                    Smartphones
+                </a>
+
+                <a href="laptops.html">
+                    Laptops
+                </a>
+
+                <a href="gaming.html">
+                    Gaming
+                </a>
+
+                <a href="audio.html">
+                    Audio
+                </a>
+
+                <a href="smartwatches.html">
+                    Smartwatches
+                </a>
+
+                <a href="accessories.html">
+                    Accessories
+                </a>
+
+                <a href="deals.html">
+                    Deals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Customer Service
+                </h3>
+
+                <a href="#">
+                    Track Order
+                </a>
+
+                <a href="#">
+                    Returns & Refunds
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Payment Methods
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+                <a href="contact.html">
+                    Help Center
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Become a Seller
+                </a>
+
+            </div>
+
+
+            <div class="newsletter">
+
+                <h3>
+                    Stay Updated
+                </h3>
+
+                <p>
+                    Get the latest audio deals and
+                    new arrivals straight to your inbox.
+                </p>
+
+                <form class="newsletter-box" onsubmit="subscribeNewsletter(event)">
+
+                    <input type="email" placeholder="Enter your email" required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+
+            <p>
+                © 2026 NaijaCart. All rights reserved.
+            </p>
+
+            <div class="payment-methods">
+
+                <span>
+                    VISA
+                </span>
+
+                <span>
+                    MC
+                </span>
+
+                <span>
+                    Verve
+                </span>
+
+                <span>
+                    PayPal
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="/naijacart-frontend/js/cart.js"></script>
+    <script src="/naijacart-frontend/js/audio.js"></script>
+
+
+    <!-- =====================================================
+     BACK TO TOP BUTTON
+===================================================== -->
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+        ↑
+    </button>
+
+
+    <style>
+        /* =====================================================
+       BACK TO TOP BUTTON
+    ===================================================== */
+
+        .back-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #075c3f;
+            color: #ffffff;
+
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.18);
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease,
+                background 0.25s ease;
+
+            z-index: 9999;
+        }
+
+
+        /* SHOW BUTTON */
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* HOVER */
+
+        .back-to-top:hover {
+            background: #f59e0b;
+            color: #17221d;
+            transform: translateY(-4px);
+        }
+
+
+        /* CLICK */
+
+        .back-to-top:active {
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+       MOBILE
+    ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .back-to-top {
+                right: 16px;
+                bottom: 16px;
+
+                width: 44px;
+                height: 44px;
+
+                font-size: 23px;
+            }
+
+        }
+    </style>
+
+
+    <script>
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const backToTop = document.getElementById("backToTop");
+
+
+        /* Show button when user scrolls down */
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        /* Scroll to top */
+
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

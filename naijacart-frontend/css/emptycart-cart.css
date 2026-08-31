@@ -1,0 +1,387 @@
+/* =====================================================
+   NAIJACART — EMPTY CART
+===================================================== */
+
+
+/* =====================================================
+   HEADER ACTIONS
+===================================================== */
+
+.header-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* =====================================================
+   CART BUTTON
+===================================================== */
+
+.cart-btn {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #17221d;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 10px 5px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.cart-btn:hover {
+
+    color: #075c3f;
+
+}
+
+
+.cart-btn i {
+
+    font-size: 20px;
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+.cart-btn b {
+
+    position: absolute;
+
+    top: 0;
+
+    right: -8px;
+
+    min-width: 19px;
+
+    height: 19px;
+
+    padding: 0 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #075c3f;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+.register-link {
+
+    text-decoration: none;
+
+    color: #075c3f;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+
+}
+
+
+.register-link:hover {
+
+    color: #043d2b;
+
+}
+
+
+/* =====================================================
+   EMPTY CART OVERLAY
+===================================================== */
+
+.empty-cart-message {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(4px);
+
+}
+
+
+/* SHOW POPUP */
+
+.empty-cart-message.show {
+
+    display: flex;
+
+}
+
+
+/* =====================================================
+   EMPTY CART BOX
+===================================================== */
+
+.empty-cart-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding: 40px 30px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+
+    animation: emptyCartPop 0.25s ease;
+
+}
+
+
+/* =====================================================
+   POPUP ANIMATION
+===================================================== */
+
+@keyframes emptyCartPop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-empty-cart {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    background: #f5f7f6;
+
+    color: #17221d;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.close-empty-cart:hover {
+
+    background: #e8ecea;
+
+}
+
+
+/* =====================================================
+   EMPTY CART ICON
+===================================================== */
+
+.empty-cart-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eaf7f1;
+
+    color: #075c3f;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.empty-cart-box h3 {
+
+    margin: 0 0 10px;
+
+    color: #17221d;
+
+    font-size: 24px;
+
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.empty-cart-box p {
+
+    margin: 0 auto 25px;
+
+    max-width: 300px;
+
+    color: #66736d;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   START SHOPPING BUTTON
+===================================================== */
+
+.start-shopping-btn {
+
+    border: none;
+
+    padding: 12px 25px;
+
+    background: #075c3f;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.start-shopping-btn:hover {
+
+    background: #043d2b;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .header-actions {
+
+        gap: 12px;
+
+    }
+
+
+    .cart-btn span {
+
+        display: none;
+
+    }
+
+
+    .empty-cart-box {
+
+        padding: 35px 22px;
+
+    }
+
+}

@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NaijaCart Slider</title>
+
+
+    <style>
+
+        /* =====================================================
+           COLORS
+        ===================================================== */
+
+        :root {
+
+            --green: #075c3f;
+
+            --green-dark: #043d2b;
+
+            --green-light: #eaf7f1;
+
+            --orange: #f59e0b;
+
+            --orange-light: #fff4d9;
+
+            --white: #ffffff;
+
+            --text: #17221d;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf7f1,
+                    #f8faf9
+                );
+
+            min-height: 100vh;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =====================================================
+           SLIDER
+        ===================================================== */
+
+        .slider {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            height: 520px;
+
+            margin: 0 auto;
+
+            overflow: hidden;
+
+            border-radius: 26px;
+
+            background: var(--green-dark);
+
+            border: 3px solid var(--green);
+
+            box-shadow:
+                0 20px 50px
+                rgba(7, 92, 63, 0.20);
+
+        }
+
+
+        /* =====================================================
+           SLIDES
+        ===================================================== */
+
+        .slides {
+
+            width: 100%;
+
+            height: 100%;
+
+            position: relative;
+
+        }
+
+
+        .slide {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.7s ease,
+                visibility 0.7s ease;
+
+        }
+
+
+        .slide.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+        }
+
+
+        .slide img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+           GREEN OVERLAY
+        ===================================================== */
+
+        .slide::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 61, 43, 0.94) 0%,
+                    rgba(7, 92, 63, 0.78) 35%,
+                    rgba(7, 92, 63, 0.35) 65%,
+                    rgba(4, 61, 43, 0.12) 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           ORANGE LIGHT
+        ===================================================== */
+
+        .slide::before {
+
+            content: "";
+
+            position: absolute;
+
+            z-index: 1;
+
+            width: 280px;
+
+            height: 280px;
+
+            right: 10%;
+
+            bottom: -150px;
+
+            background: var(--orange);
+
+            opacity: 0.18;
+
+            border-radius: 50%;
+
+            filter: blur(40px);
+
+        }
+
+
+        /* =====================================================
+           SLIDE CONTENT
+        ===================================================== */
+
+        .slide-content {
+
+            position: absolute;
+
+            z-index: 3;
+
+            top: 50%;
+
+            left: 7%;
+
+            transform: translateY(-50%);
+
+            max-width: 540px;
+
+            color: var(--white);
+
+        }
+
+
+        /* =====================================================
+           SMALL LABEL
+        ===================================================== */
+
+        .slide-content small {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 7px 13px;
+
+            margin-bottom: 15px;
+
+            background: var(--orange);
+
+            color: var(--text);
+
+            border-radius: 7px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            box-shadow:
+                0 5px 15px
+                rgba(245, 158, 11, 0.25);
+
+        }
+
+
+        /* =====================================================
+           HEADING
+        ===================================================== */
+
+        .slide-content h1 {
+
+            font-size: 50px;
+
+            line-height: 1.08;
+
+            margin-bottom: 16px;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .slide-content h1 span {
+
+            color: var(--orange);
+
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .slide-content p {
+
+            max-width: 480px;
+
+            margin-bottom: 27px;
+
+            color:
+                rgba(255, 255, 255, 0.88);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .shop-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px 22px;
+
+            background: var(--orange);
+
+            color: var(--text);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px
+                rgba(245, 158, 11, 0.25);
+
+            transition: all 0.25s ease;
+
+        }
+
+
+        .shop-btn:hover {
+
+            background: #ffb52e;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(245, 158, 11, 0.35);
+
+        }
+
+
+        /* =====================================================
+           ARROWS
+        ===================================================== */
+
+        .slider-btn {
+
+            position: absolute;
+
+            z-index: 6;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 2px solid
+                rgba(255, 255, 255, 0.55);
+
+            border-radius: 50%;
+
+            background:
+                rgba(7, 92, 63, 0.82);
+
+            color: var(--white);
+
+            font-size: 21px;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+
+        }
+
+
+        .slider-btn:hover {
+
+            background: var(--orange);
+
+            border-color: var(--orange);
+
+            color: var(--text);
+
+            transform:
+                translateY(-50%)
+                scale(1.08);
+
+        }
+
+
+        .prev {
+
+            left: 20px;
+
+        }
+
+
+        .next {
+
+            right: 20px;
+
+        }
+
+
+        /* =====================================================
+           DOTS
+        ===================================================== */
+
+        .dots {
+
+            position: absolute;
+
+            z-index: 6;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .dot {
+
+            width: 9px;
+
+            height: 9px;
+
+            padding: 0;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.55);
+
+            cursor: pointer;
+
+            transition:
+                width 0.25s ease,
+                background 0.25s ease;
+
+        }
+
+
+        .dot.active {
+
+            width: 28px;
+
+            border-radius: 10px;
+
+            background: var(--orange);
+
+        }
+
+
+        /* =====================================================
+           PROGRESS
+        ===================================================== */
+
+        .progress {
+
+            position: absolute;
+
+            z-index: 7;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 100%;
+
+            height: 5px;
+
+            background:
+                rgba(255, 255, 255, 0.20);
+
+        }
+
+
+        .progress-bar {
+
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--green),
+                    var(--orange)
+                );
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            body {
+
+                padding: 20px 10px;
+
+            }
+
+
+            .slider {
+
+                height: 470px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .slide-content {
+
+                left: 25px;
+
+                right: 25px;
+
+                max-width: none;
+
+            }
+
+
+            .slide-content h1 {
+
+                font-size: 35px;
+
+            }
+
+
+            .slide-content p {
+
+                font-size: 14px;
+
+                line-height: 1.6;
+
+            }
+
+
+            .slider-btn {
+
+                width: 38px;
+
+                height: 38px;
+
+                font-size: 16px;
+
+            }
+
+
+            .prev {
+
+                left: 10px;
+
+            }
+
+
+            .next {
+
+                right: 10px;
+
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .slider {
+
+                height: 430px;
+
+            }
+
+
+            .slide-content h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .slide-content p {
+
+                font-size: 13px;
+
+            }
+
+
+            .slide-content small {
+
+                font-size: 9px;
+
+            }
+
+
+            .shop-btn {
+
+                padding: 12px 17px;
+
+                font-size: 13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAIJACART SLIDER
+    ====================================================== -->
+
+    <section class="slider">
+
+
+        <div class="slides">
+
+
+            <!-- =================================================
+                 SLIDE 1
+            ================================================== -->
+
+            <div class="slide active">
+
+                <img
+                    src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1600&q=85"
+                    alt="Smartphone"
+                >
+
+
+                <div class="slide-content">
+
+                    <small>
+                        Latest Technology
+                    </small>
+
+
+                    <h1>
+
+                        Find Your Next
+                        <span>Smartphone</span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Discover modern smartphones with
+                        powerful performance, beautiful displays,
+                        and features you'll love.
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="shop-btn"
+                    >
+
+                        Shop Smartphones
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 2
+            ================================================== -->
+
+            <div class="slide">
+
+                <img
+                    src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1600&q=85"
+                    alt="Laptop"
+                >
+
+
+                <div class="slide-content">
+
+                    <small>
+                        Work & Study
+                    </small>
+
+
+                    <h1>
+
+                        Power Your
+                        <span>Productivity</span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Get laptops designed for work, school,
+                        creativity, programming, and everyday
+                        performance.
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="shop-btn"
+                    >
+
+                        Shop Laptops
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 3
+            ================================================== -->
+
+            <div class="slide">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1600&q=85"
+                    alt="Gaming setup"
+                >
+
+
+                <div class="slide-content">
+
+                    <small>
+                        Gaming Zone
+                    </small>
+
+
+                    <h1>
+
+                        Level Up Your
+                        <span>Gaming</span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Upgrade your setup with gaming devices
+                        and accessories built for an exciting
+                        experience.
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="shop-btn"
+                    >
+
+                        Explore Gaming
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 4
+            ================================================== -->
+
+            <div class="slide">
+
+                <img
+                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85"
+                    alt="Headphones"
+                >
+
+
+                <div class="slide-content">
+
+                    <small>
+                        Premium Audio
+                    </small>
+
+
+                    <h1>
+
+                        Hear Every
+                        <span>Moment</span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Enjoy your music, podcasts, and entertainment
+                        with quality headphones and audio devices.
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="shop-btn"
+                    >
+
+                        Shop Audio
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SLIDE 5
+            ================================================== -->
+
+            <div class="slide">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=1600&q=85"
+                    alt="Smartwatch"
+                >
+
+
+                <div class="slide-content">
+
+                    <small>
+                        Smart Lifestyle
+                    </small>
+
+
+                    <h1>
+
+                        Stay Connected,
+                        <span>Stay Smart</span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Explore smartwatches and technology designed
+                        to keep up with your everyday life.
+
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="shop-btn"
+                    >
+
+                        Shop Smartwatches
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             PREVIOUS
+        ====================================================== -->
+
+        <button
+            class="slider-btn prev"
+            aria-label="Previous slide"
+        >
+
+            &#10094;
+
+        </button>
+
+
+        <!-- =====================================================
+             NEXT
+        ====================================================== -->
+
+        <button
+            class="slider-btn next"
+            aria-label="Next slide"
+        >
+
+            &#10095;
+
+        </button>
+
+
+        <!-- =====================================================
+             DOTS
+        ====================================================== -->
+
+        <div class="dots">
+
+            <button
+                class="dot active"
+                aria-label="Slide 1"
+            ></button>
+
+            <button
+                class="dot"
+                aria-label="Slide 2"
+            ></button>
+
+            <button
+                class="dot"
+                aria-label="Slide 3"
+            ></button>
+
+            <button
+                class="dot"
+                aria-label="Slide 4"
+            ></button>
+
+            <button
+                class="dot"
+                aria-label="Slide 5"
+            ></button>
+
+        </div>
+
+
+        <!-- =====================================================
+             PROGRESS BAR
+        ====================================================== -->
+
+        <div class="progress">
+
+            <div class="progress-bar"></div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const slides =
+            document.querySelectorAll(".slide");
+
+        const dots =
+            document.querySelectorAll(".dot");
+
+        const nextButton =
+            document.querySelector(".next");
+
+        const prevButton =
+            document.querySelector(".prev");
+
+        const progressBar =
+            document.querySelector(".progress-bar");
+
+
+        let currentSlide = 0;
+
+        let slideTimer;
+
+        const slideDuration = 5000;
+
+
+        /* =====================================================
+           SHOW SLIDE
+        ===================================================== */
+
+        function showSlide(index) {
+
+            slides.forEach((slide) => {
+
+                slide.classList.remove("active");
+
+            });
+
+
+            dots.forEach((dot) => {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            currentSlide = index;
+
+
+            if (currentSlide >= slides.length) {
+
+                currentSlide = 0;
+
+            }
+
+
+            if (currentSlide < 0) {
+
+                currentSlide =
+                    slides.length - 1;
+
+            }
+
+
+            slides[currentSlide]
+                .classList.add("active");
+
+
+            dots[currentSlide]
+                .classList.add("active");
+
+
+            resetProgress();
+
+        }
+
+
+        /* =====================================================
+           NEXT
+        ===================================================== */
+
+        function nextSlide() {
+
+            showSlide(currentSlide + 1);
+
+            startTimer();
+
+        }
+
+
+        /* =====================================================
+           PREVIOUS
+        ===================================================== */
+
+        function previousSlide() {
+
+            showSlide(currentSlide - 1);
+
+            startTimer();
+
+        }
+
+
+        /* =====================================================
+           AUTO SLIDE
+        ===================================================== */
+
+        function startTimer() {
+
+            clearInterval(slideTimer);
+
+
+            slideTimer = setInterval(() => {
+
+                showSlide(currentSlide + 1);
+
+            }, slideDuration);
+
+        }
+
+
+        /* =====================================================
+           PROGRESS BAR
+        ===================================================== */
+
+        function resetProgress() {
+
+            progressBar.style.transition = "none";
+
+            progressBar.style.width = "0%";
+
+
+            requestAnimationFrame(() => {
+
+                requestAnimationFrame(() => {
+
+                    progressBar.style.transition =
+                        `width ${slideDuration}ms linear`;
+
+                    progressBar.style.width = "100%";
+
+                });
+
+            });
+
+        }
+
+
+        /* =====================================================
+           BUTTON EVENTS
+        ===================================================== */
+
+        nextButton.addEventListener(
+            "click",
+            nextSlide
+        );
+
+
+        prevButton.addEventListener(
+            "click",
+            previousSlide
+        );
+
+
+        /* =====================================================
+           DOT EVENTS
+        ===================================================== */
+
+        dots.forEach((dot, index) => {
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    showSlide(index);
+
+                    startTimer();
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        showSlide(0);
+
+        startTimer();
+
+    </script>
+
+</body>
+
+</html>

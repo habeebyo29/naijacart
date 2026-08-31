@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#075c3f"
+    >
+
+    <title>
+        Payment Result | NaijaCart
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #f5f8f6;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+            color: #17221d;
+        }
+
+        .payment-card {
+            width: 100%;
+            max-width: 560px;
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, .10);
+        }
+
+        .payment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 38px;
+            font-weight: 900;
+            background: #eaf7f1;
+            color: #075c3f;
+        }
+
+        .payment-icon.failed {
+            background: #fff1f1;
+            color: #c62828;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 10px;
+            color: #f59e0b;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 30px;
+        }
+
+        p {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .order-number {
+            margin: 25px 0;
+            padding: 18px;
+            border-radius: 14px;
+            background: #f5f8f6;
+        }
+
+        .order-number span {
+            display: block;
+            margin-bottom: 6px;
+            color: #6b7280;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .order-number strong {
+            color: #075c3f;
+            font-size: 22px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 12px;
+            background: #075c3f;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="payment-card">
+
+        {% if success %}
+
+            <div class="payment-icon">
+                ✓
+            </div>
+
+            <span class="label">
+                PAYMENT SUCCESSFUL
+            </span>
+
+            <h1>
+                Thank You For Your Order! 🎉
+            </h1>
+
+            <p>
+                Your payment has been successfully verified
+                and your NaijaCart order has been confirmed.
+            </p>
+
+            <div class="order-number">
+
+                <span>
+                    ORDER NUMBER
+                </span>
+
+                <strong>
+                    {{ order_number }}
+                </strong>
+
+            </div>
+
+            <p>
+                Payment:
+                <strong>
+                    {{ payment_method }}
+                </strong>
+            </p>
+
+        {% else %}
+
+            <div class="payment-icon failed">
+                ×
+            </div>
+
+            <span class="label">
+                PAYMENT NOT COMPLETED
+            </span>
+
+            <h1>
+                Payment Could Not Be Confirmed
+            </h1>
+
+            <p>
+                {{ message }}
+            </p>
+
+        {% endif %}
+
+
+        <a
+            href="/"
+            class="button"
+        >
+            Continue Shopping
+        </a>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Shop laptops at NaijaCart. Find Apple, Dell, HP, Lenovo, ASUS, Acer and Microsoft laptops.">
+
+    <title>Laptops | NaijaCart</title>
+
+    <link rel="stylesheet" href="/naijacart-frontend/css/laptop.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+    <div class="top-bar">
+
+        <div class="top-bar-inner">
+
+            <p>🚚 Free delivery on orders over ₦50,000 within Nigeria!</p>
+
+            <div class="top-links">
+                <a href="#">Track Order</a>
+                <a href="#">Help Center</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     HEADER
+===================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <!-- =========================================================
+     NAIJACART LOGO
+========================================================= -->
+
+            <div class="logo-wrapper">
+
+                <!-- BRAND TEXT -->
+
+                <div class="logo-text">
+
+                    <strong>
+                        Naija<span>Cart</span>
+                    </strong>
+
+                    <small>
+                        Tech you want. Prices you'll love.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <style>
+                /* =========================================================
+   LOGO WRAPPER
+========================================================= */
+
+                .logo-wrapper {
+
+                    display: flex;
+
+                    align-items: center;
+
+                }
+
+
+                /* =========================================================
+   BRAND TEXT
+========================================================= */
+
+                .logo-text {
+
+                    display: flex;
+
+                    flex-direction: column;
+
+                    line-height: 1.1;
+
+                }
+
+
+                .logo-text strong {
+
+                    font-size: 23px;
+
+                    font-weight: 800;
+
+                    letter-spacing: -0.5px;
+
+                    color: #17221d;
+
+                }
+
+
+                /* CART = ORANGE */
+
+                .logo-text strong span {
+
+                    color: #f59e0b;
+
+                }
+
+
+                /* =========================================================
+   TAGLINE
+========================================================= */
+
+                .logo-text small {
+
+                    margin-top: 5px;
+
+                    font-size: 10px;
+
+                    font-weight: 500;
+
+                    color: #718078;
+
+                    letter-spacing: 0.1px;
+
+                }
+
+
+                /* =========================================================
+   MOBILE
+========================================================= */
+
+                @media (max-width: 600px) {
+
+                    .logo-text strong {
+
+                        font-size: 20px;
+
+                    }
+
+
+                    .logo-text small {
+
+                        font-size: 9px;
+
+                    }
+
+                }
+            </style>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input type="text" id="searchInput" placeholder="Search laptops, brands, models..." autocomplete="off">
+
+                <select id="categorySelect">
+
+                    <option value="all">All Categories</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="accessories">Accessories</option>
+
+                </select>
+
+                <button type="button" onclick="filterProducts()">
+                    🔍
+                </button>
+
+            </div>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+                <button class="action" onclick="showCompare()">
+                    ⇄
+                    <span>Compare</span>
+                </button>
+
+                <button class="action" onclick="toggleWishlist()">
+                    ♡
+                    <span>Wishlist</span>
+                </button>
+
+                <a href="cart.html" class="action cart-action">
+
+                    🛒
+
+                    <span>Cart</span>
+
+                    <b id="cartCount">0</b>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         NAVIGATION
+    ================================================= -->
+
+        <nav class="main-nav">
+
+            <div class="nav-inner">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="smartphones.html">
+                    Smartphones
+                </a>
+
+                <a href="laptops.html" class="active">
+                    Laptops
+                </a>
+
+                <a href="/naijacart-frontend/gaming.html">
+                    Gaming
+                </a>
+
+                <a href="/naijacart-frontend/audio.html">
+                    Audio
+                </a>
+
+                <a href="/naijacart-frontend/smartwatch.html">
+                    Smartwatches
+                </a>
+
+                <a href="accessories.html">
+                    Accessories
+                </a>
+
+                <a href="deals.html">
+                    Deals
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+    <div class="container">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <strong>Laptops</strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     HERO
+===================================================== -->
+
+    <section class="container">
+
+        <div class="category-hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    ⚡ POWER YOUR POTENTIAL
+                </span>
+
+                <h1>
+                    Find The Perfect
+                    <span>Laptop For You</span>
+                </h1>
+
+                <p>
+                    Powerful laptops for work, study,
+                    gaming and creativity.
+                </p>
+
+                <button class="hero-btn" onclick="scrollToProducts()">
+                    Shop Laptops
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <div class="hero-circle circle-one"></div>
+                <div class="hero-circle circle-two"></div>
+                <div class="hero-circle circle-three"></div>
+
+                <img src="/naijacart-frontend/assets/macbook.jpg"
+                    alt="Modern laptop">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     BRAND SECTION
+===================================================== -->
+
+    <section class="container brand-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="small-title">
+                    SHOP BY BRAND
+                </span>
+
+                <h2>
+                    Popular Laptop Brands
+                </h2>
+
+            </div>
+
+            <a href="#" onclick="showAllBrands(event)" class="view-brands">
+                View all brands →
+            </a>
+
+        </div>
+
+
+        <div class="brand-tabs">
+
+            <button class="brand active" onclick="filterBrand('all', this)">
+                All
+            </button>
+
+            <button class="brand" onclick="filterBrand('apple', this)">
+                Apple
+            </button>
+
+            <button class="brand" onclick="filterBrand('dell', this)">
+                Dell
+            </button>
+
+            <button class="brand" onclick="filterBrand('hp', this)">
+                HP
+            </button>
+
+            <button class="brand" onclick="filterBrand('lenovo', this)">
+                Lenovo
+            </button>
+
+            <button class="brand" onclick="filterBrand('asus', this)">
+                ASUS
+            </button>
+
+            <button class="brand" onclick="filterBrand('acer', this)">
+                Acer
+            </button>
+
+            <button class="brand" onclick="filterBrand('microsoft', this)">
+                Microsoft
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+    <section class="container products-section" id="products">
+
+        <div class="products-header">
+
+            <div>
+
+                <span class="small-title">
+                    LAPTOPS
+                </span>
+
+                <h2>
+                    All Laptops
+                </h2>
+
+            </div>
+
+
+            <div class="sort-box">
+
+                <label for="sortSelect">
+                    Sort by:
+                </label>
+
+                <select id="sortSelect" onchange="sortProducts()">
+
+                    <option value="featured">
+                        Featured
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="rating">
+                        Highest Rated
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+         PRODUCT GRID
+    ================================================= -->
+
+        <div class="products-grid" id="productsGrid">
+
+
+            <!-- 1. MACBOOK -->
+
+            <article class="product-card" data-brand="apple" data-name="MacBook Air M2" data-price="1250000"
+                data-rating="4.9">
+
+                <div class="product-image">
+
+                    <span class="discount">-12%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="/naijacart-frontend/assets/macbook.jpg" alt="Apple MacBook Air M2" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">
+                        APPLE
+                    </span>
+
+                    <h3>
+                        MacBook Air M2
+                    </h3>
+
+                    <p class="spec">
+                        8GB RAM • 256GB SSD • 13.6"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.9</strong>
+                        <span>(98)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦1,250,000</strong>
+
+                        <del>₦1,420,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'MacBook Air M2',
+                        'Apple',
+                        1250000,
+                        'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 2. DELL -->
+
+            <article class="product-card" data-brand="dell" data-name="Dell XPS 13 Plus" data-price="1180000"
+                data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">-10%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=700&q=85"
+                        alt="Dell XPS 13 Plus" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">DELL</span>
+
+                    <h3>Dell XPS 13 Plus</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 13.4"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(76)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦1,180,000</strong>
+
+                        <del>₦1,340,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Dell XPS 13 Plus',
+                        'Dell',
+                        1180000,
+                        'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 3. HP -->
+
+            <article class="product-card" data-brand="hp" data-name="HP Spectre x360 14" data-price="1050000"
+                data-rating="4.7">
+
+                <div class="product-image">
+
+                    <span class="discount">-8%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=700&q=85"
+                        alt="HP Spectre x360 14" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">HP</span>
+
+                    <h3>HP Spectre x360 14</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 14" OLED
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.7</strong>
+                        <span>(64)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦1,050,000</strong>
+
+                        <del>₦1,140,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'HP Spectre x360 14',
+                        'HP',
+                        1050000,
+                        'https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 4. LENOVO -->
+
+            <article class="product-card" data-brand="lenovo" data-name="Lenovo ThinkPad X1 Carbon" data-price="950000"
+                data-rating="4.6">
+
+                <div class="product-image">
+
+                    <span class="discount">-15%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=700&q=85"
+                        alt="Lenovo ThinkPad X1 Carbon" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">LENOVO</span>
+
+                    <h3>ThinkPad X1 Carbon</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 14"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.6</strong>
+                        <span>(82)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦950,000</strong>
+
+                        <del>₦1,120,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Lenovo ThinkPad X1 Carbon',
+                        'Lenovo',
+                        950000,
+                        'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 5. ASUS -->
+
+            <article class="product-card" data-brand="asus" data-name="ASUS ZenBook 14 OLED" data-price="720000"
+                data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">-9%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=700&q=85"
+                        alt="ASUS ZenBook 14 OLED" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">ASUS</span>
+
+                    <h3>ZenBook 14 OLED</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 14" OLED
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(61)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦720,000</strong>
+
+                        <del>₦790,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'ASUS ZenBook 14 OLED',
+                        'ASUS',
+                        720000,
+                        'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 6. ACER -->
+
+            <article class="product-card" data-brand="acer" data-name="Acer Swift 3" data-price="530000"
+                data-rating="4.5">
+
+                <div class="product-image">
+
+                    <span class="discount">-12%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=700&q=85"
+                        alt="Acer Swift 3" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">ACER</span>
+
+                    <h3>Acer Swift 3</h3>
+
+                    <p class="spec">
+                        8GB RAM • 512GB SSD • 14"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.5</strong>
+                        <span>(51)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦530,000</strong>
+
+                        <del>₦600,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Acer Swift 3',
+                        'Acer',
+                        530000,
+                        'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 7. HP PAVILION -->
+
+            <article class="product-card" data-brand="hp" data-name="HP Pavilion 15" data-price="590000"
+                data-rating="4.5">
+
+                <div class="product-image">
+
+                    <span class="discount">-7%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=85"
+                        alt="HP Pavilion 15" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">HP</span>
+
+                    <h3>HP Pavilion 15</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 15.6"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.5</strong>
+                        <span>(48)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦590,000</strong>
+
+                        <del>₦640,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'HP Pavilion 15',
+                        'HP',
+                        590000,
+                        'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 8. ASUS TUF -->
+
+            <article class="product-card" data-brand="asus" data-name="ASUS TUF Gaming F15" data-price="630000"
+                data-rating="4.7">
+
+                <div class="product-image">
+
+                    <span class="discount">-10%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=700&q=85"
+                        alt="ASUS TUF Gaming F15" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">ASUS</span>
+
+                    <h3>ASUS TUF Gaming F15</h3>
+
+                    <p class="spec">
+                        16GB RAM • 512GB SSD • 15.6"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.7</strong>
+                        <span>(60)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦630,000</strong>
+
+                        <del>₦700,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'ASUS TUF Gaming F15',
+                        'ASUS',
+                        630000,
+                        'https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 9. MICROSOFT -->
+
+            <article class="product-card" data-brand="microsoft" data-name="Microsoft Surface Laptop 5"
+                data-price="1100000" data-rating="4.8">
+
+                <div class="product-image">
+
+                    <span class="discount">-8%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=700&q=85"
+                        alt="Microsoft Surface Laptop 5" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">MICROSOFT</span>
+
+                    <h3>Surface Laptop 5</h3>
+
+                    <p class="spec">
+                        8GB RAM • 256GB SSD • 13.5"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.8</strong>
+                        <span>(37)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦1,100,000</strong>
+
+                        <del>₦1,190,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Microsoft Surface Laptop 5',
+                        'Microsoft',
+                        1100000,
+                        'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- 10. LENOVO -->
+
+            <article class="product-card" data-brand="lenovo" data-name="Lenovo IdeaPad Slim 3" data-price="620000"
+                data-rating="4.4">
+
+                <div class="product-image">
+
+                    <span class="discount">-11%</span>
+
+                    <button class="heart" onclick="toggleHeart(this)">
+                        ♡
+                    </button>
+
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=700&q=85"
+                        alt="Lenovo IdeaPad Slim 3" loading="lazy">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="brand-name">LENOVO</span>
+
+                    <h3>Lenovo IdeaPad Slim 3</h3>
+
+                    <p class="spec">
+                        8GB RAM • 512GB SSD • 15.6"
+                    </p>
+
+                    <div class="rating">
+                        ⭐ <strong>4.4</strong>
+                        <span>(44)</span>
+                    </div>
+
+                    <div class="price">
+
+                        <strong>₦620,000</strong>
+
+                        <del>₦690,000</del>
+
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart(
+                        'Lenovo IdeaPad Slim 3',
+                        'Lenovo',
+                        620000,
+                        'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=700&q=85'
+                    )">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div class="no-products" id="noProducts">
+
+            <div>🔎</div>
+
+            <h3>No laptops found</h3>
+
+            <p>
+                Try another laptop, brand or search term.
+            </p>
+
+            <button onclick="resetFilters()">
+                Show All Laptops
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     TRUST SECTION
+===================================================== -->
+
+    <section class="container">
+
+        <div class="trust-section">
+
+            <div class="trust-card">
+
+                <div class="trust-icon">🚚</div>
+
+                <div>
+                    <strong>Fast Delivery</strong>
+                    <span>Across Nigeria</span>
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">🛡️</div>
+
+                <div>
+                    <strong>Secure Payments</strong>
+                    <span>Safe & trusted checkout</span>
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">✓</div>
+
+                <div>
+                    <strong>100% Authentic</strong>
+                    <span>Genuine products</span>
+                </div>
+
+            </div>
+
+
+            <div class="trust-card">
+
+                <div class="trust-icon">↩</div>
+
+                <div>
+                    <strong>Easy Returns</strong>
+                    <span>Hassle-free returns</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer>
+
+        <div class="footer-main container">
+
+            <div class="footer-about">
+
+
+                <p>
+                    Your trusted destination for smartphones,
+                    laptops, gaming and the latest technology
+                    in Nigeria.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#">f</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">◎</a>
+                    <a href="#">▶</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Shop</h3>
+
+                <a href="smartphones.html">Smartphones</a>
+                <a href="laptops.html">Laptops</a>
+                <a href="gaming.html">Gaming</a>
+                <a href="audio.html">Audio</a>
+                <a href="smartwatches.html">Smartwatches</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="deals.html">Deals</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Customer Service</h3>
+
+                <a href="#">Track Order</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Shipping</a>
+                <a href="#">Payment Methods</a>
+                <a href="#">FAQs</a>
+                <a href="contact.html">Help Center</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Company</h3>
+
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Become a Seller</a>
+
+            </div>
+
+
+            <div class="newsletter">
+
+                <h3>Stay Updated</h3>
+
+                <p>
+                    Get the latest deals and new arrivals
+                    straight to your inbox.
+                </p>
+
+                <form class="newsletter-box" onsubmit="subscribeNewsletter(event)">
+
+                    <input type="email" placeholder="Enter your email" required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom container">
+
+            <p>
+                © 2026 NaijaCart. All rights reserved.
+            </p>
+
+            <div class="payment-methods">
+
+                <span>VISA</span>
+                <span>MC</span>
+                <span>Verve</span>
+                <span>PayPal</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="/naijacart-frontend/js/cart.js"></script>
+    <script src="/naijacart-frontend/js/laptop.js"></script>
+
+
+    <!-- =====================================================
+     BACK TO TOP BUTTON
+===================================================== -->
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+        ↑
+    </button>
+
+
+    <style>
+        /* =====================================================
+       BACK TO TOP BUTTON
+    ===================================================== */
+
+        .back-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #075c3f;
+            color: #ffffff;
+
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1;
+
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.18);
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease,
+                background 0.25s ease;
+
+            z-index: 9999;
+        }
+
+
+        /* SHOW BUTTON */
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* HOVER */
+
+        .back-to-top:hover {
+            background: #f59e0b;
+            color: #17221d;
+            transform: translateY(-4px);
+        }
+
+
+        /* CLICK */
+
+        .back-to-top:active {
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+       MOBILE
+    ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .back-to-top {
+                right: 16px;
+                bottom: 16px;
+
+                width: 44px;
+                height: 44px;
+
+                font-size: 23px;
+            }
+
+        }
+    </style>
+
+
+    <script>
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const backToTop = document.getElementById("backToTop");
+
+
+        /* Show button when user scrolls down */
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        /* Scroll to top */
+
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

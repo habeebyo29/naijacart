@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Manage your NaijaCart profile, contact information and delivery address."
+>
+
+<meta
+    name="theme-color"
+    content="#087443"
+>
+
+<title>Edit Profile | NaijaCart</title>
+
+
+<style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+
+        --green: #087443;
+        --green-dark: #075c3f;
+        --green-light: #eaf7f0;
+
+        --orange: #f59e0b;
+        --orange-light: #fff7e6;
+
+        --dark: #17231b;
+        --text: #334155;
+        --muted: #718078;
+
+        --border: #dfe7e2;
+        --border-light: #e9efeb;
+
+        --background: #f7f9f8;
+
+        --white: #ffffff;
+
+        --danger: #dc2626;
+
+    }
+
+
+    /* =========================================================
+       BODY
+    ========================================================= */
+
+    body {
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background: var(--background);
+
+        color: var(--dark);
+
+        min-height: 100vh;
+
+        line-height: 1.5;
+
+    }
+
+
+    a {
+
+        text-decoration: none;
+
+        color: inherit;
+
+    }
+
+
+    button,
+    input,
+    textarea {
+
+        font-family: inherit;
+
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .header {
+
+        background: rgba(255, 255, 255, 0.97);
+
+        border-bottom: 1px solid var(--border);
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 100;
+
+        backdrop-filter: blur(10px);
+
+    }
+
+
+    .header-inner {
+
+        width: 100%;
+
+        max-width: 1180px;
+
+        margin: 0 auto;
+
+        padding: 15px 25px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+    }
+
+
+    /* =========================================================
+       LOGO
+    ========================================================= */
+
+    .logo-text {
+
+        display: flex;
+
+        flex-direction: column;
+
+        line-height: 1.1;
+
+    }
+
+
+    .logo-text strong {
+
+        font-size: 24px;
+
+        font-weight: 800;
+
+        letter-spacing: -0.8px;
+
+        color: var(--dark);
+
+    }
+
+
+    .logo-text strong span {
+
+        color: var(--orange);
+
+    }
+
+
+    .logo-text small {
+
+        margin-top: 5px;
+
+        font-size: 10px;
+
+        color: var(--muted);
+
+        letter-spacing: 0.1px;
+
+    }
+
+
+    /* =========================================================
+       BACK BUTTON
+    ========================================================= */
+
+    .back-home {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        color: var(--green);
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        padding: 9px 13px;
+
+        border-radius: 9px;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .back-home:hover {
+
+        background: var(--green-light);
+
+        color: var(--green-dark);
+
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    .container {
+
+        width: 100%;
+
+        max-width: 920px;
+
+        margin: 0 auto;
+
+        padding: 48px 20px 70px;
+
+    }
+
+
+    /* =========================================================
+       PAGE HEADER
+    ========================================================= */
+
+    .page-header {
+
+        margin-bottom: 28px;
+
+    }
+
+
+    .page-header .eyebrow {
+
+        display: inline-block;
+
+        color: var(--orange);
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        letter-spacing: 1.3px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .page-header h1 {
+
+        font-size: 32px;
+
+        line-height: 1.15;
+
+        font-weight: 750;
+
+        letter-spacing: -0.6px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .page-header p {
+
+        color: var(--muted);
+
+        font-size: 14px;
+
+        max-width: 620px;
+
+    }
+
+
+    /* =========================================================
+       PROFILE SUMMARY
+    ========================================================= */
+
+    .profile-summary {
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 24px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 18px;
+
+        margin-bottom: 18px;
+
+        box-shadow:
+            0 5px 20px rgba(15, 23, 42, 0.035);
+
+    }
+
+
+    /* =========================================================
+       AVATAR
+    ========================================================= */
+
+    .avatar {
+
+        width: 70px;
+
+        height: 70px;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--green-light),
+                #d9f0e2
+            );
+
+        color: var(--green);
+
+        border: 2px solid #d4e9dc;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 27px;
+
+        font-weight: 800;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .profile-summary-info {
+
+        min-width: 0;
+
+    }
+
+
+    .profile-summary-info h2 {
+
+        font-size: 20px;
+
+        font-weight: 700;
+
+        margin-bottom: 4px;
+
+        word-break: break-word;
+
+    }
+
+
+    .profile-summary-info p {
+
+        color: var(--muted);
+
+        font-size: 13px;
+
+        word-break: break-word;
+
+    }
+
+
+    .profile-type {
+
+        margin-left: auto;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        background: var(--green-light);
+
+        color: var(--green);
+
+        border-radius: 20px;
+
+        padding: 7px 11px;
+
+        font-size: 11px;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+
+    }
+
+
+    /* =========================================================
+       PROFILE CARD
+    ========================================================= */
+
+    .profile-card {
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 7px 25px rgba(15, 23, 42, 0.035);
+
+    }
+
+
+    /* =========================================================
+       CARD HEADER
+    ========================================================= */
+
+    .card-header {
+
+        padding: 25px 28px;
+
+        border-bottom: 1px solid var(--border-light);
+
+    }
+
+
+    .card-header h2 {
+
+        font-size: 18px;
+
+        font-weight: 700;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .card-header p {
+
+        color: var(--muted);
+
+        font-size: 13px;
+
+    }
+
+
+    /* =========================================================
+       FORM
+    ========================================================= */
+
+    .profile-form {
+
+        padding: 28px;
+
+    }
+
+
+    .form-section {
+
+        margin-bottom: 32px;
+
+    }
+
+
+    .form-section:last-of-type {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .form-section-title {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .section-icon {
+
+        width: 35px;
+
+        height: 35px;
+
+        border-radius: 10px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: var(--green-light);
+
+        color: var(--green);
+
+        font-size: 16px;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .form-section-title h3 {
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+    }
+
+
+    .form-section-title p {
+
+        font-size: 11px;
+
+        color: var(--muted);
+
+        margin-top: 2px;
+
+    }
+
+
+    /* =========================================================
+       FORM GRID
+    ========================================================= */
+
+    .form-grid {
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+
+    }
+
+
+    .form-group {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .form-group.full {
+
+        grid-column: 1 / -1;
+
+    }
+
+
+    .form-label {
+
+        display: block;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        color: var(--dark);
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .required {
+
+        color: var(--orange);
+
+    }
+
+
+    /* =========================================================
+       INPUT WRAPPER
+    ========================================================= */
+
+    .input-wrapper {
+
+        position: relative;
+
+    }
+
+
+    .input-icon {
+
+        position: absolute;
+
+        left: 14px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #829087;
+
+        font-size: 15px;
+
+        pointer-events: none;
+
+    }
+
+
+    .textarea-icon {
+
+        position: absolute;
+
+        left: 14px;
+
+        top: 15px;
+
+        color: #829087;
+
+        font-size: 15px;
+
+        pointer-events: none;
+
+    }
+
+
+    /* =========================================================
+       INPUTS
+    ========================================================= */
+
+    .form-input,
+    .form-textarea {
+
+        width: 100%;
+
+        border: 1px solid #d7e1db;
+
+        background: #ffffff;
+
+        color: var(--dark);
+
+        outline: none;
+
+        font-size: 13px;
+
+        border-radius: 10px;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+
+    }
+
+
+    .form-input {
+
+        height: 47px;
+
+        padding:
+            0
+            14px
+            0
+            41px;
+
+    }
+
+
+    .form-textarea {
+
+        min-height: 105px;
+
+        padding:
+            13px
+            14px
+            13px
+            41px;
+
+        resize: vertical;
+
+        line-height: 1.5;
+
+    }
+
+
+    .form-input:hover,
+    .form-textarea:hover {
+
+        border-color: #c5d4cb;
+
+    }
+
+
+    .form-input:focus,
+    .form-textarea:focus {
+
+        border-color: var(--green);
+
+        box-shadow:
+            0 0 0 3px rgba(8, 116, 67, 0.10);
+
+    }
+
+
+    .form-input:disabled {
+
+        background: #f4f7f5;
+
+        color: #718078;
+
+        cursor: not-allowed;
+
+    }
+
+
+    .form-help {
+
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 10px;
+
+        margin-top: 6px;
+
+        line-height: 1.5;
+
+    }
+
+
+    /* =========================================================
+       ADDRESS BOX
+    ========================================================= */
+
+    .address-box {
+
+        background: #f8fbf9;
+
+        border: 1px solid #e1ebe5;
+
+        border-radius: 13px;
+
+        padding: 18px;
+
+    }
+
+
+    .address-box .form-grid {
+
+        gap: 15px;
+
+    }
+
+
+    /* =========================================================
+       ACCOUNT SECURITY NOTICE
+    ========================================================= */
+
+    .security-notice {
+
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+        background: var(--green-light);
+
+        border: 1px solid #d7ebdf;
+
+        border-radius: 12px;
+
+        padding: 15px;
+
+        margin-top: 28px;
+
+    }
+
+
+    .security-icon {
+
+        width: 34px;
+
+        height: 34px;
+
+        border-radius: 9px;
+
+        background: white;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        color: var(--green);
+
+        flex-shrink: 0;
+
+        font-size: 15px;
+
+    }
+
+
+    .security-notice strong {
+
+        display: block;
+
+        color: var(--dark);
+
+        font-size: 12px;
+
+        margin-bottom: 3px;
+
+    }
+
+
+    .security-notice p {
+
+        color: #5e7166;
+
+        font-size: 10px;
+
+        line-height: 1.5;
+
+    }
+
+
+    /* =========================================================
+       DIVIDER
+    ========================================================= */
+
+    .divider {
+
+        height: 1px;
+
+        background: var(--border-light);
+
+        margin: 28px 0;
+
+    }
+
+
+    /* =========================================================
+       FORM ACTIONS
+    ========================================================= */
+
+    .form-actions {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+    }
+
+
+    .actions-left {
+
+        color: var(--muted);
+
+        font-size: 11px;
+
+    }
+
+
+    .actions-right {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+    }
+
+
+    .cancel-btn,
+    .save-btn {
+
+        height: 44px;
+
+        border-radius: 9px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 0 18px;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .cancel-btn {
+
+        border: 1px solid var(--border);
+
+        background: white;
+
+        color: var(--text);
+
+    }
+
+
+    .cancel-btn:hover {
+
+        background: #f5f8f6;
+
+    }
+
+
+    .save-btn {
+
+        border: none;
+
+        background: var(--green);
+
+        color: white;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 14px rgba(8, 116, 67, 0.15);
+
+    }
+
+
+    .save-btn:hover {
+
+        background: var(--green-dark);
+
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 7px 18px rgba(8, 116, 67, 0.20);
+
+    }
+
+
+    /* =========================================================
+       QUICK LINKS
+    ========================================================= */
+
+    .quick-links {
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 12px;
+
+        margin-top: 18px;
+
+    }
+
+
+    .quick-link {
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 13px;
+
+        padding: 16px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+
+        transition: 0.2s ease;
+
+    }
+
+
+    .quick-link:hover {
+
+        border-color: #c6ddd0;
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 8px 20px rgba(8, 116, 67, 0.06);
+
+    }
+
+
+    .quick-link-icon {
+
+        width: 39px;
+
+        height: 39px;
+
+        border-radius: 10px;
+
+        background: var(--green-light);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-size: 16px;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .quick-link:nth-child(2) .quick-link-icon {
+
+        background: var(--orange-light);
+
+    }
+
+
+    .quick-link:nth-child(3) .quick-link-icon {
+
+        background: #f1f5f9;
+
+    }
+
+
+    .quick-link strong {
+
+        display: block;
+
+        font-size: 12px;
+
+        margin-bottom: 3px;
+
+    }
+
+
+    .quick-link span {
+
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 10px;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+        background: #0b2418;
+
+        color: #9eb2a5;
+
+        padding: 30px 20px;
+
+        text-align: center;
+
+        border-top: 3px solid var(--orange);
+
+    }
+
+
+    .footer-brand {
+
+        color: white;
+
+        font-size: 18px;
+
+        font-weight: 800;
+
+        margin-bottom: 6px;
+
+    }
+
+
+    .footer-brand span {
+
+        color: var(--orange);
+
+    }
+
+
+    footer p {
+
+        font-size: 11px;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .footer-copy {
+
+        color: #70877a;
+
+        font-size: 10px;
+
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 750px) {
+
+        .quick-links {
+
+            grid-template-columns: 1fr;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+        .header-inner {
+
+            padding: 14px 16px;
+
+        }
+
+
+        .logo-text strong {
+
+            font-size: 21px;
+
+        }
+
+
+        .logo-text small {
+
+            display: none;
+
+        }
+
+
+        .back-home {
+
+            font-size: 12px;
+
+            padding: 8px;
+
+        }
+
+
+        .container {
+
+            padding:
+                30px
+                15px
+                50px;
+
+        }
+
+
+        .page-header {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .page-header h1 {
+
+            font-size: 26px;
+
+        }
+
+
+        .page-header p {
+
+            font-size: 13px;
+
+        }
+
+
+        .profile-summary {
+
+            padding: 19px;
+
+        }
+
+
+        .avatar {
+
+            width: 60px;
+
+            height: 60px;
+
+            font-size: 23px;
+
+        }
+
+
+        .profile-summary-info h2 {
+
+            font-size: 17px;
+
+        }
+
+
+        .profile-summary-info p {
+
+            font-size: 11px;
+
+        }
+
+
+        .profile-type {
+
+            display: none;
+
+        }
+
+
+        .card-header {
+
+            padding: 21px;
+
+        }
+
+
+        .profile-form {
+
+            padding: 21px;
+
+        }
+
+
+        .form-grid {
+
+            grid-template-columns: 1fr;
+
+            gap: 17px;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column: auto;
+
+        }
+
+
+        .address-box {
+
+            padding: 14px;
+
+        }
+
+
+        .form-actions {
+
+            flex-direction: column;
+
+            align-items: stretch;
+
+        }
+
+
+        .actions-left {
+
+            text-align: center;
+
+        }
+
+
+        .actions-right {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+        }
+
+
+        .cancel-btn,
+        .save-btn {
+
+            width: 100%;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       SMALL MOBILE
+    ========================================================= */
+
+    @media (max-width: 400px) {
+
+        .actions-right {
+
+            grid-template-columns: 1fr;
+
+        }
+
+
+        .cancel-btn,
+        .save-btn {
+
+            width: 100%;
+
+        }
+
+
+        .profile-summary {
+
+            align-items: flex-start;
+
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="/"
+            class="logo-text"
+        >
+
+            <strong>
+                Naija<span>Cart</span>
+            </strong>
+
+            <small>
+                Tech you want. Prices you'll love.
+            </small>
+
+        </a>
+
+
+        <!-- BACK -->
+
+        <a
+            href="/"
+            class="back-home"
+        >
+
+            ← Back to Shop
+
+        </a>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="container">
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ===================================================== -->
+
+    <div class="page-header">
+
+        <span class="eyebrow">
+            ACCOUNT SETTINGS
+        </span>
+
+        <h1>
+            Edit Profile
+        </h1>
+
+        <p>
+            Manage your personal information and delivery
+            details for your NaijaCart account.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PROFILE SUMMARY
+    ===================================================== -->
+
+    <section class="profile-summary">
+
+
+        <div class="avatar">
+
+            {{ user.name[0]|upper }}
+
+        </div>
+
+
+        <div class="profile-summary-info">
+
+            <h2>
+                {{ user.name }}
+            </h2>
+
+            <p>
+                {{ user.email }}
+            </p>
+
+        </div>
+
+
+        <div class="profile-type">
+
+            {% if user.is_admin %}
+
+                🛡 Administrator
+
+            {% else %}
+
+                ✓ Customer
+
+            {% endif %}
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROFILE CARD
+    ===================================================== -->
+
+    <section class="profile-card">
+
+
+        <!-- CARD HEADER -->
+
+        <div class="card-header">
+
+            <h2>
+                Personal information
+            </h2>
+
+            <p>
+                Keep your account information accurate and
+                up to date.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================= -->
+
+        <form
+            class="profile-form"
+            method="POST"
+            action="/profile/edit"
+        >
+
+
+            <!-- =================================================
+                 PERSONAL INFORMATION
+            ================================================= -->
+
+            <div class="form-section">
+
+
+                <div class="form-section-title">
+
+                    <div class="section-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Personal details
+                        </h3>
+
+                        <p>
+                            Basic information about you
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="name"
+                        >
+
+                            Full name
+                            <span class="required">*</span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                class="form-input"
+                                value="{{ user.name }}"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="email"
+                        >
+
+                            Email address
+                            <span class="required">*</span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉
+                            </span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-input"
+                                value="{{ user.email }}"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <small class="form-help">
+                            Used for order updates and important
+                            account notifications.
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="phone"
+                        >
+
+                            Phone number
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ☎
+                            </span>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="form-input"
+                                value="{{ user.phone if user.phone else '' }}"
+                                placeholder="e.g. 08012345678"
+                                autocomplete="tel"
+                            >
+
+                        </div>
+
+                        <small class="form-help">
+                            Helpful for delivery updates.
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="divider"></div>
+
+
+
+            <!-- =================================================
+                 DELIVERY ADDRESS
+            ================================================= -->
+
+            <div class="form-section">
+
+
+                <div class="form-section-title">
+
+                    <div class="section-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Delivery address
+                        </h3>
+
+                        <p>
+                            Where you'd like your orders delivered
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="address-box">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- ADDRESS -->
+
+                        <div class="form-group full">
+
+                            <label
+                                class="form-label"
+                                for="address"
+                            >
+
+                                Street address
+                                <span class="required">*</span>
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <span class="textarea-icon">
+                                    📍
+                                </span>
+
+                                <textarea
+                                    id="address"
+                                    name="address"
+                                    class="form-textarea"
+                                    placeholder="Enter your full delivery address"
+                                    autocomplete="street-address"
+                                    required
+                                >{{ user.address if user.address else '' }}</textarea>
+
+                            </div>
+
+
+                            <small class="form-help">
+                                Include your house number, street,
+                                estate or landmark where necessary.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- CITY -->
+
+                        <div class="form-group">
+
+                            <label
+                                class="form-label"
+                                for="city"
+                            >
+
+                                City
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    🏙
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    class="form-input"
+                                    value="{{ user.city if user.city else '' }}"
+                                    placeholder="e.g. Lagos"
+                                    autocomplete="address-level2"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- STATE -->
+
+                        <div class="form-group">
+
+                            <label
+                                class="form-label"
+                                for="state"
+                            >
+
+                                State
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">
+                                    🇳🇬
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="state"
+                                    name="state"
+                                    class="form-input"
+                                    value="{{ user.state if user.state else '' }}"
+                                    placeholder="e.g. Lagos State"
+                                    autocomplete="address-level1"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECURITY NOTICE
+            ================================================= -->
+
+            <div class="security-notice">
+
+                <div class="security-icon">
+                    🔒
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Your information is private
+                    </strong>
+
+                    <p>
+                        Your personal and delivery information
+                        is used only to provide your NaijaCart
+                        services and process your orders.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider"></div>
+
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================= -->
+
+            <div class="form-actions">
+
+
+                <div class="actions-left">
+
+                    Changes will be saved to your account.
+
+                </div>
+
+
+                <div class="actions-right">
+
+                    <a
+                        href="/"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         QUICK LINKS
+    ===================================================== -->
+
+    <div class="quick-links">
+
+
+        <!-- ORDERS -->
+
+        <a
+            href="/orders/"
+            class="quick-link"
+        >
+
+            <div class="quick-link-icon">
+                📦
+            </div>
+
+            <div>
+
+                <strong>
+                    My Orders
+                </strong>
+
+                <span>
+                    View your purchases
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- SHOP -->
+
+        <a
+            href="/"
+            class="quick-link"
+        >
+
+            <div class="quick-link-icon">
+                🛍️
+            </div>
+
+            <div>
+
+                <strong>
+                    Continue Shopping
+                </strong>
+
+                <span>
+                    Browse gadgets
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- LOGOUT -->
+
+        <a
+            href="/logout"
+            class="quick-link"
+        >
+
+            <div class="quick-link-icon">
+                ↪
+            </div>
+
+            <div>
+
+                <strong>
+                    Logout
+                </strong>
+
+                <span>
+                    Sign out of your account
+                </span>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-brand">
+        Naija<span>Cart</span>
+    </div>
+
+    <p>
+        Your trusted Nigerian gadget marketplace.
+    </p>
+
+    <div class="footer-copy">
+        © 2026 NaijaCart. All rights reserved. · Built by Habeeb Yusuf
+    </div>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FAQs | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .faq-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .faq-container {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .faq-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .faq-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 650px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           FAQ LIST
+        ===================================================== */
+
+        .faq-list {
+
+            display: grid;
+
+            gap: 12px;
+
+        }
+
+
+        .faq-item {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.025);
+
+        }
+
+
+        .faq-item summary {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 20px 23px;
+
+            cursor: pointer;
+
+            list-style: none;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+        }
+
+
+        .faq-item summary::-webkit-details-marker {
+
+            display: none;
+
+        }
+
+
+        .faq-item summary::after {
+
+            content: "+";
+
+            width: 28px;
+
+            height: 28px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+            font-size: 20px;
+
+            font-weight: 500;
+
+        }
+
+
+        .faq-item[open] summary::after {
+
+            content: "−";
+
+            background: var(--brand);
+
+            color: var(--white);
+
+        }
+
+
+        .faq-answer {
+
+            padding: 0 23px 21px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            max-width: 750px;
+
+        }
+
+
+        /* =====================================================
+           CATEGORY LABEL
+        ===================================================== */
+
+        .faq-category {
+
+            margin-top: 35px;
+
+            margin-bottom: 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .faq-category i {
+
+            color: var(--accent);
+
+            font-size: 15px;
+
+        }
+
+
+        .faq-category h2 {
+
+            font-size: 18px;
+
+        }
+
+
+        /* =====================================================
+           HELP BOX
+        ===================================================== */
+
+        .help-section {
+
+            margin-top: 40px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 20px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+            color: var(--brand-dark);
+
+        }
+
+
+        .help-section p {
+
+            max-width: 550px;
+
+            margin: 0 auto 20px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .faq-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .faq-item summary {
+
+                padding: 18px;
+
+                font-size: 14px;
+
+            }
+
+
+            .faq-answer {
+
+                padding: 0 18px 18px;
+
+                font-size: 13px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FAQ PAGE
+    ====================================================== -->
+
+    <main class="faq-page">
+
+        <section class="faq-container">
+
+
+            <!-- HEADER -->
+
+            <div class="faq-icon">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART SUPPORT
+            </span>
+
+
+            <h1>
+                Frequently Asked Questions
+            </h1>
+
+
+            <p class="intro">
+
+                Find answers to some of the most common
+                questions about shopping, orders, payments,
+                delivery, returns, and refunds on NaijaCart.
+
+            </p>
+
+
+            <!-- =================================================
+                 SHOPPING
+            ================================================== -->
+
+            <div class="faq-category">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h2>
+                    Shopping & Orders
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        How do I place an order?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Browse our products, add the items you
+                        want to your cart, review your order,
+                        and continue to checkout to complete
+                        your purchase.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I order more than one product?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Yes. You can add multiple products to
+                        your cart and review everything together
+                        before completing your order.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I cancel my order?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        If you need to cancel an order, contact
+                        our support team as soon as possible.
+                        Cancellation availability may depend
+                        on the order's current status.
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PAYMENT
+            ================================================== -->
+
+            <div class="faq-category">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <h2>
+                    Payments
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What payment methods are available?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Available payment methods are displayed
+                        during checkout. Depending on the
+                        available payment services, options may
+                        include card and bank-based payments.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Is my payment information safe?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Keep your payment credentials private
+                        and only enter payment information through
+                        the official checkout process. Never share
+                        your PIN or verification codes with anyone.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What should I do if my payment fails?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Check your payment details and try again.
+                        If the problem continues, contact our
+                        support team for assistance.
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DELIVERY
+            ================================================== -->
+
+            <div class="faq-category">
+
+                <i class="fa-solid fa-truck"></i>
+
+                <h2>
+                    Shipping & Delivery
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        How long does delivery take?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Delivery time depends on your location,
+                        product availability, and the delivery
+                        service handling your order.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I track my order?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        You can visit our Track Order page for
+                        information about how order delivery
+                        works. Delivery information will be
+                        provided when available.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What if I miss my delivery?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        If you miss a delivery attempt, follow
+                        any instructions provided by the delivery
+                        service or contact NaijaCart support
+                        for assistance.
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 RETURNS
+            ================================================== -->
+
+            <div class="faq-category">
+
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+
+                <h2>
+                    Returns & Refunds
+                </h2>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I return an item?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Items may be eligible for return depending
+                        on the condition of the product and the
+                        circumstances of the order. Please contact
+                        our support team before returning an item.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        How do refunds work?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Once an approved return has been reviewed,
+                        any applicable refund will be processed
+                        according to the order and payment method.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What if I receive a damaged item?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Contact our support team as soon as possible
+                        and provide your order information so we
+                        can help you with the next steps.
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+                <h2>
+                    Still Have Questions?
+                </h2>
+
+
+                <p>
+
+                    If you can't find the answer you're looking
+                    for, our support team is ready to help.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

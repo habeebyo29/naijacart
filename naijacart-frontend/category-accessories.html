@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="Explore phone, laptop and tech accessories available at NaijaCart."
+>
+
+<meta
+    name="theme-color"
+    content="#087443"
+>
+
+<title>Accessories | NaijaCart</title>
+
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+
+<style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    :root {
+
+        --green: #087443;
+        --dark-green: #063f2c;
+        --orange: #f59e0b;
+
+        --light-green: #eef8f3;
+        --light-orange: #fff7e6;
+
+        --white: #ffffff;
+        --dark: #17201c;
+        --gray: #68736d;
+
+        --border: #e4ebe7;
+
+    }
+
+
+    body {
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f3faf6,
+                #ffffff 50%,
+                #fffaf0
+            );
+
+        color: var(--dark);
+
+        line-height: 1.6;
+
+    }
+
+
+    /* =====================================================
+       PAGE
+    ===================================================== */
+
+    .page {
+
+        width: min(1100px, 92%);
+
+        margin: auto;
+
+        padding: 25px 0 60px;
+
+    }
+
+
+    /* =====================================================
+       BREADCRUMB
+    ===================================================== */
+
+    .breadcrumb {
+
+        display: flex;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 9px;
+
+        margin-bottom: 35px;
+
+        font-size: 14px;
+
+        color: var(--gray);
+
+    }
+
+
+    .breadcrumb a {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        color: var(--green);
+
+        font-weight: 700;
+
+        text-decoration: none;
+
+    }
+
+
+    .breadcrumb a:hover {
+
+        color: var(--orange);
+
+    }
+
+
+    .breadcrumb i {
+
+        color: #aab4af;
+
+        font-size: 10px;
+
+    }
+
+
+    .breadcrumb strong {
+
+        color: var(--dark);
+
+    }
+
+
+    /* =====================================================
+       WELCOME
+    ===================================================== */
+
+    .welcome {
+
+        max-width: 780px;
+
+        margin: 0 auto 55px;
+
+        text-align: center;
+
+    }
+
+
+    .welcome-badge {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 7px 13px;
+
+        border-radius: 30px;
+
+        background: var(--light-orange);
+
+        color: #a56500;
+
+        font-size: 11px;
+
+        font-weight: 900;
+
+        letter-spacing: 1.5px;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .welcome h1 {
+
+        font-size: clamp(38px, 6vw, 58px);
+
+        line-height: 1.05;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .welcome h1 span {
+
+        color: var(--green);
+
+    }
+
+
+    .welcome p {
+
+        color: var(--gray);
+
+        max-width: 680px;
+
+        margin: auto;
+
+        font-size: 16px;
+
+    }
+
+
+    /* =====================================================
+       QUICK INFO
+    ===================================================== */
+
+    .welcome-strip {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 15px;
+
+        margin-bottom: 60px;
+
+    }
+
+
+    .strip-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        padding: 18px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+    }
+
+
+    .strip-icon {
+
+        width: 43px;
+
+        height: 43px;
+
+        flex-shrink: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 11px;
+
+        background: var(--light-green);
+
+        color: var(--green);
+
+        font-size: 18px;
+
+    }
+
+
+    .strip-item:nth-child(2) .strip-icon {
+
+        background: var(--light-orange);
+
+        color: var(--orange);
+
+    }
+
+
+    .strip-item h3 {
+
+        font-size: 14px;
+
+        margin-bottom: 2px;
+
+    }
+
+
+    .strip-item p {
+
+        color: var(--gray);
+
+        font-size: 12px;
+
+    }
+
+
+    /* =====================================================
+       CATEGORY HEADER
+    ===================================================== */
+
+    .brands-header {
+
+        text-align: center;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .brands-header span {
+
+        color: var(--orange);
+
+        font-size: 11px;
+
+        font-weight: 900;
+
+        letter-spacing: 1.8px;
+
+    }
+
+
+    .brands-header h2 {
+
+        font-size: clamp(27px, 4vw, 38px);
+
+        margin-top: 5px;
+
+    }
+
+
+    .brands-header p {
+
+        color: var(--gray);
+
+        font-size: 14px;
+
+        margin-top: 7px;
+
+    }
+
+
+    /* =====================================================
+       ACCESSORY CARDS
+    ===================================================== */
+
+    .brands {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 18px;
+
+    }
+
+
+    .brand-card {
+
+        position: relative;
+
+        min-height: 175px;
+
+        padding: 25px;
+
+        overflow: hidden;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        transition: .3s ease;
+
+    }
+
+
+    .brand-card::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 95px;
+
+        height: 95px;
+
+        border-radius: 50%;
+
+        right: -30px;
+
+        bottom: -30px;
+
+        background: var(--light-green);
+
+    }
+
+
+    .brand-card:nth-child(even)::after {
+
+        background: var(--light-orange);
+
+    }
+
+
+    .brand-card:hover {
+
+        transform: translateY(-5px);
+
+        border-color:
+            rgba(8,116,67,.25);
+
+        box-shadow:
+            0 15px 30px
+            rgba(6,63,44,.09);
+
+    }
+
+
+    .brand-icon {
+
+        position: relative;
+
+        z-index: 2;
+
+        width: 48px;
+
+        height: 48px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 12px;
+
+        background: var(--green);
+
+        color: var(--white);
+
+        font-size: 19px;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .brand-card:nth-child(even)
+    .brand-icon {
+
+        background: var(--orange);
+
+        color: var(--dark);
+
+    }
+
+
+    .brand-card h3 {
+
+        position: relative;
+
+        z-index: 2;
+
+        font-size: 19px;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .brand-card p {
+
+        position: relative;
+
+        z-index: 2;
+
+        color: var(--gray);
+
+        font-size: 13px;
+
+        max-width: 240px;
+
+    }
+
+
+    /* =====================================================
+       BOTTOM MESSAGE
+    ===================================================== */
+
+    .bottom-message {
+
+        margin-top: 50px;
+
+        padding: 28px;
+
+        text-align: center;
+
+        border-radius: 18px;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--dark-green),
+                var(--green)
+            );
+
+        color: var(--white);
+
+    }
+
+
+    .bottom-message h2 {
+
+        font-size: 24px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .bottom-message p {
+
+        color: #dcebe4;
+
+        font-size: 14px;
+
+    }
+
+
+    /* =====================================================
+       BACK HOME
+    ===================================================== */
+
+    .back-home {
+
+        display: flex;
+
+        justify-content: center;
+
+        margin-top: 35px;
+
+    }
+
+
+    .back-home a {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 12px 20px;
+
+        border-radius: 9px;
+
+        background: var(--green);
+
+        color: var(--white);
+
+        font-size: 14px;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+        transition: .25s ease;
+
+    }
+
+
+    .back-home a:hover {
+
+        background: var(--orange);
+
+        color: var(--dark);
+
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 800px) {
+
+        .brands {
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+        }
+
+
+        .welcome-strip {
+
+            grid-template-columns:
+                1fr;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 550px) {
+
+        .page {
+
+            width: 94%;
+
+            padding-top: 18px;
+
+        }
+
+
+        .breadcrumb {
+
+            font-size: 12px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .welcome {
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .welcome h1 {
+
+            font-size: 42px;
+
+        }
+
+
+        .welcome p {
+
+            font-size: 14px;
+
+        }
+
+
+        .brands {
+
+            grid-template-columns: 1fr;
+
+        }
+
+
+        .brand-card {
+
+            min-height: 155px;
+
+        }
+
+
+        .bottom-message {
+
+            padding: 24px 18px;
+
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<main class="page">
+
+
+    <!-- =================================================
+         BREADCRUMB
+    ================================================== -->
+
+    <nav class="breadcrumb">
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <span>Shop by Category</span>
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+        <strong>Accessories</strong>
+
+    </nav>
+
+
+    <!-- =================================================
+         WELCOME
+    ================================================== -->
+
+    <section class="welcome">
+
+        <span class="welcome-badge">
+
+            <i class="fa-solid fa-plug"></i>
+
+            NAIJACART ACCESSORIES
+
+        </span>
+
+
+        <h1>
+
+            Welcome to our
+            <span>Accessories</span>
+            collection
+
+        </h1>
+
+
+        <p>
+
+            Complete your tech setup with useful
+            accessories for your smartphones, laptops,
+            gaming devices and other gadgets.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         QUICK INFO
+    ================================================== -->
+
+    <section class="welcome-strip">
+
+
+        <div class="strip-item">
+
+            <div class="strip-icon">
+
+                <i class="fa-solid fa-battery-full"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Power Accessories
+                </h3>
+
+                <p>
+                    Keep your devices powered
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="strip-item">
+
+            <div class="strip-icon">
+
+                <i class="fa-solid fa-shield"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Device Protection
+                </h3>
+
+                <p>
+                    Protect your favourite gadgets
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="strip-item">
+
+            <div class="strip-icon">
+
+                <i class="fa-solid fa-plug"></i>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Everyday Essentials
+                </h3>
+
+                <p>
+                    Useful tech for everyday life
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         ACCESSORIES
+    ================================================== -->
+
+    <section>
+
+
+        <div class="brands-header">
+
+            <span>
+                EXPLORE ACCESSORIES
+            </span>
+
+            <h2>
+                Tech Essentials
+            </h2>
+
+            <p>
+                Discover some of the accessories available
+                at NaijaCart.
+            </p>
+
+        </div>
+
+
+        <div class="brands">
+
+
+            <!-- CHARGERS -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-charging-station"></i>
+
+                </div>
+
+                <h3>
+                    Chargers
+                </h3>
+
+                <p>
+                    Charging solutions for smartphones,
+                    tablets and other devices.
+                </p>
+
+            </article>
+
+
+            <!-- POWER BANKS -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-battery-full"></i>
+
+                </div>
+
+                <h3>
+                    Power Banks
+                </h3>
+
+                <p>
+                    Portable power for keeping your
+                    devices charged on the go.
+                </p>
+
+            </article>
+
+
+            <!-- PHONE CASES -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                </div>
+
+                <h3>
+                    Phone Cases
+                </h3>
+
+                <p>
+                    Protective cases and covers for
+                    different smartphone models.
+                </p>
+
+            </article>
+
+
+            <!-- CABLES -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-link"></i>
+
+                </div>
+
+                <h3>
+                    Cables
+                </h3>
+
+                <p>
+                    USB, charging and connectivity cables
+                    for your everyday devices.
+                </p>
+
+            </article>
+
+
+            <!-- SCREEN PROTECTORS -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <h3>
+                    Screen Protectors
+                </h3>
+
+                <p>
+                    Help protect your device screens from
+                    everyday scratches and damage.
+                </p>
+
+            </article>
+
+
+            <!-- LAPTOP ACCESSORIES -->
+
+            <article class="brand-card">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-laptop"></i>
+
+                </div>
+
+                <h3>
+                    Laptop Accessories
+                </h3>
+
+                <p>
+                    Useful accessories to improve your
+                    laptop setup and everyday productivity.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BOTTOM MESSAGE
+    ================================================== -->
+
+    <section class="bottom-message">
+
+        <h2>
+            Complete your tech setup.
+        </h2>
+
+        <p>
+            Find the accessories you need for your
+            favourite devices at NaijaCart.
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         BACK HOME
+    ================================================== -->
+
+    <div class="back-home">
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Home
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>

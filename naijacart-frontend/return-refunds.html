@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Returns & Refunds | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .returns-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .returns-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .returns-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .returns-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           POLICY CARDS
+        ===================================================== */
+
+        .policy-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .policy-card {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .policy-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 13px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+        }
+
+
+        .policy-icon i {
+
+            font-size: 18px;
+
+        }
+
+
+        .policy-card h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .policy-card p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           RETURN PROCESS
+        ===================================================== */
+
+        .process-section {
+
+            margin-top: 25px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .process-list {
+
+            display: grid;
+
+            gap: 18px;
+
+        }
+
+
+        .process-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+        }
+
+
+        .process-number {
+
+            width: 34px;
+
+            height: 34px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .process-item h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .process-item p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           REFUND NOTICE
+        ===================================================== */
+
+        .refund-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+        }
+
+
+        .refund-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+        }
+
+
+        .refund-box h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .refund-box p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           IMPORTANT NOTE
+        ===================================================== */
+
+        .important-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .important-box h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 8px;
+
+            color: var(--brand-dark);
+
+        }
+
+
+        .important-box p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            text-align: center;
+
+            padding: 45px 20px 10px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .help-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .returns-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .policy-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .policy-card {
+
+                padding: 23px;
+
+            }
+
+
+            .process-section {
+
+                padding: 23px;
+
+            }
+
+
+            .refund-box {
+
+                padding: 20px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         RETURNS & REFUNDS PAGE
+    ====================================================== -->
+
+    <main class="returns-page">
+
+        <section class="returns-container">
+
+
+            <!-- HEADER -->
+
+            <div class="returns-icon">
+
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART SUPPORT
+            </span>
+
+
+            <h1>
+                Returns & Refunds
+            </h1>
+
+
+            <p class="intro">
+
+                We want you to shop with confidence. If something
+                isn't right with your order, here's what you need
+                to know about returns and refunds.
+
+            </p>
+
+
+            <!-- =================================================
+                 POLICY CARDS
+            ================================================== -->
+
+            <div class="policy-grid">
+
+
+                <!-- RETURN POLICY -->
+
+                <div class="policy-card">
+
+                    <div class="policy-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Return Policy
+                    </h2>
+
+
+                    <p>
+
+                        If you receive an item that is damaged,
+                        defective, incorrect, or different from
+                        what you ordered, please contact us as
+                        soon as possible so we can help resolve
+                        the issue.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ELIGIBILITY -->
+
+                <div class="policy-card">
+
+                    <div class="policy-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Eligible Items
+                    </h2>
+
+
+                    <p>
+
+                        Items should generally be returned in
+                        their original condition, with their
+                        packaging and accessories where
+                        applicable.
+
+                    </p>
+
+                </div>
+
+
+                <!-- REFUNDS -->
+
+                <div class="policy-card">
+
+                    <div class="policy-icon">
+
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Refunds
+                    </h2>
+
+
+                    <p>
+
+                        Once an approved return has been reviewed,
+                        we'll process the appropriate refund
+                        according to the original order and
+                        payment arrangement.
+
+                    </p>
+
+                </div>
+
+
+                <!-- EXCLUSIONS -->
+
+                <div class="policy-card">
+
+                    <div class="policy-icon">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Items Not Eligible
+                    </h2>
+
+
+                    <p>
+
+                        Certain products may not be eligible for
+                        return because of their condition,
+                        usage, or product-specific requirements.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 HOW TO REQUEST A RETURN
+            ================================================== -->
+
+            <div class="process-section">
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        How to Request a Return
+                    </h2>
+
+
+                    <p>
+                        Follow these simple steps if you need
+                        assistance with a return.
+                    </p>
+
+                </div>
+
+
+                <div class="process-list">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            1
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Contact Us
+                            </h3>
+
+
+                            <p>
+                                Get in touch with our support
+                                team and provide your order
+                                details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            2
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Explain the Issue
+                            </h3>
+
+
+                            <p>
+                                Tell us what went wrong and,
+                                where necessary, provide
+                                relevant information about
+                                the item.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            3
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Return Instructions
+                            </h3>
+
+
+                            <p>
+                                Our team will let you know the
+                                next steps if your return
+                                request is approved.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 4 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            4
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Refund Processing
+                            </h3>
+
+
+                            <p>
+                                After the return is reviewed,
+                                any approved refund will be
+                                processed accordingly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REFUND NOTICE
+            ================================================== -->
+
+            <div class="refund-box">
+
+
+                <div class="refund-icon">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Refund Processing
+                    </h3>
+
+
+                    <p>
+
+                        Refund timing can vary depending on
+                        the return review and the payment
+                        method used for the order. Our team
+                        will provide any relevant information
+                        during the process.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORTANT NOTE
+            ================================================== -->
+
+            <div class="important-box">
+
+                <h2>
+                    Before Returning an Item
+                </h2>
+
+
+                <p>
+
+                    Please keep your order information and
+                    product packaging available until your
+                    return has been resolved. Do not send an
+                    item back without first contacting
+                    NaijaCart for return instructions.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+
+                <h2>
+                    Need help with a return?
+                </h2>
+
+
+                <p>
+
+                    Our support team is ready to help you
+                    with questions about your order.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

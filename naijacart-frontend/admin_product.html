@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NigerCart - Add Product</title>
+
+
+    <style>
+
+        /* =====================================================
+           NIGERCART ADMIN — ADD PRODUCT
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            left: 0;
+            top: 0;
+
+            width: 250px;
+            height: 100vh;
+
+            background: #111827;
+
+            padding: 28px 18px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            z-index: 100;
+        }
+
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            color: #ffffff;
+
+            padding: 0 14px 28px;
+        }
+
+
+        .logo span {
+            color: #22c55e;
+        }
+
+
+        .admin-label {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #7f8a9d;
+
+            padding: 0 14px 12px;
+        }
+
+
+        .sidebar-nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+        }
+
+
+        .nav-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 13px 14px;
+
+            border-radius: 10px;
+
+            color: #aeb7c7;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+
+        .nav-item:hover {
+
+            background: #1f2937;
+
+            color: #ffffff;
+        }
+
+
+        .nav-item.active {
+
+            background: #22c55e;
+
+            color: #ffffff;
+
+            box-shadow:
+                0 5px 15px
+                rgba(34, 197, 94, 0.25);
+        }
+
+
+        .nav-icon {
+
+            width: 22px;
+
+            text-align: center;
+
+            font-size: 18px;
+        }
+
+
+        .sidebar-bottom {
+
+            margin-top: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+        }
+
+
+        .nav-item.logout:hover {
+
+            background: #3b1d24;
+
+            color: #ff8b9c;
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+        ===================================================== */
+
+        .main-content {
+
+            margin-left: 250px;
+
+            min-height: 100vh;
+
+            padding: 30px 35px;
+        }
+
+
+        /* =====================================================
+           TOPBAR
+        ===================================================== */
+
+        .topbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .welcome-small {
+
+            font-size: 11px;
+
+            color: #22a65a;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .topbar h1 {
+
+            font-size: 30px;
+
+            color: #111827;
+        }
+
+
+        .topbar p {
+
+            margin-top: 6px;
+
+            color: #8a94a6;
+
+            font-size: 13px;
+        }
+
+
+        .back-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 11px 17px;
+
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            color: #374151;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back-btn:hover {
+
+            border-color: #22c55e;
+
+            color: #16a34a;
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .form-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e8ebf1;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 18px
+                rgba(15, 23, 42, 0.04);
+
+            overflow: hidden;
+
+            max-width: 1000px;
+        }
+
+
+        .form-header {
+
+            padding: 22px 25px;
+
+            border-bottom: 1px solid #edf0f4;
+        }
+
+
+        .form-header h2 {
+
+            font-size: 18px;
+
+            color: #172033;
+
+            margin-bottom: 5px;
+        }
+
+
+        .form-header p {
+
+            font-size: 12px;
+
+            color: #8a94a6;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        form {
+
+            padding: 25px;
+        }
+
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+
+        .form-group.full {
+
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #374151;
+        }
+
+
+        label span {
+
+            color: #ef4444;
+        }
+
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border: 1px solid #dfe3ea;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #172033;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            transition: 0.2s ease;
+        }
+
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+
+            border-color: #22c55e;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(34, 197, 94, 0.10);
+        }
+
+
+        textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+            line-height: 1.5;
+        }
+
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color: #a0a8b5;
+        }
+
+
+        .field-help {
+
+            font-size: 11px;
+
+            color: #98a2b3;
+        }
+
+
+        /* =====================================================
+           FORM FOOTER
+        ===================================================== */
+
+        .form-footer {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 12px;
+
+            padding-top: 25px;
+
+            margin-top: 25px;
+
+            border-top: 1px solid #edf0f4;
+        }
+
+
+        .cancel-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 11px 20px;
+
+            border-radius: 9px;
+
+            background: #f3f4f6;
+
+            color: #4b5563;
+
+            text-decoration: none;
+
+            border: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .cancel-btn:hover {
+
+            background: #e5e7eb;
+        }
+
+
+        .submit-btn {
+
+            padding: 11px 22px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #22c55e;
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+
+            box-shadow:
+                0 5px 15px
+                rgba(34, 197, 94, 0.20);
+        }
+
+
+        .submit-btn:hover {
+
+            background: #16a34a;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           FLASH MESSAGES
+        ===================================================== */
+
+        .message {
+
+            max-width: 1000px;
+
+            margin-bottom: 20px;
+
+            padding: 13px 16px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .message.success {
+
+            background: #e8f7ee;
+
+            color: #15803d;
+
+            border: 1px solid #bbebcc;
+        }
+
+
+        .message.error {
+
+            background: #fff1f2;
+
+            color: #be123c;
+
+            border: 1px solid #fecdd3;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+
+                grid-column: auto;
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .sidebar {
+
+                position: relative;
+
+                width: 100%;
+
+                height: auto;
+
+                padding: 18px;
+            }
+
+
+            .logo {
+
+                padding-bottom: 15px;
+            }
+
+
+            .admin-label {
+
+                display: none;
+            }
+
+
+            .sidebar-nav {
+
+                flex-direction: row;
+
+                overflow-x: auto;
+            }
+
+
+            .nav-item {
+
+                white-space: nowrap;
+            }
+
+
+            .sidebar-bottom {
+
+                margin-top: 10px;
+
+                flex-direction: row;
+            }
+
+
+            .main-content {
+
+                margin-left: 0;
+
+                padding: 22px 16px;
+            }
+
+
+            .topbar {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+        }
+
+
+        @media (max-width: 520px) {
+
+            .topbar h1 {
+
+                font-size: 25px;
+            }
+
+
+            .form-card {
+
+                border-radius: 12px;
+            }
+
+
+            form {
+
+                padding: 18px;
+            }
+
+
+            .form-header {
+
+                padding: 18px;
+            }
+
+
+            .form-footer {
+
+                flex-direction: column-reverse;
+
+                align-items: stretch;
+            }
+
+
+            .cancel-btn,
+            .submit-btn {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>Naija</span>Cart
+        </div>
+
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="/admin/"
+                class="nav-item"
+            >
+                <span class="nav-icon">📊</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="/admin/products"
+                class="nav-item active"
+            >
+                <span class="nav-icon">📦</span>
+                Products
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">🛒</span>
+                Orders
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">👥</span>
+                Users
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="/logout"
+                class="nav-item logout"
+            >
+                <span class="nav-icon">🚪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="welcome-small">
+                    PRODUCT MANAGEMENT
+                </div>
+
+                <h1>
+                    Add Product
+                </h1>
+
+                <p>
+                    Add a new product to your NigerCart store.
+                </p>
+
+            </div>
+
+
+            <a
+                href="/admin/products"
+                class="back-btn"
+            >
+                ← Back to Products
+            </a>
+
+        </header>
+
+
+
+
+        <!-- =================================================
+             FORM CARD
+        ================================================== -->
+
+        <section class="form-card">
+
+
+            <div class="form-header">
+
+                <h2>
+                    Product Information
+                </h2>
+
+                <p>
+                    Enter the details of the product you want to add.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PRODUCT FORM
+            ================================================== -->
+
+            <form
+                method="POST"
+                action="/admin/products/add"
+            >
+
+
+                <div class="form-grid">
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Product Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="e.g. iPhone 15 Pro Max"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- BRAND -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Brand <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="brand"
+                            placeholder="e.g. Apple"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Category <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="category"
+                            placeholder="e.g. Smartphones"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CATEGORY ID -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Category ID
+                        </label>
+
+                        <input
+                            type="number"
+                            name="category_id"
+                            placeholder="e.g. 1"
+                            min="1"
+                        >
+
+                        <span class="field-help">
+                            Optional. Leave empty if you don't need it.
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PRICE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Price (₦) <span>*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            name="price"
+                            placeholder="e.g. 1250000"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- OLD PRICE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Old Price (₦)
+                        </label>
+
+                        <input
+                            type="number"
+                            name="old_price"
+                            placeholder="e.g. 1400000"
+                            min="0"
+                            step="0.01"
+                        >
+
+                    </div>
+
+
+
+                    <!-- DISCOUNT -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Discount (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            name="discount"
+                            placeholder="e.g. 10"
+                            min="0"
+                            max="100"
+                        >
+
+                    </div>
+
+
+
+                    <!-- RATING -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Rating
+                        </label>
+
+                        <input
+                            type="number"
+                            name="rating"
+                            placeholder="e.g. 4.8"
+                            min="0"
+                            max="5"
+                            step="0.1"
+                        >
+
+                    </div>
+
+
+
+                    <!-- STOCK -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Stock <span>*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            name="stock"
+                            placeholder="e.g. 10"
+                            min="0"
+                            value="10"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- IMAGE URL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Product Image URL
+                        </label>
+
+                        <input
+                            type="url"
+                            name="image_url"
+                            placeholder="https://example.com/product.jpg"
+                        >
+
+                        <span class="field-help">
+                            Paste the URL of the product image.
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            name="description"
+                            placeholder="Enter a description of the product..."
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FORM BUTTONS
+                ================================================== -->
+
+                <div class="form-footer">
+
+                    <a
+                        href="/admin/products"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        + Add Product
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+</html>

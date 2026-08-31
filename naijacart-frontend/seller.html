@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Become a Seller | NaijaCart</title>
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .seller-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .seller-container {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .seller-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .seller-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 700px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .seller-hero {
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 22px;
+
+            padding: 45px 35px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .seller-hero h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .seller-hero p {
+
+            max-width: 680px;
+
+            margin: 0 auto 25px;
+
+            color: rgba(255, 255, 255, 0.83);
+
+            font-size: 14px;
+
+        }
+
+
+        .start-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 13px 23px;
+
+            background: var(--accent);
+
+            color: #17221d;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .start-btn:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .section {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           BENEFITS
+        ===================================================== */
+
+        .benefits-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .benefit {
+
+            padding: 22px;
+
+            background: var(--background);
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+        }
+
+
+        .benefit-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+            border-radius: 12px;
+
+        }
+
+
+        .benefit h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .benefit p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           HOW IT WORKS
+        ===================================================== */
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .step {
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+        }
+
+
+        .step-number {
+
+            width: 34px;
+
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .step h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .step p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           REQUIREMENTS
+        ===================================================== */
+
+        .requirements {
+
+            display: grid;
+
+            gap: 11px;
+
+            list-style: none;
+
+        }
+
+
+        .requirements li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 11px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .requirements i {
+
+            color: var(--brand);
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =====================================================
+           NOTICE
+        ===================================================== */
+
+        .notice {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            padding: 25px;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .notice-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+            border-radius: 12px;
+
+        }
+
+
+        .notice h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .notice p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .seller-cta {
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 20px;
+
+        }
+
+
+        .seller-cta h2 {
+
+            color: var(--brand-dark);
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .seller-cta p {
+
+            max-width: 650px;
+
+            margin: 0 auto 20px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .seller-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 12px 22px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .seller-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .seller-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .seller-hero {
+
+                padding: 32px 20px;
+
+            }
+
+
+            .seller-hero h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .section {
+
+                padding: 23px;
+
+            }
+
+
+            .benefits-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .steps {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .seller-cta {
+
+                padding: 28px 20px;
+
+            }
+
+
+            .seller-cta h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BECOME A SELLER
+    ===================================================== -->
+
+    <main class="seller-page">
+
+        <section class="seller-container">
+
+
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
+
+            <div class="seller-icon">
+
+                <i class="fa-solid fa-store"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                SELL ON NAIJACART
+            </span>
+
+
+            <h1>
+                Become a Seller
+            </h1>
+
+
+            <p class="intro">
+
+                Reach more customers, showcase your products,
+                and grow your technology business with
+                NaijaCart.
+
+            </p>
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <div class="seller-hero">
+
+                <h2>
+                    Grow Your Business With NaijaCart
+                </h2>
+
+
+                <p>
+
+                    Whether you sell smartphones, laptops,
+                    gaming products, accessories, audio devices,
+                    or other technology products, NaijaCart
+                    gives you a place to connect with customers.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="start-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us to Become a Seller
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 BENEFITS
+            ================================================== -->
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Why Sell on NaijaCart?
+                    </h2>
+
+
+                    <p>
+                        Build your store and reach more shoppers.
+                    </p>
+
+                </div>
+
+
+                <div class="benefits-grid">
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Reach Customers
+                        </h3>
+
+
+                        <p>
+
+                            Showcase your products to customers
+                            looking for technology products.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-store"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Your Store
+                        </h3>
+
+
+                        <p>
+
+                            Build your presence on the NaijaCart
+                            marketplace with your products.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Grow Your Sales
+                        </h3>
+
+
+                        <p>
+
+                            Put your products in front of more
+                            potential customers.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HOW IT WORKS
+            ================================================== -->
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        How Selling Works
+                    </h2>
+
+
+                    <p>
+                        Getting started can be simple.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+
+                        <h3>
+                            Contact Us
+                        </h3>
+
+
+                        <p>
+
+                            Get in touch with our team and let us
+                            know that you want to sell on NaijaCart.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+
+                        <h3>
+                            Share Your Details
+                        </h3>
+
+
+                        <p>
+
+                            Provide information about yourself,
+                            your business, and the products you sell.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+
+                        <h3>
+                            Get Reviewed
+                        </h3>
+
+
+                        <p>
+
+                            Our team can review your information
+                            and discuss the next steps with you.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+
+                        <h3>
+                            Start Selling
+                        </h3>
+
+
+                        <p>
+
+                            Once approved, you can work with our
+                            team to get your products listed.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUIREMENTS
+            ================================================== -->
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        What You'll Need
+                    </h2>
+
+
+                    <p>
+
+                        Have these details ready when contacting
+                        us about becoming a seller.
+
+                    </p>
+
+                </div>
+
+
+                <ul class="requirements">
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Your name or registered business name.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            A valid phone number and email address.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Information about the products you sell.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Accurate product prices, descriptions,
+                            and images.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Information needed for payments and
+                            order fulfilment.
+                        </span>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTICE
+            ================================================== -->
+
+            <div class="notice">
+
+
+                <div class="notice-icon">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Seller Approval
+                    </h3>
+
+
+                    <p>
+
+                        Contacting NaijaCart about becoming a seller
+                        does not automatically guarantee approval.
+                        Our team may review your information and
+                        products before accepting a seller.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FINAL CTA
+            ================================================== -->
+
+            <div class="seller-cta">
+
+
+                <h2>
+                    Ready to Sell on NaijaCart?
+                </h2>
+
+
+                <p>
+
+                    If you're interested in becoming a seller,
+                    reach out to our team and we'll guide you
+                    through the next steps.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="seller-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

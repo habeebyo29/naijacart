@@ -1,0 +1,1521 @@
+<!-- =========================================================
+     NAIJACART — STEP 1: HEADER
+========================================================= -->
+
+<header class="nc-header">
+
+    <!-- =====================================================
+         TOP ANNOUNCEMENT BAR
+    ====================================================== -->
+    <div class="nc-topbar">
+
+        <div class="nc-topbar-inner">
+
+            <div class="nc-topbar-left">
+                <span>✓</span>
+                <span>100% Authentic gadgets</span>
+            </div>
+
+            <div class="nc-topbar-center">
+                Fast delivery across Nigeria
+            </div>
+
+            <div class="nc-topbar-right">
+                <span>Need help?</span>
+                <a href="#contact">Contact Us</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN HEADER
+    ====================================================== -->
+    <div class="nc-main-header">
+
+        <div class="nc-header-inner">
+
+
+            <!-- ================================
+                 LOGO
+            ================================= -->
+            <a href="/" class="nc-logo">
+
+                <div class="nc-logo-icon">
+                    <span class="nc-bag-handle"></span>
+
+                    <span class="nc-bag-body">
+                        <span class="nc-bag-dot"></span>
+                    </span>
+                </div>
+
+                <div class="nc-logo-text">
+                    <span class="nc-logo-naija">Naija</span><span class="nc-logo-cart">Cart</span>
+
+                    <small>
+                        Tech you want. Prices you'll love.
+                    </small>
+                </div>
+
+            </a>
+
+
+            <!-- ================================
+                 SEARCH
+            ================================= -->
+            <form class="nc-search" id="ncSearchForm">
+
+                <input
+                    type="search"
+                    id="ncSearchInput"
+                    placeholder="Search phones, laptops, gaming, accessories..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="submit"
+                    aria-label="Search"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="6.5"
+                        ></circle>
+
+                        <path
+                            d="M16 16L21 21"
+                        ></path>
+                    </svg>
+
+                    <span>Search</span>
+                </button>
+
+            </form>
+
+
+            <!-- ================================
+                 HEADER ACTIONS
+            ================================= -->
+            <div class="nc-header-actions">
+
+
+                <!-- ACCOUNT -->
+                <div class="nc-account-wrapper">
+
+                    <button
+                        class="nc-account-btn"
+                        id="ncAccountBtn"
+                        type="button"
+                        aria-expanded="false"
+                    >
+
+                        <span class="nc-action-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <circle
+                                    cx="12"
+                                    cy="8"
+                                    r="3.5"
+                                ></circle>
+
+                                <path
+                                    d="M5 20c.7-3.5 3.1-5.5 7-5.5s6.3 2 7 5.5"
+                                ></path>
+                            </svg>
+
+                        </span>
+
+                        <span class="nc-action-content">
+                            <small>Account</small>
+                            <strong>Sign In</strong>
+                        </span>
+
+                        <span class="nc-chevron">⌄</span>
+
+                    </button>
+
+
+                    <!-- ACCOUNT DROPDOWN -->
+                    <div
+                        class="nc-account-dropdown"
+                        id="ncAccountDropdown"
+                    >
+
+                        <div class="nc-dropdown-heading">
+                            <strong>Welcome to NaijaCart</strong>
+                            <span>Manage your account</span>
+                        </div>
+
+                        <a href="/login" class="nc-dropdown-login">
+                            Sign In
+                        </a>
+
+                        <a href="/register" class="nc-dropdown-register">
+                            Create Account
+                        </a>
+
+                        <div class="nc-dropdown-divider"></div>
+
+                        <a href="/account">
+                            <span>👤</span>
+                            My Account
+                        </a>
+
+                        <a href="/orders">
+                            <span>📦</span>
+                            My Orders
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CART -->
+                <a
+                    href="/cart"
+                    class="nc-cart-btn"
+                    aria-label="Shopping cart"
+                >
+
+                    <span class="nc-cart-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"
+                            ></path>
+
+                            <circle
+                                cx="10"
+                                cy="20"
+                                r="1.2"
+                            ></circle>
+
+                            <circle
+                                cx="18"
+                                cy="20"
+                                r="1.2"
+                            ></circle>
+
+                        </svg>
+
+                        <span
+                            class="nc-cart-count"
+                            id="ncCartCount"
+                        >
+                            0
+                        </span>
+
+                    </span>
+
+                    <span class="nc-cart-text">
+                        Cart
+                    </span>
+
+                </a>
+
+
+                <!-- MOBILE MENU BUTTON -->
+                <button
+                    class="nc-mobile-menu-btn"
+                    id="ncMobileMenuBtn"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DESKTOP / MOBILE NAVIGATION
+    ====================================================== -->
+    <nav
+        class="nc-navigation"
+        id="ncNavigation"
+    >
+
+        <div class="nc-nav-inner">
+
+            <a
+                href="/"
+                class="nc-nav-link nc-active"
+            >
+                <span>⌂</span>
+                Home
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Smartphones
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Laptops
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Gaming
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Audio
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Smartwatches
+            </a>
+
+            <a
+                href="#shop"
+                class="nc-nav-link"
+            >
+                Accessories
+            </a>
+
+            <a
+                href="#deals"
+                class="nc-nav-link"
+            >
+                Deals
+            </a>
+
+            <a
+                href="#about"
+                class="nc-nav-link"
+            >
+                About Us
+            </a>
+
+            <a
+                href="#contact"
+                class="nc-nav-link"
+            >
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     NAIJACART HEADER CSS
+========================================================= -->
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --nc-green: #087443;
+    --nc-green-dark: #055b35;
+    --nc-green-light: #eaf7f1;
+
+    --nc-orange: #f59e0b;
+    --nc-orange-dark: #d97706;
+
+    --nc-white: #ffffff;
+    --nc-black: #17211c;
+    --nc-gray: #64746c;
+    --nc-border: #e6ece9;
+    --nc-bg: #f8faf9;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.nc-header *,
+.nc-header *::before,
+.nc-header *::after {
+    box-sizing: border-box;
+}
+
+.nc-header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nc-header button,
+.nc-header input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.nc-header {
+    width: 100%;
+    background: var(--nc-white);
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.nc-topbar {
+    width: 100%;
+    background: var(--nc-green);
+    color: white;
+    font-size: 11px;
+}
+
+.nc-topbar-inner {
+    max-width: 1400px;
+    min-height: 30px;
+    margin: auto;
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.nc-topbar-left,
+.nc-topbar-right,
+.nc-topbar-center {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nc-topbar-left span:first-child {
+    color: #b9f5d5;
+    font-weight: 800;
+}
+
+.nc-topbar-right a {
+    color: #ffd37b;
+    font-weight: 700;
+}
+
+.nc-topbar-right a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   MAIN HEADER
+========================================================= */
+
+.nc-main-header {
+    background: white;
+    border-bottom: 1px solid var(--nc-border);
+}
+
+.nc-header-inner {
+    max-width: 1400px;
+    min-height: 76px;
+    margin: auto;
+    padding: 12px 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.nc-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 210px;
+
+    color: var(--nc-green);
+}
+
+.nc-logo-icon {
+    width: 42px;
+    height: 44px;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.nc-bag-body {
+    width: 35px;
+    height: 34px;
+
+    background: var(--nc-green);
+
+    border-radius: 7px 7px 9px 9px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nc-bag-handle {
+    position: absolute;
+
+    width: 17px;
+    height: 13px;
+
+    border: 3px solid var(--nc-green);
+    border-bottom: 0;
+
+    border-radius: 10px 10px 0 0;
+
+    top: 1px;
+}
+
+.nc-bag-dot {
+    width: 6px;
+    height: 6px;
+
+    background: var(--nc-orange);
+
+    border-radius: 50%;
+}
+
+.nc-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.nc-logo-naija,
+.nc-logo-cart {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.nc-logo-naija {
+    color: var(--nc-green);
+}
+
+.nc-logo-cart {
+    color: var(--nc-orange);
+}
+
+.nc-logo-text small {
+    margin-top: 5px;
+
+    color: var(--nc-gray);
+
+    font-size: 7px;
+    font-weight: 600;
+
+    letter-spacing: .1px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.nc-search {
+    flex: 1;
+    max-width: 650px;
+
+    height: 44px;
+
+    display: flex;
+    align-items: stretch;
+
+    background: var(--nc-bg);
+
+    border: 1px solid #dce5e0;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    transition: .2s ease;
+}
+
+.nc-search:focus-within {
+    border-color: var(--nc-green);
+    box-shadow: 0 0 0 3px rgba(8, 116, 67, .08);
+}
+
+.nc-search input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 0;
+    outline: 0;
+
+    padding: 0 16px;
+
+    background: transparent;
+
+    color: var(--nc-black);
+
+    font-size: 13px;
+}
+
+.nc-search input::placeholder {
+    color: #91a098;
+}
+
+.nc-search button {
+    width: 90px;
+
+    border: 0;
+
+    background: var(--nc-green);
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: .2s ease;
+}
+
+.nc-search button:hover {
+    background: var(--nc-green-dark);
+}
+
+.nc-search button svg {
+    width: 15px;
+    height: 15px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.nc-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+.nc-account-wrapper {
+    position: relative;
+}
+
+.nc-account-btn {
+    height: 44px;
+
+    border: 1px solid var(--nc-border);
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    cursor: pointer;
+
+    color: var(--nc-black);
+
+    transition: .2s ease;
+}
+
+.nc-account-btn:hover {
+    border-color: var(--nc-green);
+    background: var(--nc-green-light);
+}
+
+.nc-action-icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 50%;
+
+    background: var(--nc-green-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--nc-green);
+}
+
+.nc-action-icon svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+.nc-action-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nc-action-content small {
+    color: var(--nc-gray);
+    font-size: 9px;
+}
+
+.nc-action-content strong {
+    font-size: 11px;
+}
+
+.nc-chevron {
+    color: var(--nc-gray);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ACCOUNT DROPDOWN
+========================================================= */
+
+.nc-account-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 230px;
+
+    padding: 12px;
+
+    background: white;
+
+    border: 1px solid var(--nc-border);
+    border-radius: 10px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition: .2s ease;
+}
+
+.nc-account-dropdown.nc-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nc-dropdown-heading {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5px 6px 12px;
+}
+
+.nc-dropdown-heading strong {
+    color: var(--nc-black);
+    font-size: 12px;
+}
+
+.nc-dropdown-heading span {
+    margin-top: 3px;
+
+    color: var(--nc-gray);
+    font-size: 10px;
+}
+
+.nc-account-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 36px;
+
+    padding: 0 9px;
+
+    border-radius: 6px;
+
+    color: var(--nc-black);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.nc-account-dropdown > a:hover {
+    background: var(--nc-green-light);
+    color: var(--nc-green);
+}
+
+.nc-dropdown-login {
+    justify-content: center;
+
+    background: var(--nc-green) !important;
+    color: white !important;
+
+    font-weight: 700 !important;
+}
+
+.nc-dropdown-login:hover {
+    background: var(--nc-green-dark) !important;
+}
+
+.nc-dropdown-register {
+    justify-content: center;
+
+    margin-top: 6px;
+
+    border: 1px solid var(--nc-orange);
+
+    color: var(--nc-orange-dark) !important;
+}
+
+.nc-dropdown-register:hover {
+    background: #fff8e8 !important;
+}
+
+.nc-dropdown-divider {
+    height: 1px;
+
+    background: var(--nc-border);
+
+    margin: 10px 0;
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+.nc-cart-btn {
+    min-width: 78px;
+    height: 44px;
+
+    border-radius: 8px;
+
+    background: var(--nc-orange);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: .2s ease;
+}
+
+.nc-cart-btn:hover {
+    background: var(--nc-orange-dark);
+    transform: translateY(-1px);
+}
+
+.nc-cart-icon {
+    position: relative;
+
+    width: 21px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+}
+
+.nc-cart-icon svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+    stroke: var(--nc-green);
+    stroke-width: 2;
+}
+
+.nc-cart-count {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    min-width: 16px;
+    height: 16px;
+
+    padding: 0 4px;
+
+    background: var(--nc-green);
+
+    color: white;
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    border: 2px solid var(--nc-orange);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nc-navigation {
+    background: white;
+    border-bottom: 1px solid var(--nc-border);
+}
+
+.nc-nav-inner {
+    max-width: 1400px;
+
+    margin: auto;
+    padding: 0 28px;
+
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nc-nav-link {
+    position: relative;
+
+    height: 34px;
+
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    border-radius: 6px;
+
+    color: #53625b;
+
+    font-size: 10px;
+    font-weight: 650;
+
+    transition: .2s ease;
+}
+
+.nc-nav-link:hover {
+    color: var(--nc-green);
+    background: var(--nc-green-light);
+}
+
+.nc-nav-link.nc-active {
+    color: var(--nc-green);
+    background: var(--nc-green-light);
+    font-weight: 800;
+}
+
+.nc-nav-link.nc-active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -4px;
+    left: 50%;
+
+    width: 20px;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: var(--nc-orange);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.nc-mobile-menu-btn {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--nc-border);
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    padding: 9px;
+}
+
+.nc-mobile-menu-btn span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 5px 0;
+
+    background: var(--nc-green);
+
+    border-radius: 4px;
+
+    transition: .2s ease;
+}
+
+.nc-mobile-menu-btn.nc-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nc-mobile-menu-btn.nc-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nc-mobile-menu-btn.nc-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nc-header-inner {
+        gap: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nc-logo {
+        min-width: auto;
+    }
+
+    .nc-logo-text small {
+        display: none;
+    }
+
+    .nc-logo-naija,
+    .nc-logo-cart {
+        font-size: 20px;
+    }
+
+    .nc-nav-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow-x: auto;
+    }
+
+    .nc-nav-inner::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nc-nav-link {
+        white-space: nowrap;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .nc-topbar {
+        display: none;
+    }
+
+    .nc-main-header {
+        border-bottom: 1px solid var(--nc-border);
+    }
+
+    .nc-header-inner {
+        min-height: 68px;
+
+        padding: 10px 15px;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+    .nc-logo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nc-logo-icon {
+        width: 36px;
+        height: 38px;
+    }
+
+    .nc-bag-body {
+        width: 31px;
+        height: 30px;
+    }
+
+    .nc-logo-naija,
+    .nc-logo-cart {
+        font-size: 19px;
+    }
+
+    .nc-header-actions {
+        gap: 6px;
+    }
+
+    .nc-account-btn {
+        width: 42px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .nc-action-content,
+    .nc-chevron {
+        display: none;
+    }
+
+    .nc-action-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .nc-cart-btn {
+        min-width: 42px;
+        width: 42px;
+        padding: 0;
+    }
+
+    .nc-cart-text {
+        display: none;
+    }
+
+    .nc-mobile-menu-btn {
+        display: block;
+    }
+
+    /* SEARCH MOVES TO NEXT ROW */
+
+    .nc-search {
+        order: 5;
+
+        flex-basis: 100%;
+
+        max-width: none;
+
+        height: 42px;
+    }
+
+    .nc-header-inner {
+        padding-bottom: 10px;
+    }
+
+    /* NAVIGATION */
+
+    .nc-navigation {
+        display: none;
+
+        border-top: 1px solid var(--nc-border);
+    }
+
+    .nc-navigation.nc-mobile-open {
+        display: block;
+    }
+
+    .nc-nav-inner {
+        padding: 8px 15px 12px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 5px;
+
+        overflow: visible;
+    }
+
+    .nc-nav-link {
+        height: 40px;
+
+        justify-content: flex-start;
+
+        padding: 0 12px;
+
+        background: var(--nc-bg);
+    }
+
+    .nc-nav-link.nc-active::after {
+        display: none;
+    }
+
+    /* ACCOUNT DROPDOWN */
+
+    .nc-account-dropdown {
+        position: fixed;
+
+        top: 68px;
+        right: 10px;
+
+        width: min(280px, calc(100vw - 20px));
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .nc-logo-text {
+        display: none;
+    }
+
+    .nc-logo-icon {
+        transform: scale(.9);
+    }
+
+    .nc-header-actions {
+        margin-left: auto;
+    }
+
+    .nc-search button {
+        width: 48px;
+    }
+
+    .nc-search button span {
+        display: none;
+    }
+
+    .nc-nav-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     NAIJACART HEADER JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /* =====================================================
+       ACCOUNT DROPDOWN
+    ====================================================== */
+
+    const accountBtn =
+        document.getElementById("ncAccountBtn");
+
+    const accountDropdown =
+        document.getElementById("ncAccountDropdown");
+
+
+    if (accountBtn && accountDropdown) {
+
+        accountBtn.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            const isOpen =
+                accountDropdown.classList.toggle("nc-show");
+
+            accountBtn.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+        });
+
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                !accountDropdown.contains(event.target) &&
+                !accountBtn.contains(event.target)
+            ) {
+
+                accountDropdown.classList.remove("nc-show");
+
+                accountBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const mobileMenuBtn =
+        document.getElementById("ncMobileMenuBtn");
+
+    const navigation =
+        document.getElementById("ncNavigation");
+
+
+    if (mobileMenuBtn && navigation) {
+
+        mobileMenuBtn.addEventListener("click", function () {
+
+            const isOpen =
+                mobileMenuBtn.classList.toggle("nc-open");
+
+            navigation.classList.toggle(
+                "nc-mobile-open"
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close menu"
+                    : "Open menu"
+            );
+
+        });
+
+
+        /* Close menu after clicking a navigation link */
+
+        const navLinks =
+            navigation.querySelectorAll(".nc-nav-link");
+
+        navLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                mobileMenuBtn.classList.remove("nc-open");
+
+                navigation.classList.remove(
+                    "nc-mobile-open"
+                );
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ====================================================== */
+
+    const searchForm =
+        document.getElementById("ncSearchForm");
+
+    const searchInput =
+        document.getElementById("ncSearchInput");
+
+
+    if (searchForm && searchInput) {
+
+        searchForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const searchValue =
+                    searchInput.value.trim();
+
+                if (!searchValue) {
+
+                    searchInput.focus();
+
+                    return;
+
+                }
+
+                /*
+                    For now this simply sends the user
+                    to the products page.
+
+                    Later we will connect this to Flask
+                    and make the search actually search
+                    the SQLite products.
+                */
+
+                window.location.href =
+                    "/products?search=" +
+                    encodeURIComponent(searchValue);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CART COUNT
+    ====================================================== */
+
+    const cartCount =
+        document.getElementById("ncCartCount");
+
+
+    function updateNaijaCartCount() {
+
+        if (!cartCount) {
+            return;
+        }
+
+        let count = 0;
+
+        try {
+
+            const savedCart =
+                localStorage.getItem("naijacart_cart");
+
+            if (savedCart) {
+
+                const cart =
+                    JSON.parse(savedCart);
+
+                if (Array.isArray(cart)) {
+
+                    count = cart.reduce(
+                        function (total, item) {
+
+                            const quantity =
+                                Number(item.quantity) || 1;
+
+                            return total + quantity;
+
+                        },
+                        0
+                    );
+
+                }
+
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "Unable to read NaijaCart cart:",
+                error
+            );
+
+            count = 0;
+
+        }
+
+
+        cartCount.textContent = count;
+
+    }
+
+
+    updateNaijaCartCount();
+
+
+    /*
+       If another part of the website updates
+       localStorage, refresh the cart number.
+    */
+
+    window.addEventListener(
+        "storage",
+        updateNaijaCartCount
+    );
+
+
+});
+
+</script>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Track Your Order | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .track-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .track-container {
+
+            width: 100%;
+
+            max-width: 850px;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .track-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .track-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 650px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           ORDER JOURNEY
+        ===================================================== */
+
+        .order-journey {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 10px 30px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.04);
+
+        }
+
+
+        .journey-step {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 20px;
+
+            padding: 25px 5px;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .journey-step:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .step-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+        }
+
+
+        .step-icon i {
+
+            font-size: 18px;
+
+        }
+
+
+        .step-content h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .step-content p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           TRACKING INFORMATION
+        ===================================================== */
+
+        .tracking-info {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: flex;
+
+            gap: 18px;
+
+            align-items: flex-start;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+        }
+
+
+        .info-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+        }
+
+
+        .tracking-info h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .tracking-info p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            text-align: center;
+
+            padding: 45px 20px 10px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .help-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .track-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .order-journey {
+
+                padding: 5px 18px;
+
+                border-radius: 16px;
+
+            }
+
+
+            .journey-step {
+
+                gap: 14px;
+
+                padding: 20px 0;
+
+            }
+
+
+            .step-icon {
+
+                width: 40px;
+
+                height: 40px;
+
+                border-radius: 11px;
+
+            }
+
+
+            .step-content h3 {
+
+                font-size: 15px;
+
+            }
+
+
+            .step-content p {
+
+                font-size: 13px;
+
+            }
+
+
+            .tracking-info {
+
+                padding: 20px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TRACK ORDER PAGE
+    ====================================================== -->
+
+    <main class="track-page">
+
+        <section class="track-container">
+
+
+            <!-- HEADER -->
+
+            <div class="track-icon">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART DELIVERY
+            </span>
+
+
+            <h1>
+                Track Your Order
+            </h1>
+
+
+            <p class="intro">
+
+                Keep an eye on your NaijaCart order from the
+                moment it is confirmed until it arrives at
+                your doorstep.
+
+            </p>
+
+
+            <!-- =================================================
+                 ORDER JOURNEY
+            ================================================== -->
+
+            <div class="order-journey">
+
+
+                <!-- ORDER CONFIRMED -->
+
+                <div class="journey-step">
+
+                    <div class="step-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <h3>
+                            Order Confirmed
+                        </h3>
+
+                        <p>
+                            Your order has been received and
+                            confirmed by NaijaCart.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROCESSING -->
+
+                <div class="journey-step">
+
+                    <div class="step-icon">
+
+                        <i class="fa-solid fa-box"></i>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <h3>
+                            Processing
+                        </h3>
+
+                        <p>
+                            We're preparing your items for
+                            dispatch.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ON THE WAY -->
+
+                <div class="journey-step">
+
+                    <div class="step-icon">
+
+                        <i class="fa-solid fa-truck"></i>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <h3>
+                            On the Way
+                        </h3>
+
+                        <p>
+                            Your order has been dispatched and
+                            is on its way to you.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELIVERED -->
+
+                <div class="journey-step">
+
+                    <div class="step-icon">
+
+                        <i class="fa-solid fa-house"></i>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <h3>
+                            Delivered
+                        </h3>
+
+                        <p>
+                            Your order has arrived at your
+                            delivery address.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 TRACKING INFORMATION
+            ================================================== -->
+
+            <div class="tracking-info">
+
+
+                <div class="info-icon">
+
+                    <i class="fa-solid fa-truck-fast"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        When can I track my order?
+                    </h3>
+
+                    <p>
+                        Once your order has been dispatched,
+                        you'll receive the necessary delivery
+                        information to help you follow its
+                        progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+                <h2>
+                    Need help with your order?
+                </h2>
+
+
+                <p>
+                    If you have questions about your delivery,
+                    our support team is here to help.
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="NaijaCart Admin Products Management"
+>
+
+<title>NaijaCart - Products</title>
+
+<link
+    rel="stylesheet"
+    href="/admin/products.css"
+>
+
+<style>
+
+    /* =====================================================
+       IMPROVED PRODUCT CONTROLS
+    ===================================================== */
+
+    .controls {
+        display: grid;
+        grid-template-columns: minmax(260px, 1fr) 190px 170px 200px;
+        gap: 12px;
+        align-items: center;
+        margin-top: 24px;
+        margin-bottom: 28px;
+    }
+
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #68756f;
+        font-size: 15px;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .search-input {
+        width: 100%;
+        height: 48px;
+        padding: 0 18px 0 45px;
+        border: 1px solid #dfe7e3;
+        border-radius: 12px;
+        background: #ffffff;
+        color: #18251f;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        outline: none;
+        box-sizing: border-box;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+    }
+
+    .search-input::placeholder {
+        color: #98a49f;
+    }
+
+    .search-input:hover {
+        border-color: #c7d5cf;
+    }
+
+    .search-input:focus {
+        border-color: #075c3f;
+        box-shadow: 0 0 0 4px rgba(7, 92, 63, 0.08);
+        background: #ffffff;
+    }
+
+    .filter-wrapper {
+        width: 100%;
+        position: relative;
+    }
+
+    .filter-select {
+        width: 100%;
+        height: 48px;
+        padding: 0 38px 0 15px;
+        border: 1px solid #dfe7e3;
+        border-radius: 12px;
+        background: #ffffff;
+        color: #26352f;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+        box-sizing: border-box;
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+    }
+
+    .filter-select:hover {
+        border-color: #b9cbc3;
+        background: #fbfdfc;
+    }
+
+    .filter-select:focus {
+        border-color: #075c3f;
+        box-shadow: 0 0 0 4px rgba(7, 92, 63, 0.08);
+    }
+
+
+    /* =====================================================
+       PRODUCT GRID
+    ===================================================== */
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       PRODUCT CARD
+    ===================================================== */
+
+    .product-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e5ebe8;
+        border-radius: 16px;
+        box-shadow: 0 3px 12px rgba(20, 45, 35, 0.05);
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        border-color: #d3dfda;
+        box-shadow: 0 14px 32px rgba(20, 45, 35, 0.11);
+    }
+
+
+    /* =====================================================
+       PRODUCT IMAGE
+    ===================================================== */
+
+    .product-image {
+        position: relative;
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: #f5f8f6;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        padding: 18px;
+        box-sizing: border-box;
+        transition: transform 0.35s ease;
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.04);
+    }
+
+
+    /* =====================================================
+       DISCOUNT BADGE
+    ===================================================== */
+
+    .discount-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 46px;
+        height: 27px;
+        padding: 0 9px;
+        border-radius: 8px;
+        background: #f59e0b;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 800;
+        box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+    }
+
+
+    /* =====================================================
+       PRODUCT INFO
+    ===================================================== */
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 17px;
+    }
+
+    .product-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 11px;
+    }
+
+    .product-id {
+        color: #8a9691;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .stock-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 25px;
+        padding: 4px 8px;
+        border-radius: 7px;
+        font-size: 10px;
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    .stock-available {
+        background: #e8f7ef;
+        color: #087443;
+    }
+
+    .stock-empty {
+        background: #fff0ef;
+        color: #c0392b;
+    }
+
+
+    /* =====================================================
+       PRODUCT TEXT
+    ===================================================== */
+
+    .product-info h3 {
+        margin: 0;
+        color: #17221d;
+        font-size: 16px;
+        line-height: 1.4;
+        font-weight: 750;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-brand {
+        margin: 6px 0 0;
+        color: #075c3f;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .product-category {
+        display: inline-flex;
+        align-self: flex-start;
+        margin-top: 10px;
+        padding: 5px 9px;
+        border-radius: 7px;
+        background: #f0f5f2;
+        color: #56645e;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .description {
+        margin: 12px 0 0;
+        color: #718079;
+        font-size: 12px;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+
+    /* =====================================================
+       PRODUCT BOTTOM
+    ===================================================== */
+
+    .product-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 17px;
+    }
+
+    .price-area {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    .price {
+        color: #075c3f;
+        font-size: 18px;
+        font-weight: 850;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .old-price {
+        color: #9aa49f;
+        font-size: 11px;
+        font-weight: 600;
+        text-decoration: line-through;
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       EDIT BUTTON
+    ===================================================== */
+
+    .edit-btn {
+        min-width: 70px;
+        height: 38px;
+        padding: 0 13px;
+        border: 1px solid #d8e4df;
+        border-radius: 9px;
+        background: #ffffff;
+        color: #075c3f;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 750;
+        cursor: pointer;
+        transition:
+            background 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .edit-btn:hover {
+        background: #075c3f;
+        border-color: #075c3f;
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+    .edit-btn:active {
+        transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       PRODUCT COUNT
+    ===================================================== */
+
+    .product-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 7px 11px;
+        border: 1px solid #e2e9e5;
+        border-radius: 9px;
+        background: #f8faf9;
+        color: #718079;
+        font-size: 12px;
+        font-weight: 650;
+        white-space: nowrap;
+    }
+
+    .product-count span {
+        color: #075c3f;
+        font-weight: 800;
+    }
+
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
+
+    .loading {
+        min-height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        color: #6d7b74;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .loading-spinner {
+        width: 30px;
+        height: 30px;
+        border: 3px solid #e4ebe7;
+        border-top-color: #075c3f;
+        border-radius: 50%;
+        animation: productSpinner 0.8s linear infinite;
+    }
+
+    @keyframes productSpinner {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+    /* =====================================================
+       EMPTY STATE
+    ===================================================== */
+
+    .empty-state {
+        padding: 70px 20px;
+        text-align: center;
+    }
+
+    .empty-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: #edf5f1;
+        color: #075c3f;
+        font-size: 25px;
+    }
+
+    .empty-state h3 {
+        margin: 0;
+        color: #26352f;
+        font-size: 18px;
+    }
+
+    .empty-state p {
+        max-width: 420px;
+        margin: 8px auto 20px;
+        color: #78847f;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .clear-filters-btn,
+    .retry-btn {
+        height: 40px;
+        padding: 0 17px;
+        border: none;
+        border-radius: 9px;
+        background: #075c3f;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 750;
+        cursor: pointer;
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .clear-filters-btn:hover,
+    .retry-btn:hover {
+        background: #064b34;
+        transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
+
+    .error-state {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .error-icon {
+        width: 58px;
+        height: 58px;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #fff1ef;
+        color: #d64535;
+        font-size: 23px;
+        font-weight: 800;
+    }
+
+    .error-state h3 {
+        margin: 0;
+        color: #26352f;
+        font-size: 18px;
+    }
+
+    .error-state p {
+        margin: 8px 0 18px;
+        color: #78847f;
+        font-size: 13px;
+    }
+
+
+    /* =====================================================
+       BACK TO TOP BUTTON
+    ===================================================== */
+
+    .back-to-top {
+        position: fixed;
+        right: 26px;
+        bottom: 26px;
+        z-index: 9999;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 50%;
+        background: #075c3f;
+        color: #ffffff;
+        font-size: 23px;
+        font-weight: 800;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        transition:
+            opacity 0.25s ease,
+            visibility 0.25s ease,
+            transform 0.25s ease,
+            background 0.2s ease;
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+        background: #f59e0b;
+        color: #17221d;
+        transform: translateY(-4px);
+    }
+
+    .back-to-top:active {
+        transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       LARGE TABLET
+    ===================================================== */
+
+    @media (max-width: 1200px) {
+
+        .products-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .controls {
+            grid-template-columns: minmax(220px, 1fr) 170px 160px;
+        }
+
+        .controls .filter-wrapper:last-child {
+            grid-column: span 1;
+        }
+    }
+
+
+    /* =====================================================
+       TABLET
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+        .products-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .controls {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .search-wrapper {
+            grid-column: 1 / -1;
+        }
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+        .products-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .controls {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .search-wrapper {
+            grid-column: auto;
+        }
+
+        .search-input,
+        .filter-select {
+            height: 46px;
+        }
+
+        .product-image {
+            height: 230px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+        }
+
+        .price {
+            font-size: 17px;
+        }
+
+        .card-header {
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .product-count {
+            margin-left: 0;
+        }
+
+        .back-to-top {
+            right: 16px;
+            bottom: 16px;
+            width: 44px;
+            height: 44px;
+            font-size: 21px;
+        }
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 380px) {
+
+        .product-top {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .product-bottom {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .edit-btn {
+            width: 100%;
+        }
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <span>Naija</span>Cart
+    </div>
+
+    <div class="admin-label">
+        ADMIN PANEL
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="/admin/"
+            class="nav-item"
+        >
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="/admin/products"
+            class="nav-item active"
+        >
+            <span class="nav-icon">▣</span>
+            <span>Products</span>
+        </a>
+
+
+        <a
+            href="/admin/orders"
+            class="nav-item"
+        >
+            <span class="nav-icon">▤</span>
+            <span>Orders</span>
+        </a>
+
+
+        <a
+            href="/admin/users"
+            class="nav-item"
+        >
+            <span class="nav-icon">♙</span>
+            <span>Users</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="/naijacart-frontend/index.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">←</span>
+            <span>Back to Store</span>
+        </a>
+
+
+        <a
+            href="{{ url_for('logout') }}"
+            class="nav-item logout"
+        >
+            <span class="nav-icon">↪</span>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         TOPBAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <div class="page-heading">
+
+            <p class="welcome-small">
+                ADMIN PANEL
+            </p>
+
+            <h1>
+                Products
+            </h1>
+
+            <p class="page-description">
+                Manage your NaijaCart products, inventory and pricing.
+            </p>
+
+        </div>
+
+
+        <a
+            href="/admin/products/add"
+            class="add-product-btn"
+        >
+            <span>+</span>
+            Add Product
+        </a>
+
+    </header>
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon total-icon">
+                ▣
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Total Products
+                </span>
+
+                <strong
+                    class="stat-number"
+                    id="totalProducts"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon price-icon">
+                ₦
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Average Price
+                </span>
+
+                <strong
+                    class="stat-number"
+                    id="averagePrice"
+                >
+                    ₦0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon stock-icon">
+                ✓
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    In Stock
+                </span>
+
+                <strong
+                    class="stat-number"
+                    id="inStockProducts"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon out-stock-icon">
+                !
+            </div>
+
+            <div class="stat-content">
+
+                <span class="stat-label">
+                    Out of Stock
+                </span>
+
+                <strong
+                    class="stat-number"
+                    id="outOfStockProducts"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PRODUCTS CARD
+    ================================================== -->
+
+    <section class="products-card">
+
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    All Products
+                </h2>
+
+                <p>
+                    Products currently stored in your database.
+                </p>
+
+            </div>
+
+
+            <div class="product-count">
+
+                <span id="visibleProductCount">
+                    0
+                </span>
+
+                products
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SEARCH & FILTERS
+        ================================================== -->
+
+        <div class="controls">
+
+
+            <div class="search-wrapper">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search by name, brand or category..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="filter-wrapper">
+
+                <select
+                    id="categoryFilter"
+                    class="filter-select"
+                >
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-wrapper">
+
+                <select
+                    id="stockFilter"
+                    class="filter-select"
+                >
+
+                    <option value="all">
+                        All Stock
+                    </option>
+
+                    <option value="in-stock">
+                        In Stock
+                    </option>
+
+                    <option value="out-of-stock">
+                        Out of Stock
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-wrapper">
+
+                <select
+                    id="sortFilter"
+                    class="filter-select"
+                >
+
+                    <option value="default">
+                        Sort: Default
+                    </option>
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                    <option value="price-low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="price-high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="name-az">
+                        Name: A-Z
+                    </option>
+
+                    <option value="name-za">
+                        Name: Z-A
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <span>
+                Loading products...
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        <div
+            id="errorMessage"
+            class="error-state"
+            style="display: none;"
+        >
+
+            <div class="error-icon">
+                !
+            </div>
+
+            <h3>
+                Unable to load products
+            </h3>
+
+            <p>
+                Something went wrong while loading your products.
+            </p>
+
+            <button
+                type="button"
+                class="retry-btn"
+                onclick="loadProducts()"
+            >
+                Try Again
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <div
+            id="emptyMessage"
+            class="empty-state"
+            style="display: none;"
+        >
+
+            <div class="empty-icon">
+                ▣
+            </div>
+
+            <h3>
+                No products found
+            </h3>
+
+            <p id="emptyText">
+                There are currently no products matching your search.
+            </p>
+
+            <button
+                type="button"
+                class="clear-filters-btn"
+                onclick="clearFilters()"
+            >
+                Clear Filters
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCTS GRID
+        ================================================== -->
+
+        <div
+            id="productsGrid"
+            class="products-grid"
+        >
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     BACK TO TOP BUTTON
+====================================================== -->
+
+<button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top"
+>
+    ↑
+</button>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+    let allProducts = [];
+
+
+    // =====================================================
+    // LOAD PRODUCTS
+    // =====================================================
+
+    async function loadProducts() {
+
+        const loading =
+            document.getElementById("loading");
+
+        const errorMessage =
+            document.getElementById("errorMessage");
+
+        const emptyMessage =
+            document.getElementById("emptyMessage");
+
+        const grid =
+            document.getElementById("productsGrid");
+
+
+        loading.style.display = "flex";
+        errorMessage.style.display = "none";
+        emptyMessage.style.display = "none";
+        grid.innerHTML = "";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "/admin/products/data",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load products."
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if (!data.success) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to load products."
+                );
+
+            }
+
+
+            allProducts =
+                Array.isArray(data.products)
+                    ? data.products
+                    : [];
+
+
+            loadCategories();
+
+            updateStatistics();
+
+
+            loading.style.display = "none";
+
+
+            if (allProducts.length === 0) {
+
+                document.getElementById(
+                    "emptyText"
+                ).textContent =
+                    "Your store does not have any products yet.";
+
+                emptyMessage.style.display =
+                    "block";
+
+                updateVisibleCount(0);
+
+                return;
+
+            }
+
+
+            displayProducts(allProducts);
+
+        }
+
+
+        catch (error) {
+
+            console.error(
+                "Product loading error:",
+                error
+            );
+
+
+            loading.style.display =
+                "none";
+
+            errorMessage.style.display =
+                "block";
+
+        }
+
+    }
+
+
+    // =====================================================
+    // DISPLAY PRODUCTS
+    // =====================================================
+
+    function displayProducts(products) {
+
+        const grid =
+            document.getElementById(
+                "productsGrid"
+            );
+
+
+        const emptyMessage =
+            document.getElementById(
+                "emptyMessage"
+            );
+
+
+        grid.innerHTML = "";
+
+
+        updateVisibleCount(
+            products.length
+        );
+
+
+        if (products.length === 0) {
+
+            emptyMessage.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        emptyMessage.style.display =
+            "none";
+
+
+        products.forEach(product => {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "product-card";
+
+
+            const image =
+                product.image_url ||
+                "https://via.placeholder.com/400x300?text=NaijaCart";
+
+
+            const price =
+                Number(product.price || 0);
+
+
+            const oldPrice =
+                Number(product.old_price || 0);
+
+
+            const stock =
+                Number(product.stock || 0);
+
+
+            const discount =
+                Number(product.discount || 0);
+
+
+            let priceHTML =
+                `
+                    <strong class="price">
+                        ₦${price.toLocaleString("en-NG")}
+                    </strong>
+                `;
+
+
+            if (oldPrice > price) {
+
+                priceHTML +=
+                    `
+                        <span class="old-price">
+                            ₦${oldPrice.toLocaleString("en-NG")}
+                        </span>
+                    `;
+
+            }
+
+
+            let discountHTML = "";
+
+
+            if (discount > 0) {
+
+                discountHTML =
+                    `
+                        <span class="discount-badge">
+                            -${discount}%
+                        </span>
+                    `;
+
+            }
+
+
+            const stockClass =
+                stock > 0
+                    ? "stock-available"
+                    : "stock-empty";
+
+
+            const stockText =
+                stock > 0
+                    ? `${stock} in stock`
+                    : "Out of stock";
+
+
+            card.innerHTML = `
+
+                <div class="product-image">
+
+                    <img
+                        src="${escapeAttribute(image)}"
+                        alt="${escapeAttribute(product.name || "Product")}"
+                        loading="lazy"
+                        onerror="this.src='https://via.placeholder.com/400x300?text=NaijaCart'"
+                    >
+
+                    ${discountHTML}
+
+                </div>
+
+
+                <div class="product-info">
+
+
+                    <div class="product-top">
+
+                        <span class="product-id">
+                            #${Number(product.id || 0)}
+                        </span>
+
+                        <span class="stock-badge ${stockClass}">
+                            ${escapeHTML(stockText)}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        ${escapeHTML(
+                            product.name ||
+                            "Unnamed Product"
+                        )}
+                    </h3>
+
+
+                    <p class="product-brand">
+                        ${escapeHTML(
+                            product.brand ||
+                            "NaijaCart"
+                        )}
+                    </p>
+
+
+                    <div class="product-category">
+                        ${escapeHTML(
+                            product.category ||
+                            "Uncategorized"
+                        )}
+                    </div>
+
+
+                    <p class="description">
+                        ${escapeHTML(
+                            product.description ||
+                            "No description available."
+                        )}
+                    </p>
+
+
+                    <div class="product-bottom">
+
+
+                        <div class="price-area">
+                            ${priceHTML}
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="edit-btn"
+                            onclick="editProduct(${Number(product.id || 0)})"
+                        >
+                            Edit
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+    }
+
+
+    // =====================================================
+    // STATISTICS
+    // =====================================================
+
+    function updateStatistics() {
+
+        const total =
+            allProducts.length;
+
+
+        document.getElementById(
+            "totalProducts"
+        ).textContent =
+            total;
+
+
+        if (total === 0) {
+
+            document.getElementById(
+                "averagePrice"
+            ).textContent =
+                "₦0";
+
+
+            document.getElementById(
+                "inStockProducts"
+            ).textContent =
+                "0";
+
+
+            document.getElementById(
+                "outOfStockProducts"
+            ).textContent =
+                "0";
+
+
+            return;
+
+        }
+
+
+        const totalPrice =
+            allProducts.reduce(
+                (sum, product) => {
+
+                    return (
+                        sum +
+                        Number(
+                            product.price || 0
+                        )
+                    );
+
+                },
+                0
+            );
+
+
+        const average =
+            totalPrice / total;
+
+
+        document.getElementById(
+            "averagePrice"
+        ).textContent =
+            "₦" +
+            Math.round(
+                average
+            ).toLocaleString(
+                "en-NG"
+            );
+
+
+        const inStock =
+            allProducts.filter(
+                product =>
+                    Number(
+                        product.stock || 0
+                    ) > 0
+            ).length;
+
+
+        const outOfStock =
+            total - inStock;
+
+
+        document.getElementById(
+            "inStockProducts"
+        ).textContent =
+            inStock;
+
+
+        document.getElementById(
+            "outOfStockProducts"
+        ).textContent =
+            outOfStock;
+
+    }
+
+
+    // =====================================================
+    // CATEGORY FILTER
+    // =====================================================
+
+    function loadCategories() {
+
+        const categoryFilter =
+            document.getElementById(
+                "categoryFilter"
+            );
+
+
+        const categories =
+            [
+                ...new Set(
+                    allProducts
+                        .map(
+                            product =>
+                                String(
+                                    product.category ||
+                                    ""
+                                ).trim()
+                        )
+                        .filter(
+                            category =>
+                                category !== ""
+                        )
+                )
+            ];
+
+
+        categories.sort(
+            (a, b) =>
+                a.localeCompare(b)
+        );
+
+
+        categoryFilter.innerHTML =
+            `
+                <option value="all">
+                    All Categories
+                </option>
+            `;
+
+
+        categories.forEach(
+            category => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    category;
+
+
+                option.textContent =
+                    category;
+
+
+                categoryFilter.appendChild(
+                    option
+                );
+
+            }
+        );
+
+    }
+
+
+    // =====================================================
+    // APPLY FILTERS
+    // =====================================================
+
+    function applyFilters() {
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const categoryFilter =
+            document.getElementById(
+                "categoryFilter"
+            );
+
+
+        const stockFilter =
+            document.getElementById(
+                "stockFilter"
+            );
+
+
+        const sortFilter =
+            document.getElementById(
+                "sortFilter"
+            );
+
+
+        const search =
+            searchInput.value
+                .toLowerCase()
+                .trim();
+
+
+        const selectedCategory =
+            categoryFilter.value;
+
+
+        const selectedStock =
+            stockFilter.value;
+
+
+        const selectedSort =
+            sortFilter.value;
+
+
+        let filteredProducts =
+            [...allProducts];
+
+
+        // SEARCH
+
+        if (search) {
+
+            filteredProducts =
+                filteredProducts.filter(
+                    product => {
+
+                        const name =
+                            String(
+                                product.name || ""
+                            ).toLowerCase();
+
+
+                        const brand =
+                            String(
+                                product.brand || ""
+                            ).toLowerCase();
+
+
+                        const category =
+                            String(
+                                product.category || ""
+                            ).toLowerCase();
+
+
+                        const description =
+                            String(
+                                product.description || ""
+                            ).toLowerCase();
+
+
+                        return (
+                            name.includes(search) ||
+                            brand.includes(search) ||
+                            category.includes(search) ||
+                            description.includes(search)
+                        );
+
+                    }
+                );
+
+        }
+
+
+        // CATEGORY
+
+        if (selectedCategory !== "all") {
+
+            filteredProducts =
+                filteredProducts.filter(
+                    product => {
+
+                        return (
+                            String(
+                                product.category || ""
+                            ).trim()
+                            ===
+                            selectedCategory
+                        );
+
+                    }
+                );
+
+        }
+
+
+        // STOCK
+
+        if (selectedStock === "in-stock") {
+
+            filteredProducts =
+                filteredProducts.filter(
+                    product =>
+                        Number(
+                            product.stock || 0
+                        ) > 0
+                );
+
+        }
+
+
+        else if (
+            selectedStock === "out-of-stock"
+        ) {
+
+            filteredProducts =
+                filteredProducts.filter(
+                    product =>
+                        Number(
+                            product.stock || 0
+                        ) <= 0
+                );
+
+        }
+
+
+        // SORT
+
+        if (selectedSort === "newest") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    Number(b.id || 0) -
+                    Number(a.id || 0)
+            );
+
+        }
+
+
+        else if (selectedSort === "oldest") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    Number(a.id || 0) -
+                    Number(b.id || 0)
+            );
+
+        }
+
+
+        else if (selectedSort === "price-low") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    Number(a.price || 0) -
+                    Number(b.price || 0)
+            );
+
+        }
+
+
+        else if (selectedSort === "price-high") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    Number(b.price || 0) -
+                    Number(a.price || 0)
+            );
+
+        }
+
+
+        else if (selectedSort === "name-az") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    String(
+                        a.name || ""
+                    ).localeCompare(
+                        String(
+                            b.name || ""
+                        )
+                    )
+            );
+
+        }
+
+
+        else if (selectedSort === "name-za") {
+
+            filteredProducts.sort(
+                (a, b) =>
+                    String(
+                        b.name || ""
+                    ).localeCompare(
+                        String(
+                            a.name || ""
+                        )
+                    )
+            );
+
+        }
+
+
+        displayProducts(
+            filteredProducts
+        );
+
+    }
+
+
+    // =====================================================
+    // CLEAR FILTERS
+    // =====================================================
+
+    function clearFilters() {
+
+        document.getElementById(
+            "searchInput"
+        ).value = "";
+
+
+        document.getElementById(
+            "categoryFilter"
+        ).value = "all";
+
+
+        document.getElementById(
+            "stockFilter"
+        ).value = "all";
+
+
+        document.getElementById(
+            "sortFilter"
+        ).value = "default";
+
+
+        displayProducts(
+            allProducts
+        );
+
+    }
+
+
+    // =====================================================
+    // VISIBLE PRODUCT COUNT
+    // =====================================================
+
+    function updateVisibleCount(count) {
+
+        document.getElementById(
+            "visibleProductCount"
+        ).textContent =
+            count;
+
+    }
+
+
+    // =====================================================
+    // EDIT PRODUCT
+    // =====================================================
+
+    function editProduct(id) {
+
+        if (!id) {
+
+            console.error(
+                "Invalid product ID."
+            );
+
+            return;
+
+        }
+
+
+        window.location.href =
+            `/admin/products/edit/${id}`;
+
+    }
+
+
+    // =====================================================
+    // ESCAPE HTML
+    // =====================================================
+
+    function escapeHTML(value) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            value ?? "";
+
+
+        return div.innerHTML;
+
+    }
+
+
+    // =====================================================
+    // ESCAPE ATTRIBUTE
+    // =====================================================
+
+    function escapeAttribute(value) {
+
+        return escapeHTML(
+            value
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+    }
+
+
+    // =====================================================
+    // SEARCH EVENT
+    // =====================================================
+
+    document
+        .getElementById("searchInput")
+        .addEventListener(
+            "input",
+            applyFilters
+        );
+
+
+    // =====================================================
+    // CATEGORY EVENT
+    // =====================================================
+
+    document
+        .getElementById("categoryFilter")
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+    // =====================================================
+    // STOCK EVENT
+    // =====================================================
+
+    document
+        .getElementById("stockFilter")
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+    // =====================================================
+    // SORT EVENT
+    // =====================================================
+
+    document
+        .getElementById("sortFilter")
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+    // =====================================================
+    // BACK TO TOP
+    // =====================================================
+
+    const backToTop =
+        document.getElementById(
+            "backToTop"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add(
+                    "show"
+                );
+
+            }
+
+            else {
+
+                backToTop.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+
+    backToTop.addEventListener(
+        "click",
+        function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    // =====================================================
+    // START
+    // =====================================================
+
+    loadProducts();
+
+</script>
+
+</body>
+
+</html>

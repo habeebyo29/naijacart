@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="View and track your NaijaCart orders."
+    >
+
+    <meta
+        name="theme-color"
+        content="#075c3f"
+    >
+
+    <title>My Orders | NaijaCart</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #f6faf8 0%,
+                    #ffffff 45%,
+                    #f5f8f6 100%
+                );
+
+            color: #17231b;
+
+            min-height: 100vh;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+
+            background:
+                rgba(255, 255, 255, 0.97);
+
+            border-bottom:
+                1px solid #e3ebe6;
+
+            padding:
+                16px 6%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .header-inner {
+
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo-wrapper {
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .logo-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1.1;
+        }
+
+
+        .logo-text strong {
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+            color: #17221d;
+        }
+
+
+        .logo-text strong span {
+
+            color: #f59e0b;
+        }
+
+
+        .logo-text small {
+
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            font-weight: 500;
+
+            color: #718078;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #075c3f;
+
+            background: #eaf7f0;
+
+            border: 1px solid #d7eee1;
+
+            padding:
+                10px 15px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+
+        .back:hover {
+
+            background: #075c3f;
+
+            color: white;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .container {
+
+            max-width: 1050px;
+
+            margin:
+                45px auto 70px;
+
+            padding:
+                0 20px;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            margin-bottom: 30px;
+        }
+
+
+        .title-label {
+
+            display: inline-block;
+
+            color: #f59e0b;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .title h1 {
+
+            font-size: 34px;
+
+            line-height: 1.2;
+
+            color: #10251a;
+
+            margin-bottom: 8px;
+        }
+
+
+        .title p {
+
+            color: #718078;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           ORDER COUNT
+        ===================================================== */
+
+        .order-count {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            color: #64746b;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .order-count-badge {
+
+            min-width: 30px;
+
+            height: 30px;
+
+            padding:
+                0 9px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background: #075c3f;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           ORDER CARD
+        ===================================================== */
+
+        .order-card {
+
+            background: white;
+
+            border:
+                1px solid #e1eae4;
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            margin-bottom: 16px;
+
+            box-shadow:
+                0 7px 28px rgba(
+                    7,
+                    92,
+                    63,
+                    0.055
+                );
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+
+        .order-card:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                #cde2d6;
+
+            box-shadow:
+                0 12px 32px rgba(
+                    7,
+                    92,
+                    63,
+                    0.09
+                );
+        }
+
+
+        /* =====================================================
+           ORDER HEADER
+        ===================================================== */
+
+        .order-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding-bottom: 18px;
+
+            border-bottom:
+                1px solid #edf2ef;
+        }
+
+
+        .order-number {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            color: #17231b;
+        }
+
+
+        .order-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            font-size: 19px;
+
+            background: #eaf7f0;
+        }
+
+
+        .order-date {
+
+            color: #8a968f;
+
+            font-size: 12px;
+
+            margin-top: 7px;
+
+            margin-left: 51px;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 13px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: capitalize;
+
+            white-space: nowrap;
+        }
+
+
+        .status-icon {
+
+            font-size: 13px;
+        }
+
+
+        /* PENDING */
+
+        .status-pending {
+
+            background: #fff7e6;
+
+            color: #b45309;
+        }
+
+
+        /* PAID */
+
+        .status-paid {
+
+            background: #eaf7f0;
+
+            color: #075c3f;
+        }
+
+
+        /* PROCESSING */
+
+        .status-processing {
+
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        /* SHIPPED */
+
+        .status-shipped {
+
+            background: #f5f3ff;
+
+            color: #7c3aed;
+        }
+
+
+        /* DELIVERED */
+
+        .status-delivered {
+
+            background: #dcfce7;
+
+            color: #15803d;
+        }
+
+
+        /* CANCELLED */
+
+        .status-cancelled {
+
+            background: #fee2e2;
+
+            color: #dc2626;
+        }
+
+
+        /* =====================================================
+           STATUS MESSAGE
+        ===================================================== */
+
+        .status-message {
+
+            margin-top: 15px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            color: #64746b;
+
+            background: #f7faf8;
+
+            border:
+                1px solid #edf2ef;
+        }
+
+
+        /* =====================================================
+           ORDER BODY
+        ===================================================== */
+
+        .order-body {
+
+            padding-top: 19px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+
+        .order-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(
+                        100px,
+                        1fr
+                    )
+                );
+
+            gap: 35px;
+
+            flex: 1;
+        }
+
+
+        .info-item {
+
+            min-width: 0;
+        }
+
+
+        .info-item small {
+
+            display: block;
+
+            color: #8a968f;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.8px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .info-item strong {
+
+            display: block;
+
+            color: #17231b;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            word-break: break-word;
+        }
+
+
+        .info-item:first-child strong {
+
+            color: #075c3f;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================================
+           ACTIONS
+        ===================================================== */
+
+        .order-actions {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+            min-width: 125px;
+        }
+
+
+        .view-order {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding:
+                12px 17px;
+
+            border-radius: 10px;
+
+            background: #075c3f;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.2s ease;
+
+            box-shadow:
+                0 5px 14px rgba(
+                    7,
+                    92,
+                    63,
+                    0.14
+                );
+        }
+
+
+        .view-order:hover {
+
+            background: #043d2b;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =====================================================
+           CANCEL BUTTON
+        ===================================================== */
+
+        .cancel-order {
+
+            border:
+                1px solid #fecaca;
+
+            background: #fff5f5;
+
+            color: #dc2626;
+
+            padding:
+                11px 15px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .cancel-order:hover {
+
+            background: #dc2626;
+
+            color: white;
+
+            border-color:
+                #dc2626;
+        }
+
+
+        .cancel-order:disabled {
+
+            opacity: 0.6;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =====================================================
+           EMPTY ORDERS
+        ===================================================== */
+
+        .empty {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #f8fcfa
+                );
+
+            border:
+                1px solid #e1eae4;
+
+            border-radius: 22px;
+
+            padding:
+                70px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 35px rgba(
+                    7,
+                    92,
+                    63,
+                    0.06
+                );
+        }
+
+
+        .empty-icon {
+
+            width: 75px;
+
+            height: 75px;
+
+            margin:
+                0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 22px;
+
+            background: #eaf7f0;
+
+            font-size: 34px;
+
+            box-shadow:
+                inset 0 0 0 1px #d8eee2;
+        }
+
+
+        .empty-label {
+
+            display: inline-block;
+
+            color: #f59e0b;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .empty h2 {
+
+            font-size: 24px;
+
+            color: #10251a;
+
+            margin-bottom: 9px;
+        }
+
+
+        .empty p {
+
+            max-width: 430px;
+
+            margin:
+                0 auto 25px;
+
+            color: #718078;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        .shop-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            background: #075c3f;
+
+            color: white;
+
+            padding:
+                13px 21px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            transition: 0.2s ease;
+        }
+
+
+        .shop-btn:hover {
+
+            background: #043d2b;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #082619;
+
+            color: #a9b8ae;
+
+            text-align: center;
+
+            padding:
+                30px 20px;
+
+            font-size: 13px;
+
+            border-top:
+                3px solid #f59e0b;
+        }
+
+
+        .footer-brand {
+
+            margin-bottom: 7px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            color: white;
+        }
+
+
+        .footer-brand span {
+
+            color: #f59e0b;
+        }
+
+
+        .footer-text {
+
+            color: #a9b8ae;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .toast {
+
+            position: fixed;
+
+            right: 20px;
+
+            bottom: 20px;
+
+            max-width: 350px;
+
+            padding:
+                14px 17px;
+
+            border-radius: 12px;
+
+            background: #082619;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 12px 35px rgba(
+                    0,
+                    0,
+                    0,
+                    0.18
+                );
+
+            transform:
+                translateY(120px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                0.3s ease;
+
+            z-index: 999;
+        }
+
+
+        .toast.show {
+
+            transform:
+                translateY(0);
+
+            opacity: 1;
+        }
+
+
+        .toast.error {
+
+            background: #b91c1c;
+        }
+
+
+        .toast.success {
+
+            background: #075c3f;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .container {
+
+                margin:
+                    32px auto 50px;
+            }
+
+
+            .title h1 {
+
+                font-size: 28px;
+            }
+
+
+            .order-info {
+
+                gap: 20px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .header {
+
+                padding:
+                    14px 5%;
+            }
+
+
+            .logo-text strong {
+
+                font-size: 20px;
+            }
+
+
+            .logo-text small {
+
+                font-size: 9px;
+            }
+
+
+            .back {
+
+                padding:
+                    9px 11px;
+
+                font-size: 12px;
+            }
+
+
+            .container {
+
+                padding:
+                    0 15px;
+            }
+
+
+            .order-card {
+
+                padding:
+                    18px;
+            }
+
+
+            .order-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+
+            .status {
+
+                align-self:
+                    flex-start;
+            }
+
+
+            .order-body {
+
+                align-items:
+                    stretch;
+
+                flex-direction:
+                    column;
+            }
+
+
+            .order-info {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+
+                gap:
+                    18px;
+            }
+
+
+            .order-actions {
+
+                width: 100%;
+            }
+
+
+            .view-order,
+            .cancel-order {
+
+                width: 100%;
+            }
+
+
+            .empty {
+
+                padding:
+                    55px 20px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .header-inner {
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .back {
+
+                font-size: 0;
+
+                width: 38px;
+
+                height: 38px;
+
+                padding: 0;
+            }
+
+
+            .back::before {
+
+                content: "←";
+
+                font-size: 18px;
+            }
+
+
+            .order-info {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .title h1 {
+
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+
+            <div class="logo-wrapper">
+
+                <div class="logo-text">
+
+                    <strong>
+                        Naija<span>Cart</span>
+                    </strong>
+
+                    <small>
+                        Tech you want. Prices you'll love.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="/account"
+                class="back"
+            >
+                ← My Account
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main class="container">
+
+
+        <div class="title">
+
+            <span class="title-label">
+                YOUR SHOPPING HISTORY
+            </span>
+
+            <h1>
+                My Orders
+            </h1>
+
+            <p>
+                View your previous orders and keep track
+                of your purchases.
+            </p>
+
+        </div>
+
+
+
+        {% if orders %}
+
+
+            <div class="order-count">
+
+                <span class="order-count-badge">
+                    {{ orders|length }}
+                </span>
+
+                <span>
+
+                    Order{% if orders|length != 1 %}s{% endif %}
+                    in your account
+
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ORDERS
+            ================================================== -->
+
+            {% for order in orders %}
+
+                {% set status = order.status|lower|trim %}
+
+
+                <article
+                    class="order-card"
+                    id="order-{{ order.id }}"
+                >
+
+
+                    <!-- =========================================
+                         HEADER
+                    ========================================== -->
+
+                    <div class="order-header">
+
+
+                        <div>
+
+                            <div class="order-number">
+
+
+                                <div
+                                    class="order-icon
+                                    {% if status == 'pending' %}
+                                        status-pending
+                                    {% elif status == 'paid' %}
+                                        status-paid
+                                    {% elif status == 'processing' %}
+                                        status-processing
+                                    {% elif status == 'shipped' %}
+                                        status-shipped
+                                    {% elif status == 'delivered' %}
+                                        status-delivered
+                                    {% elif status == 'cancelled' %}
+                                        status-cancelled
+                                    {% endif %}"
+                                >
+
+                                    {% if status == "pending" %}
+                                        🕐
+
+                                    {% elif status == "paid" %}
+                                        ✓
+
+                                    {% elif status == "processing" %}
+                                        ⚙️
+
+                                    {% elif status == "shipped" %}
+                                        🚚
+
+                                    {% elif status == "delivered" %}
+                                        📦
+
+                                    {% elif status == "cancelled" %}
+                                        ✕
+
+                                    {% else %}
+                                        📦
+                                    {% endif %}
+
+                                </div>
+
+
+                                <span>
+
+                                    Order #NC-{{
+                                        "%06d"|format(order.id)
+                                    }}
+
+                                </span>
+
+
+                            </div>
+
+
+                            <div class="order-date">
+
+                                Placed:
+                                {{ order.created_at }}
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- STATUS -->
+
+                        <span
+                            class="status
+                            {% if status == 'pending' %}
+                                status-pending
+                            {% elif status == 'paid' %}
+                                status-paid
+                            {% elif status == 'processing' %}
+                                status-processing
+                            {% elif status == 'shipped' %}
+                                status-shipped
+                            {% elif status == 'delivered' %}
+                                status-delivered
+                            {% elif status == 'cancelled' %}
+                                status-cancelled
+                            {% else %}
+                                status-pending
+                            {% endif %}"
+                        >
+
+                            <span class="status-icon">
+
+                                {% if status == "pending" %}
+                                    🕐
+
+                                {% elif status == "paid" %}
+                                    ✓
+
+                                {% elif status == "processing" %}
+                                    ⚙️
+
+                                {% elif status == "shipped" %}
+                                    🚚
+
+                                {% elif status == "delivered" %}
+                                    ✓
+
+                                {% elif status == "cancelled" %}
+                                    ✕
+
+                                {% else %}
+                                    •
+                                {% endif %}
+
+                            </span>
+
+
+                            {{ order.status }}
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         STATUS MESSAGE
+                    ========================================== -->
+
+                    <div class="status-message">
+
+                        {% if status == "pending" %}
+
+                            Your order has been received
+                            and is waiting for payment
+                            confirmation or processing.
+
+                        {% elif status == "paid" %}
+
+                            Payment has been confirmed.
+                            Your order is ready to be processed.
+
+                        {% elif status == "processing" %}
+
+                            Your order is being prepared
+                            for shipment.
+
+                        {% elif status == "shipped" %}
+
+                            Your order has been shipped
+                            and is on its way to you.
+
+                        {% elif status == "delivered" %}
+
+                            Your order has been delivered.
+                            Thank you for shopping with NaijaCart.
+
+                        {% elif status == "cancelled" %}
+
+                            This order has been cancelled.
+
+                        {% else %}
+
+                            Your order status is being updated.
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         ORDER BODY
+                    ========================================== -->
+
+                    <div class="order-body">
+
+
+                        <div class="order-info">
+
+
+                            <!-- TOTAL -->
+
+                            <div class="info-item">
+
+                                <small>
+                                    TOTAL
+                                </small>
+
+                                <strong>
+                                    ₦{{
+                                        "{:,.0f}".format(
+                                            order.total
+                                        )
+                                    }}
+                                </strong>
+
+                            </div>
+
+
+
+                            <!-- ITEMS -->
+
+                            <div class="info-item">
+
+                                <small>
+                                    ITEMS
+                                </small>
+
+                                <strong>
+                                    {{ order.items|length }}
+                                </strong>
+
+                            </div>
+
+
+
+                            <!-- PHONE -->
+
+                            <div class="info-item">
+
+                                <small>
+                                    PHONE
+                                </small>
+
+                                <strong>
+                                    {{ order.phone }}
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             ACTIONS
+                        ====================================== -->
+
+                        <div class="order-actions">
+
+
+                            <a
+                                href="{{
+                                    url_for(
+                                        'orders.order_details',
+                                        order_id=order.id
+                                    )
+                                }}"
+                                class="view-order"
+                            >
+
+                                View Order →
+
+                            </a>
+
+
+
+                            <!-- CANCEL -->
+
+                            {% if status in [
+                                "pending",
+                                "paid",
+                                "processing"
+                            ] %}
+
+                                <button
+                                    type="button"
+                                    class="cancel-order"
+                                    onclick="cancelOrder(
+                                        {{ order.id }}
+                                    )"
+                                >
+
+                                    Cancel Order
+
+                                </button>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            {% endfor %}
+
+
+
+        {% else %}
+
+
+            <!-- =================================================
+                 EMPTY
+            ================================================== -->
+
+            <div class="empty">
+
+
+                <div class="empty-icon">
+                    📦
+                </div>
+
+
+                <span class="empty-label">
+                    NO ORDERS YET
+                </span>
+
+
+                <h2>
+                    Your Order History Is Empty
+                </h2>
+
+
+                <p>
+
+                    You haven't placed an order on
+                    NaijaCart yet. Explore our latest
+                    gadgets and find something you'll love.
+
+                </p>
+
+
+                <a
+                    href="/"
+                    class="shop-btn"
+                >
+
+                    Start Shopping →
+
+                </a>
+
+
+            </div>
+
+
+        {% endif %}
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-brand">
+
+            Naija<span>Cart</span>
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Your trusted Nigerian gadget marketplace.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ===================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        function showToast(
+            message,
+            type = "success"
+        ) {
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+            toast.textContent =
+                message;
+
+            toast.className =
+                "toast " + type + " show";
+
+            setTimeout(
+                () => {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                3500
+            );
+        }
+
+
+        async function cancelOrder(
+            orderId
+        ) {
+
+            const confirmed =
+                confirm(
+                    "Are you sure you want to cancel this order?\n\n" +
+                    "This action cannot be undone."
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            const orderCard =
+                document.getElementById(
+                    "order-" + orderId
+                );
+
+
+            const cancelButton =
+                orderCard.querySelector(
+                    ".cancel-order"
+                );
+
+
+            if (cancelButton) {
+
+                cancelButton.disabled =
+                    true;
+
+                cancelButton.textContent =
+                    "Cancelling...";
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/orders/${orderId}/cancel`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok ||
+                    !data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to cancel order."
+                    );
+
+                }
+
+
+                showToast(
+                    data.message ||
+                    "Order cancelled successfully.",
+                    "success"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.reload();
+
+                    },
+                    1000
+                );
+
+
+            } catch (error) {
+
+                showToast(
+                    error.message ||
+                    "Something went wrong.",
+                    "error"
+                );
+
+
+                if (cancelButton) {
+
+                    cancelButton.disabled =
+                        false;
+
+                    cancelButton.textContent =
+                        "Cancel Order";
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

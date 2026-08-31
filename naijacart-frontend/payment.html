@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment Methods | NaijaCart</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .payment-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .payment-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .payment-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .payment-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT METHODS
+        ===================================================== */
+
+        .payment-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .payment-card {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .method-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 13px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+        }
+
+
+        .method-icon i {
+
+            font-size: 19px;
+
+        }
+
+
+        .payment-card h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .payment-card p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT PROCESS
+        ===================================================== */
+
+        .process-section {
+
+            margin-top: 25px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .process-list {
+
+            display: grid;
+
+            gap: 18px;
+
+        }
+
+
+        .process-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+        }
+
+
+        .process-number {
+
+            width: 34px;
+
+            height: 34px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        .process-item h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .process-item p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           SECURITY BOX
+        ===================================================== */
+
+        .security-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            background: #fff9ed;
+
+            border: 1px solid #f7dfae;
+
+            border-radius: 18px;
+
+        }
+
+
+        .security-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: #fff0cc;
+
+            color: var(--accent);
+
+        }
+
+
+        .security-box h3 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .security-box p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           PAYMENT TIPS
+        ===================================================== */
+
+        .tips-section {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .tips-section h2 {
+
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
+            color: var(--brand-dark);
+
+        }
+
+
+        .tips-list {
+
+            display: grid;
+
+            gap: 9px;
+
+            list-style: none;
+
+        }
+
+
+        .tips-list li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .tips-list i {
+
+            color: var(--brand);
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =====================================================
+           HELP SECTION
+        ===================================================== */
+
+        .help-section {
+
+            text-align: center;
+
+            padding: 45px 20px 10px;
+
+        }
+
+
+        .help-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .help-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .contact-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .contact-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .payment-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .payment-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .payment-card {
+
+                padding: 23px;
+
+            }
+
+
+            .process-section {
+
+                padding: 23px;
+
+            }
+
+
+            .security-box {
+
+                padding: 20px;
+
+            }
+
+
+            .help-section h2 {
+
+                font-size: 21px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         PAYMENT METHODS PAGE
+    ====================================================== -->
+
+    <main class="payment-page">
+
+        <section class="payment-container">
+
+
+            <!-- HEADER -->
+
+            <div class="payment-icon">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                NAIJACART CHECKOUT
+            </span>
+
+
+            <h1>
+                Payment Methods
+            </h1>
+
+
+            <p class="intro">
+
+                Choose a convenient payment option when
+                completing your NaijaCart order. We aim to
+                make checkout simple, convenient, and secure.
+
+            </p>
+
+
+            <!-- =================================================
+                 PAYMENT OPTIONS
+            ================================================== -->
+
+            <div class="payment-grid">
+
+
+                <!-- CARD PAYMENT -->
+
+                <div class="payment-card">
+
+                    <div class="method-icon">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Debit & Credit Cards
+                    </h2>
+
+
+                    <p>
+
+                        Pay for your order using an eligible
+                        debit or credit card through the
+                        available payment options at checkout.
+
+                    </p>
+
+                </div>
+
+
+                <!-- BANK TRANSFER -->
+
+                <div class="payment-card">
+
+                    <div class="method-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Bank Transfer
+                    </h2>
+
+
+                    <p>
+
+                        Where available, you may be able to
+                        complete your payment through a
+                        supported bank transfer option.
+
+                    </p>
+
+                </div>
+
+
+                <!-- ONLINE PAYMENT -->
+
+                <div class="payment-card">
+
+                    <div class="method-icon">
+
+                        <i class="fa-solid fa-globe"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Online Payment
+                    </h2>
+
+
+                    <p>
+
+                        Available online payment options will
+                        be displayed during checkout based on
+                        the payment services supported by
+                        NaijaCart.
+
+                    </p>
+
+                </div>
+
+
+                <!-- PAYMENT CONFIRMATION -->
+
+                <div class="payment-card">
+
+                    <div class="method-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+
+                    <h2>
+                        Payment Confirmation
+                    </h2>
+
+
+                    <p>
+
+                        After a successful payment, your order
+                        will proceed according to the checkout
+                        and order processing process.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 HOW PAYMENT WORKS
+            ================================================== -->
+
+            <div class="process-section">
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        How Payment Works
+                    </h2>
+
+
+                    <p>
+                        Completing your payment is simple.
+                    </p>
+
+                </div>
+
+
+                <div class="process-list">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            1
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Add Your Products
+                            </h3>
+
+
+                            <p>
+                                Select the products you want and
+                                add them to your cart.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            2
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Continue to Checkout
+                            </h3>
+
+
+                            <p>
+                                Review your order and provide the
+                                required delivery information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            3
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Choose a Payment Method
+                            </h3>
+
+
+                            <p>
+                                Select one of the payment options
+                                available during checkout.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 4 -->
+
+                    <div class="process-item">
+
+                        <div class="process-number">
+                            4
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Complete Your Payment
+                            </h3>
+
+
+                            <p>
+                                Follow the payment instructions
+                                provided and complete your order.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SECURITY
+            ================================================== -->
+
+            <div class="security-box">
+
+
+                <div class="security-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Keep Your Payment Information Safe
+                    </h3>
+
+
+                    <p>
+
+                        Never share your card PIN, password,
+                        verification codes, or other confidential
+                        payment information with anyone.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAYMENT TIPS
+            ================================================== -->
+
+            <div class="tips-section">
+
+                <h2>
+                    Helpful Payment Tips
+                </h2>
+
+
+                <ul class="tips-list">
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Check your order total before making
+                            payment.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Make sure your payment details are
+                            entered correctly.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Keep your payment confirmation or
+                            order information for your records.
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Contact NaijaCart support if you have
+                            a payment-related question.
+                        </span>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- =================================================
+                 HELP
+            ================================================== -->
+
+            <div class="help-section">
+
+
+                <h2>
+                    Have a payment question?
+                </h2>
+
+
+                <p>
+
+                    Our support team is ready to help you
+                    with payment and checkout questions.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="contact-btn"
+                >
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

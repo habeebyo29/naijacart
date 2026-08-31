@@ -1,0 +1,1387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NaijaCart Admin Dashboard</title>
+
+
+    <link
+        rel="stylesheet"
+        href="/naijacart-frontend/css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="{{ url_for('admin.dashboard') }}"
+            class="logo-link"
+        >
+
+            <div class="logo">
+
+                <span>Naija</span>Cart
+
+            </div>
+
+        </a>
+
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+
+        <!-- =================================================
+             ADMIN NAVIGATION
+        ================================================== -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="{{ url_for('admin.dashboard') }}"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- PRODUCTS -->
+
+            <a
+                href="{{ url_for('admin.products') }}"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    Products
+                </span>
+
+            </a>
+
+
+            <!-- ORDERS -->
+
+            <a
+                href="{{ url_for('admin.orders') }}"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Orders
+                </span>
+
+            </a>
+
+
+            <!-- USERS -->
+
+            <a
+                href="{{ url_for('admin.users') }}"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ♙
+                </span>
+
+                <span>
+                    Users
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- =================================================
+             SIDEBAR BOTTOM
+        ================================================== -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- BACK TO CUSTOMER STORE -->
+
+            <a
+                href="/naijacart-frontend/index.html"
+                class="nav-item store-link"
+            >
+
+                <span class="nav-icon">
+                    ←
+                </span>
+
+                <span>
+                    Back to Store
+                </span>
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <a
+                href="{{ url_for('logout') }}"
+                class="nav-item logout"
+            >
+
+                <span class="nav-icon">
+                    ↪
+                </span>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <p class="welcome-small">
+                    ADMIN PANEL
+                </p>
+
+
+                <h1>
+                    Dashboard
+                </h1>
+
+
+                <p>
+                    Manage your NaijaCart store from one place.
+                </p>
+
+            </div>
+
+
+            <!-- ADMIN PROFILE -->
+
+            <div class="admin-profile">
+
+
+                <div class="profile-avatar">
+                    A
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Yusuf Habeeb
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- PRODUCTS -->
+
+            <a
+                href="{{ url_for('admin.products') }}"
+                class="stat-card-link"
+            >
+
+                <div class="stat-card">
+
+                    <div class="stat-icon products-icon">
+                        ▣
+                    </div>
+
+
+                    <div class="stat-content">
+
+                        <span class="stat-label">
+                            Total Products
+                        </span>
+
+
+                        <strong class="stat-number">
+                            {{ total_products }}
+                        </strong>
+
+
+                        <span class="stat-description">
+                            Products in store
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- ORDERS -->
+
+            <a
+                href="{{ url_for('admin.orders') }}"
+                class="stat-card-link"
+            >
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orders-icon">
+                        ▤
+                    </div>
+
+
+                    <div class="stat-content">
+
+                        <span class="stat-label">
+                            Total Orders
+                        </span>
+
+
+                        <strong class="stat-number">
+                            {{ total_orders }}
+                        </strong>
+
+
+                        <span class="stat-description">
+                            Orders received
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- PENDING ORDERS -->
+
+            <a
+                href="{{ url_for('admin.orders') }}"
+                class="stat-card-link"
+            >
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pending-icon">
+                        ◷
+                    </div>
+
+
+                    <div class="stat-content">
+
+                        <span class="stat-label">
+                            Pending Orders
+                        </span>
+
+
+                        <strong class="stat-number">
+                            {{ pending_orders }}
+                        </strong>
+
+
+                        <span class="stat-description">
+                            Awaiting processing
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- USERS -->
+
+            <a
+                href="{{ url_for('admin.users') }}"
+                class="stat-card-link"
+            >
+
+                <div class="stat-card">
+
+                    <div class="stat-icon users-icon">
+                        ♙
+                    </div>
+
+
+                    <div class="stat-content">
+
+                        <span class="stat-label">
+                            Total Users
+                        </span>
+
+
+                        <strong class="stat-number">
+                            {{ total_users }}
+                        </strong>
+
+
+                        <span class="stat-description">
+                            Registered customers
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTENT GRID
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =================================================
+                 RECENT ORDERS
+            ================================================== -->
+
+            <div class="dashboard-card orders-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+
+                        <p>
+                            Latest orders from customers
+                        </p>
+
+                    </div>
+
+
+                    <!-- VIEW ALL ORDERS -->
+
+                    <a
+                        href="{{ url_for('admin.orders') }}"
+                        class="card-count"
+                    >
+
+                        {{ total_orders }} Orders
+
+                    </a>
+
+
+                </div>
+
+
+
+                <div class="table-container">
+
+
+                    {% if recent_orders %}
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Order ID
+                                </th>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Total
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            {% for order in recent_orders %}
+
+
+                            <tr>
+
+
+                                <!-- ORDER ID -->
+
+                                <td>
+
+                                    <a
+                                        href="{{ url_for('admin.orders') }}"
+                                        class="order-link"
+                                    >
+
+                                        <strong>
+                                            #NC-{{ "%06d"|format(order.id) }}
+                                        </strong>
+
+                                    </a>
+
+                                </td>
+
+
+                                <!-- CUSTOMER -->
+
+                                <td>
+
+                                    {% if order.user %}
+
+                                        {{ order.user.name }}
+
+                                    {% else %}
+
+                                        Guest
+
+                                    {% endif %}
+
+                                </td>
+
+
+                                <!-- TOTAL -->
+
+                                <td>
+
+                                    <strong>
+                                        ₦{{ "{:,.0f}".format(order.total or 0) }}
+                                    </strong>
+
+                                </td>
+
+
+                                <!-- STATUS -->
+
+                                <td>
+
+
+                                    {% if order.status|lower == "pending" %}
+
+
+                                        <span class="status pending">
+
+                                            Pending
+
+                                        </span>
+
+
+                                    {% elif order.status|lower == "completed" %}
+
+
+                                        <span class="status completed">
+
+                                            Completed
+
+                                        </span>
+
+
+                                    {% elif order.status|lower == "cancelled" %}
+
+
+                                        <span class="status cancelled">
+
+                                            Cancelled
+
+                                        </span>
+
+
+                                    {% else %}
+
+
+                                        <span class="status">
+
+                                            {{ order.status }}
+
+                                        </span>
+
+
+                                    {% endif %}
+
+
+                                </td>
+
+
+                                <!-- DATE -->
+
+                                <td>
+
+                                    {% if order.created_at %}
+
+                                        {{ order.created_at.strftime("%d %b %Y, %I:%M %p") }}
+
+                                    {% else %}
+
+                                        —
+
+                                    {% endif %}
+
+                                </td>
+
+
+                            </tr>
+
+
+                            {% endfor %}
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                    {% else %}
+
+
+                    <div class="empty-state">
+
+
+                        <div class="empty-icon">
+                            ▤
+                        </div>
+
+
+                        <h3>
+                            No orders yet
+                        </h3>
+
+
+                        <p>
+                            Customer orders will appear here.
+                        </p>
+
+
+                        <a
+                            href="{{ url_for('admin.orders') }}"
+                            class="empty-link"
+                        >
+                            Go to Orders
+                        </a>
+
+
+                    </div>
+
+
+                    {% endif %}
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STORE OVERVIEW
+            ================================================== -->
+
+            <div class="dashboard-card overview-card">
+
+
+                <div class="card-header">
+
+
+                    <div>
+
+                        <h2>
+                            Store Overview
+                        </h2>
+
+
+                        <p>
+                            NaijaCart at a glance
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="overview-list">
+
+
+                    <!-- PRODUCTS -->
+
+                    <a
+                        href="{{ url_for('admin.products') }}"
+                        class="overview-link"
+                    >
+
+                        <div class="overview-item">
+
+
+                            <div class="overview-left">
+
+
+                                <div class="mini-icon">
+                                    ▣
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Products
+                                    </strong>
+
+                                    <span>
+                                        Available in store
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <strong class="overview-number">
+
+                                {{ total_products }}
+
+                            </strong>
+
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- ORDERS -->
+
+                    <a
+                        href="{{ url_for('admin.orders') }}"
+                        class="overview-link"
+                    >
+
+                        <div class="overview-item">
+
+
+                            <div class="overview-left">
+
+
+                                <div class="mini-icon">
+                                    ▤
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Orders
+                                    </strong>
+
+                                    <span>
+                                        Total customer orders
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <strong class="overview-number">
+
+                                {{ total_orders }}
+
+                            </strong>
+
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- PENDING ORDERS -->
+
+                    <a
+                        href="{{ url_for('admin.orders') }}"
+                        class="overview-link"
+                    >
+
+                        <div class="overview-item">
+
+
+                            <div class="overview-left">
+
+
+                                <div class="mini-icon">
+                                    ◷
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Pending
+                                    </strong>
+
+                                    <span>
+                                        Orders to process
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <strong class="overview-number">
+
+                                {{ pending_orders }}
+
+                            </strong>
+
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- USERS -->
+
+                    <a
+                        href="{{ url_for('admin.users') }}"
+                        class="overview-link"
+                    >
+
+                        <div class="overview-item">
+
+
+                            <div class="overview-left">
+
+
+                                <div class="mini-icon">
+                                    ♙
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Customers
+                                    </strong>
+
+                                    <span>
+                                        Registered users
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <strong class="overview-number">
+
+                                {{ total_customers }}
+
+                            </strong>
+
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ADMIN ACTIONS
+        ================================================== -->
+
+        <section class="quick-actions">
+
+
+            <div class="quick-actions-header">
+
+                <div>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                    <p>
+                        Quickly manage your store.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions-grid">
+
+
+                <!-- ADD PRODUCT -->
+
+                <a
+                    href="{{ url_for('admin.add_product') }}"
+                    class="quick-action"
+                >
+
+                    <span class="quick-icon">
+                        +
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Add Product
+                        </strong>
+
+                        <span>
+                            Add a new product to your store
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- PRODUCTS -->
+
+                <a
+                    href="{{ url_for('admin.products') }}"
+                    class="quick-action"
+                >
+
+                    <span class="quick-icon">
+                        ▣
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Manage Products
+                        </strong>
+
+                        <span>
+                            View and manage your products
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- ORDERS -->
+
+                <a
+                    href="{{ url_for('admin.orders') }}"
+                    class="quick-action"
+                >
+
+                    <span class="quick-icon">
+                        ▤
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Manage Orders
+                        </strong>
+
+                        <span>
+                            Review customer orders
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- USERS -->
+
+                <a
+                    href="{{ url_for('admin.users') }}"
+                    class="quick-action"
+                >
+
+                    <span class="quick-icon">
+                        ♙
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Manage Users
+                        </strong>
+
+                        <span>
+                            View customers and administrators
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+
+            <span>
+                © 2026 NaijaCart
+            </span>
+
+
+            <span>
+                Admin Dashboard
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SMALL EXTRA CSS
+    ====================================================== -->
+
+    <style>
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        .stat-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+
+        .stat-card-link .stat-card {
+            height: 100%;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .stat-card-link:hover .stat-card {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(15, 23, 42, 0.08);
+        }
+
+
+        .card-count {
+            text-decoration: none;
+
+            color: #22c55e;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .card-count:hover {
+            color: #16a34a;
+        }
+
+
+        .order-link {
+            color: #2563eb;
+
+            text-decoration: none;
+        }
+
+
+        .order-link:hover {
+            text-decoration: underline;
+        }
+
+
+        .overview-link {
+            display: block;
+
+            text-decoration: none;
+
+            color: inherit;
+        }
+
+
+        .overview-link .overview-item {
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .overview-link:hover .overview-item {
+            background: #f8fafc;
+
+            transform: translateX(3px);
+        }
+
+
+        .empty-link {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #22c55e;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        .empty-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           ORDER STATUS
+        ================================================= */
+
+        .status.completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+
+        .status.cancelled {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+
+        .status.pending {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+
+        /* =================================================
+           QUICK ACTIONS
+        ================================================= */
+
+        .quick-actions {
+
+            margin-top: 25px;
+
+            background: #ffffff;
+
+            border:
+                1px solid #e8ebf1;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 18px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.04
+                );
+
+            padding: 24px;
+
+        }
+
+
+        .quick-actions-header h2 {
+
+            margin: 0 0 5px;
+
+            font-size: 17px;
+
+            color: #172033;
+
+        }
+
+
+        .quick-actions-header p {
+
+            margin: 0;
+
+            color: #8a94a6;
+
+            font-size: 12px;
+
+        }
+
+
+        .quick-actions-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .quick-action {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 16px;
+
+            border:
+                1px solid #edf0f4;
+
+            border-radius: 11px;
+
+            text-decoration: none;
+
+            color: #172033;
+
+            background: #fafbfc;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+
+        }
+
+
+        .quick-action:hover {
+
+            transform: translateY(-2px);
+
+            background: #ffffff;
+
+            border-color: #22c55e;
+
+        }
+
+
+        .quick-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background: #e8f7ee;
+
+            color: #16a34a;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+        }
+
+
+        .quick-action strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .quick-action span {
+
+            color: #8a94a6;
+
+            font-size: 10px;
+
+            line-height: 1.4;
+
+        }
+
+
+        /* =================================================
+           RESPONSIVE QUICK ACTIONS
+        ================================================= */
+
+        @media (max-width: 1000px) {
+
+            .quick-actions-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .quick-actions {
+
+                padding: 18px;
+
+            }
+
+
+            .quick-actions-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+
+</body>
+
+</html>

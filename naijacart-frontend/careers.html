@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Careers | NaijaCart</title>
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --brand: #075c3f;
+            --brand-dark: #043d2b;
+            --brand-light: #eaf7f1;
+
+            --accent: #f59e0b;
+
+            --text: #17221d;
+            --muted: #718078;
+
+            --background: #f5f7f6;
+
+            --white: #ffffff;
+
+            --border: #e3ebe7;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: var(--background);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .careers-page {
+
+            min-height: 100vh;
+
+            padding: 70px 20px;
+
+        }
+
+
+        .careers-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .careers-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 18px;
+
+        }
+
+
+        .careers-icon i {
+
+            font-size: 27px;
+
+            color: var(--brand);
+
+        }
+
+
+        .eyebrow {
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+        }
+
+
+        /* =====================================================
+           HERO CARD
+        ===================================================== */
+
+        .career-hero {
+
+            padding: 35px;
+
+            margin-bottom: 25px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .career-hero h2 {
+
+            font-size: 27px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .career-hero p {
+
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            color: rgba(255, 255, 255, 0.82);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .section {
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.035);
+
+        }
+
+
+        .section-title {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .section-title h2 {
+
+            font-size: 24px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .section-title p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           VALUES
+        ===================================================== */
+
+        .values-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .value-card {
+
+            padding: 22px;
+
+            background: var(--background);
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+        }
+
+
+        .value-icon {
+
+            width: 43px;
+
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+            border-radius: 12px;
+
+        }
+
+
+        .value-card h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .value-card p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           ROLES
+        ===================================================== */
+
+        .roles-list {
+
+            display: grid;
+
+            gap: 12px;
+
+        }
+
+
+        .role {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+        }
+
+
+        .role-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--brand-light);
+
+            color: var(--brand);
+
+            border-radius: 12px;
+
+        }
+
+
+        .role h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .role p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           APPLY BOX
+        ===================================================== */
+
+        .apply-box {
+
+            padding: 30px;
+
+            text-align: center;
+
+            background: var(--brand-light);
+
+            border: 1px solid #cce7d9;
+
+            border-radius: 20px;
+
+        }
+
+
+        .apply-box h2 {
+
+            color: var(--brand-dark);
+
+            font-size: 24px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .apply-box p {
+
+            max-width: 620px;
+
+            margin: 0 auto 20px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+        }
+
+
+        .apply-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 12px 21px;
+
+            background: var(--brand);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .apply-btn:hover {
+
+            background: var(--brand-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .careers-page {
+
+                padding: 45px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 14px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .career-hero {
+
+                padding: 27px 20px;
+
+            }
+
+
+            .career-hero h2 {
+
+                font-size: 23px;
+
+            }
+
+
+            .section {
+
+                padding: 23px;
+
+            }
+
+
+            .values-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .role {
+
+                align-items: flex-start;
+
+            }
+
+
+            .apply-box {
+
+                padding: 25px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CAREERS PAGE
+    ===================================================== -->
+
+    <main class="careers-page">
+
+        <section class="careers-container">
+
+
+            <!-- HEADER -->
+
+            <div class="careers-icon">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+            </div>
+
+
+            <span class="eyebrow">
+                JOIN NAIJACART
+            </span>
+
+
+            <h1>
+                Careers at NaijaCart
+            </h1>
+
+
+            <p class="intro">
+
+                We're building a better way for people to
+                discover and shop for technology in Nigeria.
+                Come grow with us.
+
+            </p>
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <div class="career-hero">
+
+                <h2>
+                    Build the Future of Tech Shopping
+                </h2>
+
+
+                <p>
+
+                    NaijaCart brings technology and customers
+                    together through a simple, modern shopping
+                    experience. We're always interested in
+                    meeting talented people who want to build
+                    something meaningful.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 WHY JOIN
+            ================================================== -->
+
+            <div class="section">
+
+
+                <div class="section-title">
+
+                    <h2>
+                        Why Join Us?
+                    </h2>
+
+
+                    <p>
+                        What we value at NaijaCart.
+                    </p>
+
+                </div>
+
+
+                <div class="values-grid">
+
+
+                    <!-- VALUE 1 -->
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Innovation
+                        </h3>
+
+
+                        <p>
+
+                            We look for better and smarter ways
+                            to solve problems.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- VALUE 2 -->
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Teamwork
+                        </h3>
+
+
+                        <p>
+
+                            Great products are built by people
+                            working together.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- VALUE 3 -->
+
+                    <div class="value-card">
+
+                        <div class="value-icon">
+
+                            <i class="fa-solid fa-rocket"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Growth
+                        </h3>
+
+
+                        <p>
+
+                            We believe in learning, improving,
+                            and growing together.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 AREAS
+            ================================================== -->
+
+            <div class="section">
+
+
+                <div class="section-title">
+
+                    <h2>
+                        Areas We Hire For
+                    </h2>
+
+
+                    <p>
+
+                        As NaijaCart grows, opportunities may
+                        become available across different areas.
+
+                    </p>
+
+                </div>
+
+
+                <div class="roles-list">
+
+
+                    <!-- DEVELOPMENT -->
+
+                    <div class="role">
+
+                        <div class="role-icon">
+
+                            <i class="fa-solid fa-code"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Software Development
+                            </h3>
+
+
+                            <p>
+
+                                Build and improve the technology
+                                behind the NaijaCart experience.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESIGN -->
+
+                    <div class="role">
+
+                        <div class="role-icon">
+
+                            <i class="fa-solid fa-pen-ruler"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Design & User Experience
+                            </h3>
+
+
+                            <p>
+
+                                Create simple, useful, and
+                                enjoyable experiences for customers.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CUSTOMER SUPPORT -->
+
+                    <div class="role">
+
+                        <div class="role-icon">
+
+                            <i class="fa-solid fa-headset"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Customer Support
+                            </h3>
+
+
+                            <p>
+
+                                Help customers have a smooth and
+                                reliable shopping experience.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MARKETING -->
+
+                    <div class="role">
+
+                        <div class="role-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Marketing & Growth
+                            </h3>
+
+
+                            <p>
+
+                                Help more customers discover and
+                                connect with NaijaCart.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 APPLY
+            ================================================== -->
+
+            <div class="apply-box">
+
+
+                <h2>
+                    Interested in Working With Us?
+                </h2>
+
+
+                <p>
+
+                    We're always interested in hearing from
+                    talented people. If you'd like to work
+                    with NaijaCart, get in touch with our team.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="apply-btn"
+                >
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    Get In Touch
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>
