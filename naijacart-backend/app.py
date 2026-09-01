@@ -1,4 +1,3 @@
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,10 +24,9 @@ from orders import orders_bp
 from admin import admin_bp
 
 import os
-import smtplib
 import secrets
+import requests
 
-from email.message import EmailMessage
 from datetime import datetime, timedelta
 
 
@@ -182,28 +180,11 @@ app.config[
 
 
 # =========================================================
-# BREVO SMTP CONFIGURATION
+# BREVO API CONFIGURATION
 # =========================================================
 
-SMTP_SERVER = os.getenv(
-    "SMTP_SERVER",
-    "smtp-relay.brevo.com"
-)
-
-SMTP_PORT = int(
-    os.getenv(
-        "SMTP_PORT",
-        "587"
-    )
-)
-
-SMTP_LOGIN = os.getenv(
-    "SMTP_LOGIN",
-    ""
-)
-
-SMTP_PASSWORD = os.getenv(
-    "SMTP_PASSWORD",
+BREVO_API_KEY = os.getenv(
+    "BREVO_API_KEY",
     ""
 )
 
@@ -277,7 +258,7 @@ with app.app_context():
 
 
 # =========================================================
-# SEND VERIFICATION EMAIL
+# SEND VERIFICATION EMAIL USING BREVO API
 # =========================================================
 
 def send_verification_email(
@@ -285,21 +266,22 @@ def send_verification_email(
     verification_code
 ):
 
-    if not SMTP_LOGIN:
+    # -----------------------------------------------------
+    # CHECK BREVO API KEY
+    # -----------------------------------------------------
+
+    if not BREVO_API_KEY:
 
         print(
-            "EMAIL ERROR: SMTP_LOGIN is missing."
+            "EMAIL ERROR: BREVO_API_KEY is missing."
         )
 
         return False
 
-    if not SMTP_PASSWORD:
 
-        print(
-            "EMAIL ERROR: SMTP_PASSWORD is missing."
-        )
-
-        return False
+    # -----------------------------------------------------
+    # CHECK SENDER EMAIL
+    # -----------------------------------------------------
 
     if not MAIL_FROM:
 
@@ -310,21 +292,54 @@ def send_verification_email(
         return False
 
 
-    message = EmailMessage()
+    # -----------------------------------------------------
+    # BREVO API URL
+    # -----------------------------------------------------
 
-    message["Subject"] = (
-        "Verify your NaijaCart account"
+    brevo_url = (
+        "https://api.brevo.com/v3/smtp/email"
     )
 
-    message["From"] = (
-        f"{MAIL_FROM_NAME} <{MAIL_FROM}>"
-    )
 
-    message["To"] = recipient_email
+    # -----------------------------------------------------
+    # REQUEST HEADERS
+    # -----------------------------------------------------
+
+    headers = {
+
+        "accept": "application/json",
+
+        "api-key": BREVO_API_KEY,
+
+        "content-type": "application/json"
+    }
 
 
-    message.set_content(
-        f"""
+    # -----------------------------------------------------
+    # EMAIL DATA
+    # -----------------------------------------------------
+
+    data = {
+
+        "sender": {
+
+            "name": MAIL_FROM_NAME,
+
+            "email": MAIL_FROM
+        },
+
+        "to": [
+
+            {
+                "email": recipient_email
+            }
+
+        ],
+
+        "subject":
+            "Verify your NaijaCart account",
+
+        "textContent": f"""
 Hello,
 
 Thank you for creating a NaijaCart account.
@@ -342,39 +357,75 @@ Regards,
 {MAIL_FROM_NAME}
 Tech you want. Prices you'll love.
 """
-    )
+    }
 
+
+    # -----------------------------------------------------
+    # SEND EMAIL
+    # -----------------------------------------------------
 
     try:
 
-        with smtplib.SMTP(
-    SMTP_SERVER,
-    SMTP_PORT,
-    timeout=10
-) as smtp:
-
-            smtp.ehlo()
-
-            smtp.starttls()
-
-            smtp.ehlo()
-
-            smtp.login(
-                SMTP_LOGIN,
-                SMTP_PASSWORD
-            )
-
-            smtp.send_message(
-                message
-            )
-
-
-        print(
-            "Verification email sent to:",
-            recipient_email
+        response = requests.post(
+            brevo_url,
+            headers=headers,
+            json=data,
+            timeout=15
         )
 
-        return True
+
+        # -------------------------------------------------
+        # SUCCESS
+        # -------------------------------------------------
+
+        if response.status_code in [200, 201, 202]:
+
+            print(
+                "Verification email sent to:",
+                recipient_email
+            )
+
+            return True
+
+
+        # -------------------------------------------------
+        # BREVO ERROR
+        # -------------------------------------------------
+
+        print(
+            "BREVO EMAIL ERROR:"
+        )
+
+        print(
+            "Status:",
+            response.status_code
+        )
+
+        print(
+            "Response:",
+            response.text
+        )
+
+        return False
+
+
+    except requests.exceptions.Timeout:
+
+        print(
+            "EMAIL ERROR: Brevo API request timed out."
+        )
+
+        return False
+
+
+    except requests.exceptions.RequestException as error:
+
+        print(
+            "EMAIL ERROR:",
+            error
+        )
+
+        return False
 
 
     except Exception as error:
@@ -681,7 +732,7 @@ def register():
             if not email_sent:
 
                 flash(
-                    "Your account exists, but we could not send the verification email. Please check your SMTP settings.",
+                    "Your account exists, but we could not send the verification email.",
                     "error"
                 )
 
@@ -871,7 +922,7 @@ def register():
     if not email_sent:
 
         flash(
-            "Your account was created, but we could not send the verification email. Please check your SMTP settings.",
+            "Your account was created, but we could not send the verification email.",
             "error"
         )
 
@@ -1215,7 +1266,7 @@ def resend_verification():
     if not email_sent:
 
         flash(
-            "We could not send the verification email. Please check your SMTP settings.",
+            "We could not send the verification email.",
             "error"
         )
 
