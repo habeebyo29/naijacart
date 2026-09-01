@@ -348,10 +348,10 @@ Tech you want. Prices you'll love.
     try:
 
         with smtplib.SMTP(
-            SMTP_SERVER,
-            SMTP_PORT,
-            timeout=30
-        ) as smtp:
+    SMTP_SERVER,
+    SMTP_PORT,
+    timeout=10
+) as smtp:
 
             smtp.ehlo()
 
