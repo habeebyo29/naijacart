@@ -235,7 +235,7 @@ app.register_blueprint(
 
 
 # =========================================================
-# CREATE DATABASE TABLES
+# CREATE DATABASE TABLES + ADMIN SETUP
 # =========================================================
 
 with app.app_context():
@@ -255,6 +255,67 @@ with app.app_context():
             DATABASE_PATH
         )
     )
+
+
+    # =====================================================
+    # AUTOMATIC ADMIN SETUP
+    # =====================================================
+
+    admin_email = os.getenv(
+        "ADMIN_EMAIL",
+        ""
+    ).strip().lower()
+
+
+    if admin_email:
+
+        admin_user = User.query.filter_by(
+            email=admin_email
+        ).first()
+
+
+        if admin_user:
+
+            if not admin_user.is_admin:
+
+                admin_user.is_admin = True
+
+                try:
+
+                    db.session.commit()
+
+                    print(
+                        f"ADMIN SETUP: {admin_email} is now an admin."
+                    )
+
+                except Exception as error:
+
+                    db.session.rollback()
+
+                    print(
+                        "ADMIN SETUP ERROR:",
+                        error
+                    )
+
+            else:
+
+                print(
+                    f"ADMIN SETUP: {admin_email} is already an admin."
+                )
+
+
+        else:
+
+            print(
+                f"ADMIN SETUP: No user found for {admin_email}."
+            )
+
+
+    else:
+
+        print(
+            "ADMIN SETUP: ADMIN_EMAIL is not configured."
+        )
 
 
 # =========================================================
