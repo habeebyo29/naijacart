@@ -1454,17 +1454,26 @@ def login():
         "success"
     )
 
-
     # -----------------------------------------------------
     # ADMIN REDIRECT
     # -----------------------------------------------------
 
-    if user.is_admin:
+    admin_email = os.getenv(
+        "ADMIN_EMAIL",
+        ""
+    ).strip().lower()
+
+    if user.is_admin or user.email.lower() == admin_email:
+
+        user.is_admin = True
+
+        db.session.commit()
+
+        session["is_admin"] = True
 
         return redirect(
             url_for("admin.dashboard")
         )
-
 
     # -----------------------------------------------------
     # CUSTOMER REDIRECT
