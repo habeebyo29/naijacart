@@ -233,6 +233,68 @@ app.register_blueprint(
     admin_bp
 )
 
+# =========================================================
+# TEMPORARY PRODUCT IMPORT
+# =========================================================
+
+@app.route("/admin/import-products", methods=["GET"])
+def import_products():
+
+    if not session.get("is_admin"):
+        return "Unauthorized", 403
+
+    import json
+
+    file_path = os.path.join(
+        BACKEND_DIR,
+        "products_export.json"
+    )
+
+    if not os.path.exists(file_path):
+        return "products_export.json not found.", 404
+
+    with open(
+        file_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+        products_data = json.load(file)
+
+    existing_count = Product.query.count()
+
+    if existing_count > 0:
+        return (
+            f"Import stopped. Render already has "
+            f"{existing_count} products."
+        )
+
+    imported = 0
+
+    for item in products_data:
+
+        product = Product(
+            name=item["name"],
+            description=item.get("description"),
+            price=item["price"],
+            category=item.get("category"),
+            image_url=item.get("image_url"),
+            stock=item.get("stock", 0),
+            brand=item.get("brand"),
+            old_price=item.get("old_price"),
+            discount=item.get("discount", 0),
+            rating=item.get("rating", 0),
+            category_id=None
+        )
+
+        db.session.add(product)
+        imported += 1
+
+    db.session.commit()
+
+    return (
+        f"Successfully imported {imported} products."
+    )
+
 
 # =========================================================
 # CREATE DATABASE TABLES + ADMIN SETUP
