@@ -1545,7 +1545,6 @@ def login():
         url_for("home")
     )
 
-
 # =========================================================
 # MY ACCOUNT
 # =========================================================
@@ -1557,6 +1556,77 @@ def account():
         "user_id"
     )
 
+    if not user_id:
+
+        return redirect(
+            url_for("login")
+        )
+
+    user = db.session.get(
+        User,
+        user_id
+    )
+
+    if not user:
+
+        session.clear()
+
+        flash(
+            "Your session has expired. Please sign in again.",
+            "error"
+        )
+
+        return redirect(
+            url_for("login")
+        )
+
+    orders = Order.query.filter_by(
+        user_id=user.id
+    ).all()
+
+    total_orders = len(
+        orders
+    )
+
+    pending_orders = sum(
+        1
+        for order in orders
+        if order.status.lower() == "pending"
+    )
+
+    completed_orders = sum(
+        1
+        for order in orders
+        if order.status.lower() == "completed"
+    )
+
+    return render_template(
+        "account.html",
+        user=user,
+        orders=orders,
+        total_orders=total_orders,
+        pending_orders=pending_orders,
+        completed_orders=completed_orders
+    )
+
+
+# =========================================================
+# UPDATE MY PROFILE
+# =========================================================
+
+@app.route(
+    "/profile/edit",
+    methods=["POST"]
+)
+def edit_profile():
+
+    user_id = session.get(
+        "user_id"
+    )
+
+    # -----------------------------------------------------
+    # CHECK LOGIN
+    # -----------------------------------------------------
 
     if not user_id:
 
@@ -1564,6 +1634,10 @@ def account():
             url_for("login")
         )
 
+
+    # -----------------------------------------------------
+    # GET USER
+    # -----------------------------------------------------
 
     user = db.session.get(
         User,
@@ -1585,37 +1659,123 @@ def account():
         )
 
 
-    orders = Order.query.filter_by(
-        user_id=user.id
-    ).all()
+    # -----------------------------------------------------
+    # GET FORM DATA
+    # -----------------------------------------------------
+
+    name = request.form.get(
+        "name",
+        ""
+    ).strip()
+
+    email = request.form.get(
+        "email",
+        ""
+    ).strip().lower()
+
+    phone = request.form.get(
+        "phone",
+        ""
+    ).strip()
+
+    address = request.form.get(
+        "address",
+        ""
+    ).strip()
+
+    state = request.form.get(
+        "state",
+        ""
+    ).strip()
 
 
-    total_orders = len(
-        orders
-    )
+    # -----------------------------------------------------
+    # VALIDATE REQUIRED FIELDS
+    # -----------------------------------------------------
+
+    if not name or not email or not address:
+
+        flash(
+            "Please fill in all required fields.",
+            "error"
+        )
+
+        return redirect(
+            url_for("account")
+        )
 
 
-    pending_orders = sum(
-        1
-        for order in orders
-        if order.status.lower() == "pending"
-    )
+    # -----------------------------------------------------
+    # CHECK IF EMAIL IS ALREADY USED
+    # -----------------------------------------------------
+
+    existing_user = User.query.filter(
+        User.email == email,
+        User.id != user.id
+    ).first()
 
 
-    completed_orders = sum(
-        1
-        for order in orders
-        if order.status.lower() == "completed"
-    )
+    if existing_user:
+
+        flash(
+            "That email address is already being used.",
+            "error"
+        )
+
+        return redirect(
+            url_for("account")
+        )
 
 
-    return render_template(
-        "account.html",
-        user=user,
-        orders=orders,
-        total_orders=total_orders,
-        pending_orders=pending_orders,
-        completed_orders=completed_orders
+    # -----------------------------------------------------
+    # UPDATE USER
+    # -----------------------------------------------------
+
+    user.name = name
+
+    user.email = email
+
+    user.phone = phone
+
+    user.address = address
+
+    user.state = state
+
+
+    # -----------------------------------------------------
+    # SAVE CHANGES
+    # -----------------------------------------------------
+
+    try:
+
+        db.session.commit()
+
+        flash(
+            "Your profile has been updated successfully.",
+            "success"
+        )
+
+    except Exception as error:
+
+        db.session.rollback()
+
+        print(
+            "PROFILE UPDATE ERROR:",
+            error
+        )
+
+        flash(
+            "Could not update your profile. Please try again.",
+            "error"
+        )
+
+
+    # -----------------------------------------------------
+    # RETURN TO ACCOUNT
+    # -----------------------------------------------------
+
+    return redirect(
+        url_for("account")
     )
 
 
